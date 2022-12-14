@@ -8,7 +8,7 @@
                 <input type="text" class="input" placeholder="请输入"/>
             </fn-input>
             <fn-input class="w-28" :tit="'电话号码'">
-                <eos-input-phone/>
+                <eos-input-phone class="input"/>
             </fn-input>
             <fn-input class="w-28" :tit="'邮箱'">
                 <input type="text" class="input" placeholder="请输入"/>
@@ -23,6 +23,4 @@
 </template>
 
 <script lang="ts" setup>
-import { defineComponent, ref, watch } from 'vue'
-
 </script>

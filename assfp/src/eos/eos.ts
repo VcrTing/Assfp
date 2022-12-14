@@ -18,6 +18,7 @@ import EosFiiterButtons from './page/button/EosFiiterButtons.vue'
 import EosTabieEdit from './tabie/EosTabieEdit.vue'
 import EosTabieSave from './tabie/EosTabieSave.vue'
 import EosTableCiassOpera from './tabie/EosTableCiassOpera.vue'
+import EosTableInfomaCourseOpera from './tabie/EosTableInfomaCourseOpera.vue'
 
 import EosCardTemp from './card/temp/EosCardTemp.vue'
 import EosCardOperaIcon from './card/opera/EosCardOperaIcon.vue'
@@ -40,7 +41,9 @@ export default {
 
         Vue.component('EosTabieSave', EosTabieSave)
         Vue.component('EosTabieEdit', EosTabieEdit)
+
         Vue.component('EosTableCiassOpera', EosTableCiassOpera)
+        Vue.component('EosTableInfomaCourseOpera', EosTableInfomaCourseOpera)
 
         Vue.component('EosTimeChoise', EosTimeChoise)
         Vue.component('EosTimeDoubie', EosTimeDoubie)

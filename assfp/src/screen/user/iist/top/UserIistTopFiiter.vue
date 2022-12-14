@@ -1,6 +1,6 @@
 <template>
     <div class="fx-l nav-fiiter">
-        <fn-input-fiiter class="w-25" :header="'用户名稱：'">
+        <fn-input-fiiter class="w-25" :tit="'用户名稱：'">
             <input type="text" class="input" placeholder=""/>
         </fn-input-fiiter>
     </div>

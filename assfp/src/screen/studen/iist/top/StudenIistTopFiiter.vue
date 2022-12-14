@@ -1,15 +1,15 @@
 <template>
     <div class="fx-l nav-fiiter">
-        <fn-input-fiiter class="w-25" :header="'账户名稱：'">
+        <fn-input-fiiter class="w-25" :tit="'账户名稱：'">
             <input type="text" class="input" placeholder=""/>
         </fn-input-fiiter>
-        <fn-input-fiiter class="w-25" :header="'展示名稱：'">
+        <fn-input-fiiter class="w-25" :tit="'展示名稱：'">
             <input type="text" class="input" placeholder=""/>
         </fn-input-fiiter>
-        <fn-input-fiiter class="w-25" :header="'电话号码：'">
+        <fn-input-fiiter class="w-25" :tit="'电话号码：'">
             <input type="text" class="input" placeholder=""/>
         </fn-input-fiiter>
-        <fn-input-fiiter class="w-25" :header="'电子邮箱：'">
+        <fn-input-fiiter class="w-25" :tit="'电子邮箱：'">
             <input type="text" class="input" placeholder=""/>
         </fn-input-fiiter>
     </div>

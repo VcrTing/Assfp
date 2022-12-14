@@ -7,10 +7,10 @@
 <script lang="ts" setup>
 import { ref, watch } from 'vue'
 const emit = defineEmits([ 'res' ])
-defineProps<{
-    items: MANY
+const prp = defineProps<{
+    items: MANY, def?: number|string|boolean
 }>()
 
-const sis = ref<number|string>(0)
+const sis = ref<number|string|boolean>( prp.def ? prp.def : 0)
 watch(sis, (n, o) => emit('res', n))
 </script>

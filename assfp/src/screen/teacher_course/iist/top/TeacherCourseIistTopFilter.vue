@@ -1,16 +1,24 @@
 <template>
     <div class="fx-l nav-fiiter">
-        <input type="text" class="input ip-4" placeholder="课程名称"/>
-        <input type="text" class="input ip-4" placeholder="教练名称或电话号码"/>
-        <fn-select :items="form.way" class="input ip-3"/>
-        <input type="text" class="input fx-1" placeholder="班别"/>
+        <fn-input-fiiter class="w-25" :tit="'课程名称：'">
+            <input type="text" class="input" placeholder=""/>
+        </fn-input-fiiter>
+        <fn-input-fiiter class="w-333" :tit="'教练名称或电话号码：'">
+        <input type="text" class="input" placeholder=""/>
+        </fn-input-fiiter>
+
+        <fn-select :items="choise.way" class="input fx-1"/>
+
+        <fn-input-fiiter class="w-20" :tit="'班别：'">
+            <input type="text" class="input" placeholder=""/>
+        </fn-input-fiiter>
     </div>
 </template>
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
 
-const form = reactive({
+const choise = reactive({
     way: [
         { txt: '授课方式', v: 0 },
         { txt: 'Off line', v: 1 },

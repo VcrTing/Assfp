@@ -1,14 +1,16 @@
 <template>
     <div class="fx-l nav-fiiter">
-        <fn-input-fiiter class="w-25" :header="'課程名稱：'">
+        <fn-input-fiiter class="fx-1" :tit="'課程名稱：'">
             <input class="input" placeholder=""/>
         </fn-input-fiiter>
         
-        <fn-input class="w-15">
+        <fn-input class="w-15 w-18-p">
             <fn-select :items="form.typed" class="input"/>
         </fn-input>
 
-        <eos-time-doubie class="fx-1 input"/>
+        <div class="w-25 w-333-p">
+            <eos-time-doubie class="input"/>
+        </div>
 
         <fn-input class="w-20">
             <fn-select :items="form.teach" class="input"/>

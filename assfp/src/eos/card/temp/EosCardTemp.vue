@@ -1,28 +1,14 @@
 <template>
-    <div class="card_temp" :class="'card_temp_' + mode">
-        {{ txt }}
+    <div class="card_temp" :class="'card_temp_' + temp">
+        {{ txt ? txt : def_txt() }}
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, watch } from 'vue'
+<script lang="ts" setup>
+import { defineProps } from 'vue';
+const txts = [ '模版一', '模版二', '模版三' ]
 
-export default defineComponent({
-    emits: [ ],
-    setup(prp, { emit }) {
-        const c = ref<string | null>()
-        
-        watch(c, (n, o) => console.log(''))
-        return {
-            
-        }
-    },
-    props: { txt: String, mode: Number },
-    computed: { },
-    async mounted( ) { },
-})
+const prp = defineProps<{ txt?: string, temp: number }>()
+
+const def_txt = () => txts[ prp.temp - 1 ]
 </script>
-
-<style lang="sass" scoped>
-
-</style>

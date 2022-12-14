@@ -25,6 +25,8 @@ const _BASE_HEAD = <ONE> {
     'teacher_iist': '教师资讯',
     'teacher_course_iist': '教师课程列表',
 
+    'infoma_course_iist': '资讯及课程',
+
     'dashboard': '主面板'
 }
 

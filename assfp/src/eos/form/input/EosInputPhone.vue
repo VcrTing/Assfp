@@ -1,7 +1,7 @@
 <template>
     <div class="eos-ip-phone">
         <fn-select :items="pfxs"/>
-        <input v-model="phe" type="text" class="input" placeholder="请输入号码"/>
+        <input v-model="phe" type="text" placeholder="电话号码"/>
     </div>
 </template>
 

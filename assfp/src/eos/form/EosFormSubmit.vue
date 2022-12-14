@@ -9,6 +9,6 @@
 import { ref, watch } from 'vue'
 defineEmits([ 'save', 'back' ])
 defineProps<{
-    mode: number
+    mode?: number
 }>()
 </script>

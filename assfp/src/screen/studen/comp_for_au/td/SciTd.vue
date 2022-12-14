@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-for="(v, i) in many" :key="i" class="td-mh">
-            <div class="td py" v-if="!v.is_edit">
+            <div class="td px-0" v-if="!v.is_edit">
                 <div class="w-25">
                     {{ v.course.name }}<br/>
                     {{ '(' + v.course.name_sub + ')' }}

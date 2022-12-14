@@ -2,7 +2,9 @@
     <div class="fx-r pt_x2">
         <eos-status :res="is_send" :mode="1"/>
         <div class="px"></div>
-        <button class="btn-pri btn-def">发送课程通知</button>
+        <button class="btn-die btn-def">发送课程通知</button>
+        <div class="px_s"></div>
+        <button class="btn-pri btn-def-ig">储存</button>
     </div>
 </template>
 

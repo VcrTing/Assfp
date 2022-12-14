@@ -1,26 +1,8 @@
 <template>
-    <button class="err">储存</button>
+    <button class="err" @click="$emit('tap')">储存</button>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, watch } from 'vue'
-
-export default defineComponent({
-    emits: [ ],
-    setup(prp, { emit }) {
-        const c = ref<string | null>()
-        
-        watch(c, (n, o) => console.log(''))
-        return {
-            
-        }
-    },
-    props: { },
-    computed: { },
-    async mounted( ) { },
-})
+<script lang="ts" setup>
+import { ref, watch } from 'vue'
+defineEmits([ 'tap' ])
 </script>
-
-<style lang="sass" scoped>
-
-</style>

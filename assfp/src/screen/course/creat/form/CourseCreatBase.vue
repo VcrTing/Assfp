@@ -1,6 +1,6 @@
 <template>
     <div class="f-row">
-        <div class="w-48">
+        <div class="w-44">
             <fn-input :tit="'缩略图'" class="mb">
                 <div class="fx-s fx-t">
                     <div>
@@ -13,11 +13,12 @@
                 </div>
             </fn-input>
         </div>
-        <div class="w-4"></div>
-        <div class="w-48">
+        <div class="w-6"></div>
+        <div class="w-50">
             <fn-input :tit="'课程名称'" class="mb_x">
                 <input class="input" placeholder="请输入" />
             </fn-input>
+            <!--
             <fn-input :tit="'类别'" class="mb_x">
                 <input class="input" placeholder="请输入" />
             </fn-input>
@@ -29,7 +30,7 @@
             </fn-input>
             <fn-input :tit="'会员价'">
                 <textarea class="input" placeholder="请输入"></textarea>
-            </fn-input>
+            </fn-input>-->
         </div>
     </div>
 </template>

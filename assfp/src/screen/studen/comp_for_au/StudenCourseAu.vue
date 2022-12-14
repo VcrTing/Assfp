@@ -1,7 +1,7 @@
 <template>
     <nav class="panner">
         <div class="tabie">
-            <div class="tr">
+            <div class="tr px-0">
                 <div class="w-25">课程名称</div>
                 <div class="w-15">开课时间</div>
                 <div class="w-15">结课时间</div>
@@ -12,7 +12,7 @@
             </div>
             <sci-td :many="cours"/>
 
-            <div class="px_x2">
+            <div class="">
                 <div class="pt"></div>
                 <cp-studen-course-au/>
             </div>

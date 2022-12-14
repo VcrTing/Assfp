@@ -40,12 +40,16 @@ const now_inner = ref<Number>(-1)
 
 const menu = [
     { txt: '教练资讯', icon: 'bi bi-person',
-        index: 1, link: '/admin/dashboard', children: <ONE>[
+        index: 1, link: '/admin/teacher_iist', children: <ONE>[
 
         ] },
     { txt: '教练课程列表', icon: 'bi bi-person',
-        index: 2, link: '/admin/dashboard', children: <ONE>[
-
+        index: 2, link: '/admin/teacher_course_iist', children: <ONE>[
+            /*
+            { txt: '教练课程列表', icon: 'bi bi-person', index: 21, link: '/admin/teacher_course_iist' },
+            { txt: '新增教练课程', icon: 'bi bi-person', index: 22, link: '/admin/teacher_course_iist/creat_teacher_course' },
+            { txt: '编辑教练课程', icon: 'bi bi-person', index: 23, link: '/admin/teacher_course_iist/edit' },
+            */
         ]  },
     { txt: '学生资讯', icon: 'bi bi-person',
         index: 3, link: '', children: <ONE>[
@@ -63,14 +67,15 @@ const menu = [
         index: 5, link: '', children: <ONE>[
             { txt: '课程列表', icon: 'bi bi-person', index: 51, link: '/admin/course_iist' },
             { txt: '新增课程', icon: 'bi bi-person', index: 52, link: '/admin/course_iist/creat_course' },
-            // { txt: '编辑课程', icon: 'bi bi-person', index: 53, link: '/admin/course_iist/edit' }
+            { txt: '编辑课程', icon: 'bi bi-person', index: 53, link: '/admin/course_iist/edit' }
         ]  },
     { txt: '时间表', icon: 'bi bi-person',
         index: 6, link: '/admin/dashboard', children: <ONE>[
 
         ]  },
     { txt: '资讯', icon: 'bi bi-person',
-        index: 7, link: '/admin/dashboard', children: <ONE>[
+        index: 7, link: '', children: <ONE>[
+            { txt: '资讯与课程', icon: 'bi bi-person', index: 71, link: '/admin/infoma_course_iist' },
 
         ]  },
     { txt: '未登录广告', icon: 'bi bi-person',

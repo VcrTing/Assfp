@@ -1,0 +1,27 @@
+.body-notice
+    @extend .fx-l
+    @extend .fx-t
+    @extend .fx-wp
+    & > div 
+        width: 25%
+
+
+.cp-notice-card
+    @extend .br
+    padding: $ds_x2
+    border: 1px solid $bc
+    margin-bottom: $ds_x2
+    .cnc-imgs
+        width: 100%
+        max-width: calc(36px + 3vw)
+        div
+            width: 100%
+            padding-bottom: 100%
+
+@media screen and ( max-width: 1280px )
+    .body-notice > div 
+        width: 50%
+    
+@media screen and ( max-width: 568px )
+    .body-notice > div 
+        width: 100%

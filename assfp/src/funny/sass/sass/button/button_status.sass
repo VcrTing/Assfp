@@ -1,0 +1,63 @@
+$succ: #77DDA0 // #6ae81d // 6BE81F
+$succ_hv: #6bd796 // #67e01b
+
+$succ_deep: #027949
+$succ_deep_hv: #007043
+
+$err: #D33A4B // #f45d5b // F55C5C
+$err_hv: #ca3244
+
+$err_deep: #b50e21
+$err_deep_hv: #a5091b
+
+.succ
+    color: $succ
+
+.btn-succ,
+.btn-wan,
+.btn-err
+    color: #FFFFFFe4
+    @extend .clear
+    position: relative
+
+.btn-succ
+    background: $succ
+    &:hover
+        background: $succ_hv
+.btn-wan
+    background: $pri
+    &:hover
+        background: $pri_Hvr
+.btn-err
+    background: $err
+    &:hover
+        background: $err_hv
+
+.err
+    color: $err
+.err_son,
+.err_son *
+    color: $err 
+
+.sts-auditing,
+.sts-err,
+.sts-succ
+    position: relative
+    padding-left: 1.24em
+    &::before  
+        @extend .abs-c
+        height: 0.42em
+        width: 0.45em
+        border: none // 2px solid transparent
+        background: none
+        border-radius: 100%
+
+.sts-auditing
+    &::before  
+        background: $pri
+
+.sts-succ::before
+    background: $succ
+.sts-err::before
+    background: $err
+

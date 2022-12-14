@@ -1,0 +1,84 @@
+.menu-txt
+    //
+.menu-main-wrapper
+    padding: $ds_s
+    padding-left: $ds
+    padding-right: $ds
+// 总体
+.menu-main
+    height: 100%
+    overflow-x: hidden
+    overflow-y: scroll
+    color: $menuTxt
+    i
+        color: $menuTxt
+    .menu-item
+        @extend .br
+        padding: $ds_s $ds
+        margin-top: $ds_s
+        cursor: pointer
+        padding-left: calc(12px + 0.8vw)
+    .menu-item-active,
+    .active,
+    .menu-item:hover
+        transition: all .07s ease-in-out
+        background: rgba(255, 255, 255, 0.07)
+
+.menu-space
+    width: 100%
+    height: calc( 80px + 1vw )
+
+// 背景 线
+.menu-hr
+    margin: $ds $ds 0
+    height: 1px
+    padding: 0
+    border: none
+    opacity: 0.26
+    border-radius: 1em
+    background: $menuHr
+    
+.pl_menu
+    padding-left: calc(22px + 1.6vw ) !important
+    
+.menu-txt
+    padding-left: calc(10px + 0.5vw)
+
+// MENU 动画
+.collapse-menu-item
+    margin-bottom: $ds_s
+    & > button
+        &:focus,
+        &:active,
+        &:focus-visible,
+        &:hover
+            color: $tit !important
+.menu-many-wrapper > nav 
+    padding-bottom: $ds_s
+.menu-many-wrapper > button .collapse-i
+    transform: rotate(-90deg)
+.menu-many-wrapper > button:hover .collapse-i
+    transform: rotate(0deg)
+
+@media screen and (min-width: 1444px)
+    .menu-many-wrapper > button
+        padding-left: $ds_x3 !important
+        padding-right: $ds_x3 !important
+    .menu-item
+        padding-left: $ds
+
+// 小于
+@media screen and (max-width: 1444px)
+    .pl_menu
+        padding-left: calc(24px + 1.6vw ) !important
+    //
+
+
+.logo
+    width: 100%
+    padding: 1vw 0
+    padding-top: calc(26px + 1.2vw)
+    @extend .fx-c
+    img
+        width: 100%
+        max-width: calc( 112px + 4.1vw )

@@ -1,0 +1,97 @@
+
+
+
+.ul-def
+    padding: 0px
+    margin: 0px $ds_s-r
+    li
+        padding: $ds
+        text-align: center
+        a
+            border: none
+            padding: $ds 0
+            cursor: pointer
+            position: relative
+            &::after
+                position: absolute
+                content: ''
+                bottom: -3px
+                left: 0
+                height: 3px
+                width: 100%
+                background: none
+
+$pg_br: $def_s
+$pg_bg: $def_s
+$pgW: calc(24px + 1.2vw)
+
+.ul-pagenation
+    *
+        font-family: 'Inter'
+        font-style: normal
+    padding: 0px $ds_s
+    @extend .fx-c
+    li
+        @extend .ciear
+        transition: all .2s ease-in-out
+        font-weight: 500
+        @extend .fx-c
+        height: $pgW
+        width: $pgW
+        color: $sub
+        padding: $ds
+        cursor: pointer
+        margin: 0px $ds
+        border: 1px solid transparent
+        &:hover
+            background: $pg_bg
+            
+    li.ul-page-l,
+    li.ul-page-r
+        opacity: 0.8
+        margin: 0px $ds
+    .active
+        color: $tit
+        background: $pg_bg
+@media screen and ( max-width: 1280px )
+    .ul-pagenation
+        li
+            margin: 0px $ds_s
+
+.ul-pagenation li,
+.pagenation input,
+.pagenation select
+    // font-weight: 320
+    height: $pgW
+    min-height: $pgW
+    // border: 1px solid $cold_Br
+
+.pagenation
+    input,
+    select
+        height: $pgW
+        min-width: 3em
+        text-align: center
+        padding: $ds_s $ds_n
+    input
+        width: 2em
+        margin: 0px $ds_s
+
+.ister
+    @extend .fx-l
+    @extend .fx-wp
+    div
+        padding: $ds_s
+
+////    
+
+.ul-tab
+    li
+        color: $sus
+        min-width: 5em
+        padding: $ds 1.5em
+    li.active
+        a   
+            color: $tit
+            &::after
+                background: $pri

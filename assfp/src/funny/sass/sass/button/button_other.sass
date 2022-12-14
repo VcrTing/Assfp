@@ -1,0 +1,41 @@
+
+.btn-round 
+    border-radius: 6em
+    padding: 0.6em 2.4em
+    text-transform: uppercase
+
+// $die: #b4b4b4
+.btn-die
+    color: $sus
+    background: $sus
+    border: 1px solid $sus
+//
+
+.txt-pri,
+.txt-pri_son,
+.txt-pri_son
+    @extend .hand
+    color: $pri
+    transition: all .362s ease-in
+    *
+        color: $pri
+        transition: all .362s ease-in
+    &:hover
+        *
+            color: $pri_Hvr
+
+.txt-pri-hv
+    @extend .hand
+    &:hover
+        color: $pri
+    i
+        color: currentColor
+
+    &:focus,
+    &:active,
+    &:visited,
+    &:focus-visible
+        box-shadow: 0px 0px 0px 3px $pri
+
+
+//  WH

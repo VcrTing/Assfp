@@ -1,0 +1,83 @@
+html
+    font-family: Noto Sans HK
+    font-style: Regular
+
+@import ./sass/sass_conf/wh
+@import ./sass/sass_conf/font
+@import ./sass/sass_conf/color
+@import ./sass/sass_conf/other
+@import ./sass/sass_conf/distance
+@import ./sass/sass_conf/layout
+@import ./sass/sass_conf/radius
+
+::-webkit-scrollbar
+    width: 0px !important
+
+html
+    @extend .fs
+    color: $tit
+    background: $bg !important
+
+*
+    margin: 0
+    padding: 0
+    color: inherit
+    font-size: inherit
+    line-height: $lh
+    box-sizing: border-box
+    border-radius: 0px
+
+@import ./sass/sass_conf/color_implements
+
+a,
+li,
+button 
+    padding: 0
+    transition: all .362s
+
+ul
+    list-style: none
+
+a
+    cursor: pointer
+    text-decoration: none
+    
+p
+    line-height: $lh
+
+.hand,
+i
+    cursor: pointer
+i
+    font-size: 1em
+
+img 
+    width: 100%
+    height: auto
+    user-select: none
+
+.btn,
+button
+    width: auto
+    margin: 0
+    padding: auto
+    cursor: pointer
+    user-select: none
+    box-sizing: border-box
+    background: transparent
+    border: 1px solid transparent
+    outline: 2px solid transparent
+
+
+@import ./sass/sass_conf/plant/screen
+@import ./sass/sass_conf/plant/pc
+@import ./sass/sass_conf/plant/pad
+@import ./sass/sass_conf/plant/mobie
+@import ./sass/sass_conf/plant/mobie_page
+@import ./sass/sass_conf/plant/mini
+@import ./sass/sass_conf/plant/xplant_splite
+@import ./sass/sass_conf/plant/xplant_splite_s
+
+@import ./sass/sass/lunching
+
+@import ./sass/sass_page/lunching

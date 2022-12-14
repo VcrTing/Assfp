@@ -1,0 +1,22 @@
+.cp-send-status-card
+    @extend .br
+    @extend .bxs_s
+    padding: $ds $ds_x
+    border-top-left-radius: 2px
+    border-top-right-radius: 2px
+    border: none
+    border-top: 5px solid transparent
+    & > button i 
+        font-size: 1.1em
+
+.cssc-succ
+    border-color: $succ_deep
+    & > button
+        *
+            color: $succ_deep
+.cssc-err
+    border-color: $err_deep
+    & > button
+        *
+            color: $err_deep
+    

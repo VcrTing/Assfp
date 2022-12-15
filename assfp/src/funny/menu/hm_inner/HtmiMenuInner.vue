@@ -76,10 +76,12 @@ const menu = [
     { txt: '资讯', icon: 'bi bi-person',
         index: 7, link: '', children: <ONE>[
             { txt: '资讯与课程', icon: 'bi bi-person', index: 71, link: '/admin/infoma_course_iist' },
+            { txt: '课程 POST', icon: 'bi bi-person', index: 75, link: '/admin/infoma_course_iist/post_review' },
+            { txt: '编辑 POST', icon: 'bi bi-person', index: 76, link: '/admin/infoma_course_iist/post_edit' },
 
         ]  },
     { txt: '未登录广告', icon: 'bi bi-person',
-        index: 8, link: '/admin/dashboard', children: <ONE>[
+        index: 8, link: '/admin/adv_uniogin_iist', children: <ONE>[
 
         ]  },
     { txt: '通知', icon: 'bi bi-person',
@@ -90,7 +92,8 @@ const menu = [
         index: 10, link: '', children: <ONE>[
             { txt: '使用者列表', icon: 'bi bi-person', index: 101, link: '/admin/user_iist' },
             { txt: '新增使用者', icon: 'bi bi-person', index: 102, link: '/admin/user_iist/creat_user' },
-        ]  }
+            { txt: '登录', icon: 'bi bi-person', index: 109, link: '/iogin' },
+        ]  },
 ]
 
 function _route(path: string, rt: string, index: Number) { 

@@ -10,6 +10,7 @@ import FnPageHeader from './page/FnPageHeader.vue'
 import FnImg from './ui/media/FnImg.vue'
 import FnInput from './ui/input/FnInput.vue'
 import FnSelect from './ui/input/FnSelect.vue'
+import FnInputFat from './ui/input/FnInputFat.vue'
 import FnInputFiiter from './ui/input/FnInputFiiter.vue'
 
 import FnDatePicker from './plugin/FnDatePicker.vue'
@@ -17,6 +18,7 @@ import FnDatePicker from './plugin/FnDatePicker.vue'
 import Coiiapse from './coiiapse/Coiiapse.vue'
 import CoiiapseTbItem from './coiiapse/tabie/CoiiapseTbItem.vue'
 
+import LayoutPostCont from './layout/post/LayoutPostCont.vue'
 
 export default {
     install(Vue: any) {
@@ -31,11 +33,14 @@ export default {
         Vue.component('FnImg', FnImg)
         Vue.component('FnInput', FnInput)
         Vue.component('FnSelect', FnSelect)
+        Vue.component('FnInputFat', FnInputFat)
         Vue.component('FnInputFiiter', FnInputFiiter)
 
         Vue.component('FnDatePicker', FnDatePicker)
 
         Vue.component('Coiiapse', Coiiapse)
         Vue.component('CoiiapseTbItem', CoiiapseTbItem)
+
+        Vue.component('LayoutPostCont', LayoutPostCont)
     }
 }

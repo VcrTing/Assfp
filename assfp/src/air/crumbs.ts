@@ -10,7 +10,10 @@ const _BIOCK = <ONE> {
     'add_course': '新增课程',
     'creat_student': '新增学生',
     'creat_user': '新增使用者',
-    'creat_course': '新增课程'
+    'creat_course': '新增课程',
+
+    'post_review': '内容详情',
+    'post_edit': '编辑'
 }
 
 const _BASE_HEAD = <ONE> {
@@ -26,6 +29,7 @@ const _BASE_HEAD = <ONE> {
     'teacher_course_iist': '教师课程列表',
 
     'infoma_course_iist': '资讯及课程',
+    'adv_uniogin_iist': '未登录广告',
 
     'dashboard': '主面板'
 }

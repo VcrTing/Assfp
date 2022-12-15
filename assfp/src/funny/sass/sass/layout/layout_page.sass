@@ -42,3 +42,41 @@ $ipb_Y: calc(18px + 2.2vw)
     & > div
         padding-left: $ipb_X
         padding-right: $ipb_X
+
+.layout-post-cont
+    position: relative
+
+._post-fixed-panner
+    position: absolute
+    background: #FFF
+    @extend .br
+    width: 50vw
+    min-height: 40vh
+._post-fixed-panner,
+.layout-post-send-button 
+    padding: $ds_x2 $ds_x4
+
+// 
+.layout-post-fixed-panner
+    @extend ._post-fixed-panner
+    right: 0px
+    top: 0.38em
+    min-height: calc( 96vh - 7em )
+    max-width: calc( 8vw + 173px )
+    box-shadow: 0.5px 1px 1.2em -0.6px rgba(0, 0, 0, 0.172)
+
+.layout-post-send-button 
+    position: absolute
+    width: 100%
+    bottom: 0px
+    left: 0px
+
+.ipfp_fixed_ieve
+    top: 7.77em
+    position: fixed
+    max-width: calc( 8vw + 173px + $ipb_X )
+
+@media screen and ( max-width: 1280px )
+    ._post-fixed-panner,
+    .layout-post-send-button 
+        padding: $ds $ds_x2

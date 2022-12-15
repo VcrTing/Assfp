@@ -1,7 +1,8 @@
-import user from './user/user'
 import book from './book/book'
 
-export default {
-    user,
-    book
+import auth from './_auth'
+
+export {
+    book,
+    auth
 }

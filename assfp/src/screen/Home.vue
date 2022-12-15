@@ -2,6 +2,8 @@
     <LayoutMain>
         <template v-slot:cont>
             <router-view/>
+
+            <eos-tookit-auth/>
         </template>
     </LayoutMain>
 </template>

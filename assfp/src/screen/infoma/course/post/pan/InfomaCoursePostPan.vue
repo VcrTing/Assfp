@@ -1,14 +1,14 @@
 <template>
     <div>
-        <eos-post-txt-item :tit="'类别'">
-            广告
+        <eos-post-txt-item :tit="'類別'">
+            廣告
         </eos-post-txt-item>
-        <eos-post-txt-item :tit="'推送课程编号'">
+        <eos-post-txt-item :tit="'推送課程編號'">
             SP 001
         </eos-post-txt-item>
         <div class="py"></div>
-        <eos-post-txt-item :tit="'发送内容'">
-            学院教授们，中午来教堂集合。
+        <eos-post-txt-item :tit="'發送內容'">
+            學院教授們，中午來教堂集合。
         </eos-post-txt-item>
     </div>
 </template>

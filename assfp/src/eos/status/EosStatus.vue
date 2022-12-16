@@ -1,10 +1,10 @@
 <template>
     <div class="d-ib" v-if="mode == 1">
         <button class="sts-succ" v-if="res">
-            已发送成功
+            已發送成功
         </button>
         <button class="sts-err" v-else>
-            等待发送
+            等待發送
         </button>
     </div>
     <div class="d-ib" v-else>
@@ -12,7 +12,7 @@
             成功
         </button>
         <button class="sts-err" v-else>
-            失败
+            失敗
         </button>
     </div>
 </template>

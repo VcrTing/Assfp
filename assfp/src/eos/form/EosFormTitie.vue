@@ -7,22 +7,9 @@
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, watch } from 'vue'
-
-export default defineComponent({
-    emits: [ 'tap' ],
-    setup(prp, { emit }) {
-        return { }
-    },
-    props: {
-        tit: String, btn: String
-    },
-    computed: { },
-    async mounted( ) { },
-})
+<script lang="ts" setup>
+defineProps<{
+    tit: String, 
+    btn: String
+}>()
 </script>
-
-<style lang="sass" scoped>
-
-</style>

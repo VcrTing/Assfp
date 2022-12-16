@@ -23,7 +23,6 @@
 
 <script lang="ts" setup>
 import { defineProps } from 'vue'
-import EosTabieEdit from '../../../../eos/tabie/EosTabieEdit.vue'
 defineProps<{
     many: MANY
 }>()

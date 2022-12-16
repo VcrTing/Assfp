@@ -1,7 +1,7 @@
 <template>
     <div class="fx-r" v-if="!mode">
-        <button @click="$emit('trash')" class="btn-err btn-def-ig mr">删除</button>
-        <button @click="$emit('save')" class="btn-pri btn-def-ig">储存</button>
+        <button @click="$emit('trash')" class="btn-err btn-def-ig mr">刪除</button>
+        <button @click="$emit('save')" class="btn-pri btn-def-ig">儲存</button>
     </div>
 </template>
 

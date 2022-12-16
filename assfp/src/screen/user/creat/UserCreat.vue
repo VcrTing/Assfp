@@ -5,7 +5,7 @@
             <user-creat-base/>
             <div class="py_x3"></div>
             <button class="btn-err btn-def-ig">
-                删除使用者
+                刪除使用者
             </button>
         </template>
     </layout-page-amplify>

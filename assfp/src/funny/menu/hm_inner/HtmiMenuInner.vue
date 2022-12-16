@@ -26,75 +26,15 @@
 </template>
 
 <script lang="ts" setup>
-import { appPina } from '../../../himm/pina/app'
-import { defineComponent, ref, watch } from 'vue'
+import { ref } from 'vue'
 import MenuItem from '../item/MenuItem.vue'
-
-import {} from '../../../conf'
+import { appPina } from '../../../himm/pina/app'
 import { useRoute, useRouter } from 'vue-router'
-
+import menu from '../../../air/menu'
 const rt = useRoute()
 const rter = useRouter()
 const now = ref<Number>(-1)
 const now_inner = ref<Number>(-1)
-
-const menu = [
-    { txt: '教练资讯', icon: 'bi bi-person',
-        index: 1, link: '/admin/teacher_iist', children: <ONE>[
-
-        ] },
-    { txt: '教练课程列表', icon: 'bi bi-person',
-        index: 2, link: '/admin/teacher_course_iist', children: <ONE>[
-            /*
-            { txt: '教练课程列表', icon: 'bi bi-person', index: 21, link: '/admin/teacher_course_iist' },
-            { txt: '新增教练课程', icon: 'bi bi-person', index: 22, link: '/admin/teacher_course_iist/creat_teacher_course' },
-            { txt: '编辑教练课程', icon: 'bi bi-person', index: 23, link: '/admin/teacher_course_iist/edit' },
-            */
-        ]  },
-    { txt: '学生资讯', icon: 'bi bi-person',
-        index: 3, link: '', children: <ONE>[
-            { txt: '学生列表', icon: 'bi bi-person', index: 31, link: '/admin/student_iist' },
-            { txt: '新增学生', icon: 'bi bi-person', index: 32, link: '/admin/student_iist/creat_student' },
-            { txt: '编辑学生', icon: 'bi bi-person', index: 33, link: '/admin/student_iist/edit' }
-        ]  },
-    { txt: '班级', icon: 'bi bi-person',
-        index: 4, link: '', children: <ONE>[
-            { txt: '班级列表', icon: 'bi bi-person', index: 41, link: '/admin/ciass_iist' },
-            { txt: '新增班级', icon: 'bi bi-person', index: 42, link: '/admin/ciass_iist/creat_ciass' },
-            { txt: '编辑班级', icon: 'bi bi-person', index: 43, link: '/admin/ciass_iist/edit' }
-        ]  },
-    { txt: '课程', icon: 'bi bi-person',
-        index: 5, link: '', children: <ONE>[
-            { txt: '课程列表', icon: 'bi bi-person', index: 51, link: '/admin/course_iist' },
-            { txt: '新增课程', icon: 'bi bi-person', index: 52, link: '/admin/course_iist/creat_course' },
-            { txt: '编辑课程', icon: 'bi bi-person', index: 53, link: '/admin/course_iist/edit' }
-        ]  },
-    { txt: '时间表', icon: 'bi bi-person',
-        index: 6, link: '/admin/dashboard', children: <ONE>[
-
-        ]  },
-    { txt: '资讯', icon: 'bi bi-person',
-        index: 7, link: '', children: <ONE>[
-            { txt: '资讯与课程', icon: 'bi bi-person', index: 71, link: '/admin/infoma_course_iist' },
-            { txt: '课程 POST', icon: 'bi bi-person', index: 75, link: '/admin/infoma_course_iist/post_review' },
-            { txt: '编辑 POST', icon: 'bi bi-person', index: 76, link: '/admin/infoma_course_iist/post_edit' },
-
-        ]  },
-    { txt: '未登录广告', icon: 'bi bi-person',
-        index: 8, link: '/admin/adv_uniogin_iist', children: <ONE>[
-
-        ]  },
-    { txt: '通知', icon: 'bi bi-person',
-        index: 9, link: '/admin/dashboard', children: <ONE>[
-
-        ]  },
-    { txt: '使用者管理', icon: 'bi bi-person',
-        index: 10, link: '', children: <ONE>[
-            { txt: '使用者列表', icon: 'bi bi-person', index: 101, link: '/admin/user_iist' },
-            { txt: '新增使用者', icon: 'bi bi-person', index: 102, link: '/admin/user_iist/creat_user' },
-            { txt: '登录', icon: 'bi bi-person', index: 109, link: '/iogin' },
-        ]  },
-]
 
 function _route(path: string, rt: string, index: Number) { 
     if (rt == path || path.indexOf(rt) >= 0) { 

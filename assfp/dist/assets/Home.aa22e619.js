@@ -1,1 +1,0 @@
-import{d as s,u as _,r as o,o as c,c as r,w as u,a as t}from"./index.e53fe91f.js";const d=s({__name:"Home",setup(i){return _(),(p,m)=>{const e=o("router-view"),n=o("eos-tookit-auth"),a=o("LayoutMain");return c(),r(a,null,{cont:u(()=>[t(e),t(n)]),_:1})}}});export{d as default};

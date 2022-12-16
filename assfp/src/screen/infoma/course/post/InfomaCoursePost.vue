@@ -5,7 +5,7 @@
             <layout-post-cont>
                 <template v-slot:cont>
                     <eos-post-head
-                        :tit="'学院的教师们，今天中午过来教堂集合'"
+                        :tit="'學院的教師們，今天中午過來教堂集合'"
                         :time="'2022-12-12'"
                         :author="'Qiong'"
                     >

@@ -10,4 +10,5 @@ const app = createApp(App)
 
 import eos from './eos/eos'
 import funny from './funny/funny'
-app.use(router).use(createPinia()).use(eos).use(funny).mount('#app')
+import vue_serv from './serv/vue_serv'
+app.use(router).use(createPinia()).use(eos).use(funny).use(vue_serv).mount('#app')

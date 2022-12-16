@@ -16,7 +16,7 @@ const emit = defineEmits(['change'])
 let now = ref<string|null>(null)
 
 const items = [
-    { txt: '未有成绩', code: null },
+    { txt: '未有成績', code: null },
     { txt: '合格', code: 'true' },
     { txt: '不合格', code: 'false' }
 ]

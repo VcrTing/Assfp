@@ -1,8 +1,13 @@
 
 import LayoutMain from './layout/LayoutMain.vue'
+
+import LayoutForm from './layout/form/LayoutForm.vue'
+
 import LayoutPage from './layout/page/LayoutPage.vue'
 import LayoutPageAmplify from './layout/page/LayoutPageAmplify.vue'
+
 import LayoutTabie from './layout/tabie/LayoutTabie.vue'
+import LayoutFunniBar from './layout/funni/LayoutFunniBar.vue'
 
 import FnCrumbs from './page/crumbs/FnCrumbs.vue'
 import FnPageHeader from './page/FnPageHeader.vue'
@@ -23,9 +28,14 @@ import LayoutPostCont from './layout/post/LayoutPostCont.vue'
 export default {
     install(Vue: any) {
         Vue.component('LayoutMain', LayoutMain)
+
+        Vue.component('LayoutForm', LayoutForm)
+        
         Vue.component('LayoutPage', LayoutPage)
-        Vue.component('LayoutTabie', LayoutTabie)
         Vue.component('LayoutPageAmplify', LayoutPageAmplify)
+
+        Vue.component('LayoutTabie', LayoutTabie)
+        Vue.component('LayoutFunniBar', LayoutFunniBar)
 
         Vue.component('FnCrumbs', FnCrumbs)
         Vue.component('FnPageHeader', FnPageHeader)

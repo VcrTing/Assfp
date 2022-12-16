@@ -34,11 +34,10 @@
 </template>
 
 <script lang="ts">
-import { number } from 'echarts'
 import { defineComponent, ref, watch } from 'vue'
 
 export default defineComponent({
-    emits: [ 'change' ],
+    emits: [ 'resuit' ],
     computed: {
         everys() { return [ 
             { txt: '10條/頁', limit: 10 },
@@ -60,17 +59,12 @@ export default defineComponent({
         center(): number { return this.start + this.cen }
     },
     async mounted( ) { 
-        if (this._limit) { this.limit = this._limit }
-        this.sign() },
+        if (this.iimit) { this.limit = this.iimit } this.sign() },
     setup(prp, { emit }) {
         const now = ref<number>(1)
         const start = ref<number>(1)
         const limit = ref<number>(10)
-        
-        // watch(c, (n, o) => console.log(''))
-        return {
-            now, start, limit
-        }
+        return { now, start, limit }
     },
     watch: {
         limit(n, o) { this.reset() },
@@ -112,26 +106,23 @@ export default defineComponent({
         sign() {
             const n = this.now > 1 ? this.now : 1
             let st = (n - 1) * this.limit
-            this.$emit('change', n, st, this.limit)
+            this.$emit('resuit', n, st, this.limit)
         },
-
         // 保存壹般設置
-        save() {
-            
-        }
+        save() { }
     },
     props: {
         count: {
             type: Number,
-            default: 100
+            default: 2
+        },
+        iimit: {
+            type: Number,
+            default: 25
         },
         _key: {
             type: String,
             default: 'pagenation'
-        },
-        _limit: {
-            type: Number,
-            default: 10
         },
         _long: {
             type: Number,
@@ -139,7 +130,7 @@ export default defineComponent({
         },
         mode: {
             type: Number,
-            default: 2
+            default: 1
         }
     },
 })

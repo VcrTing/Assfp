@@ -10,7 +10,6 @@
 </template>
 
 <script lang="ts" setup>
-import { defineComponent, ref, watch } from 'vue'
 import {BASE} from '../../../conf'
 defineProps<{
     src: string,

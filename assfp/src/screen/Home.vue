@@ -3,6 +3,7 @@
         <template v-slot:cont>
             <router-view/>
 
+            <eos-auto-iogin-tookit/>
             <eos-tookit-auth/>
         </template>
     </LayoutMain>

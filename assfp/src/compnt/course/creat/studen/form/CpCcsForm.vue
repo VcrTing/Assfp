@@ -3,18 +3,18 @@
         <div class="td-of-form px-0">
             <div class="w-14">
                 <fn-input :is_err="form_err.name">
-                    <input class="input" v-model="form.name" placeholder="账户名称"/>
+                    <input class="input" v-model="form.name" placeholder="賬戶名稱"/>
                 </fn-input>
             </div>
             <div class="w-17">
-                <input class="input" v-model="form.display_name" placeholder="展示名称"/>
+                <input class="input" v-model="form.display_name" placeholder="展示名稱"/>
             </div>
             <div class="w-19">
                 <eos-input-phone class="input"/>
             </div>
             <div class="w-21">
                 <fn-input :is_err="form_err.email">
-                    <input class="input" v-model="form.email" placeholder="邮箱"/>
+                    <input class="input" v-model="form.email" placeholder="郵箱"/>
                 </fn-input>
             </div>
             <div class="w-14">

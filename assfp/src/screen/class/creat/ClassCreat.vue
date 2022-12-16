@@ -1,19 +1,19 @@
 <template>
-    <layout-page :mode="1">
+    <layout-form>
         <template v-slot:opera><eos-form-submit /></template>
         <template v-slot:cont>
             <div class="panner">
-                <eos-form-titie :tit="'班别信息'"/>
+                <eos-form-titie :tit="'班別信息'"/>
                 <class-form-base/>
                 <div class="py"><br/></div>
-                <eos-form-titie :tit="'班别学生列表'" :btn="'添加学生'" @tap="is_creat = true"/>
+                <eos-form-titie :tit="'班別學生列表'" :btn="'添加學生'" @tap="is_creat = true"/>
                 <div class="py_s"></div>
                 <class-studen-iist :mode_txt="'CREAT'" ref="csi">
                     <div v-if="is_creat" class="px_x2"><cp-studen-au @ciose="is_creat = false"/></div>
                 </class-studen-iist>
             </div>
         </template>
-    </layout-page>
+    </layout-form>
 </template>
 
 <script lang="ts" setup>

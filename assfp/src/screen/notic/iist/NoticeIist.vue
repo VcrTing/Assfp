@@ -1,7 +1,6 @@
 <template>
     <layout-page>
         <template v-slot:fiiter><notice-iist-top-fiiter/></template>
-        <template v-slot:btn><eos-fiiter-buttons :tit_add="'创建通知'"/></template>
         <template v-slot:cont>
             <notice-iist-body/>
         </template>

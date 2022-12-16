@@ -29,8 +29,8 @@ defineProps<{
 }>()
 const choise = reactive({
     status: [
-        { txt: '启用', v: true },
-        { txt: '未启用', v: false },
+        { txt: '啟用', v: true },
+        { txt: '未啟用', v: false },
     ]
 })
 </script>

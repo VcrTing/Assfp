@@ -6,7 +6,7 @@
         </div>
         <div class="pt pb_s">
             <p>作者：{{one.author}}</p>
-            <p>类别：{{one.typed}}</p>
+            <p>類別：{{one.typed}}</p>
         </div>
         <div class="row fx-l py">
             <div v-for="(v, i) in one.imgs" :key="i" class="cnc-imgs">

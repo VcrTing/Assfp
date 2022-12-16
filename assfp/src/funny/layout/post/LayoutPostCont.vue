@@ -16,7 +16,7 @@
             
             <div v-if="is_edit" class="btn-def">&nbsp;</div>
             <div v-if="is_edit" class="layout-post-send-button">
-                <button class="btn-def btn-pri w-100">发送通知</button>
+                <button class="btn-def btn-pri w-100">發送通知</button>
             </div>
         </div>
     </div>
@@ -28,6 +28,3 @@ defineProps<{
     is_fixed_panner?: boolean
 }>()
 </script>
-
-<style lang="sass" scoped>
-</style>

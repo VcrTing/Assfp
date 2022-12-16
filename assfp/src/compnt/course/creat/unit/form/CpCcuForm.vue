@@ -3,7 +3,7 @@
         <div class="td-of-form px-0">
             <div class="w-33">
                 <fn-input :is_err="form_err.name">
-                    <input class="input" v-model="form.name" placeholder="课程名称"/>
+                    <input class="input" v-model="form.name" placeholder="課程名稱"/>
                 </fn-input>
             </div>
             <div class="w-20">
@@ -18,7 +18,7 @@
             </div>
             <div class="w-19">
                 <fn-input :is_err="form_err.num">
-                    <input class="input" v-model="form.num" placeholder="上堂时数"/>
+                    <input class="input" v-model="form.num" placeholder="上堂時數"/>
                 </fn-input>
             </div>
             <div class="w-4"></div>

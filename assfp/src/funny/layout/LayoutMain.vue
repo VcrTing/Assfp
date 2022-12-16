@@ -20,7 +20,6 @@
 
 <script lang="ts" setup>
 import { appPina } from '../../himm/pina/app'
-import { defineComponent, ref, watch } from 'vue'
 import HtmiMenu from '../menu/HtmiMenu.vue'
 import HtmiMenuTrig from '../menu/trig/HtmiMenuTrig.vue'
 

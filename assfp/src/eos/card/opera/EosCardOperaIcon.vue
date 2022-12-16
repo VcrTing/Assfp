@@ -6,25 +6,12 @@
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, watch } from 'vue'
+<script lang="ts" setup>
+defineEmits([ 'edit', 'fresh' ])
 
-export default defineComponent({
-    emits: [ 'edit', 'fresh' ],
-    setup(prp, { emit }) {
-        const c = ref<string | null>()
-        
-        watch(c, (n, o) => console.log(''))
-        return {
-            
-        }
-    },
-    props: {
-        mode: Number
-    },
-    computed: { },
-    async mounted( ) { },
-})
+defineProps<{
+    mode: number
+}>()
 </script>
 
 <style lang="sass" scoped>

@@ -2,12 +2,12 @@
     <div class="">
         <div class="tabie">
             <div class="tr px-0">
-                <div class="w-14">账户名称</div>
-                <div class="w-17">展示名称</div>
-                <div class="w-19">电话号码</div>
-                <div class="w-21">邮箱</div>
+                <div class="w-14">賬戶名稱</div>
+                <div class="w-17">展示名稱</div>
+                <div class="w-19">電話號碼</div>
+                <div class="w-21">郵箱</div>
                 <div class="w-14">ID card No.</div>
-                <div class="w-10">状态</div>
+                <div class="w-10">狀態</div>
                 <div class="w-7"></div>
             </div>
             <cp-ccs-td :many="form.many"/>

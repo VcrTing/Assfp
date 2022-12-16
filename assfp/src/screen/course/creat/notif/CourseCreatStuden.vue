@@ -1,8 +1,8 @@
 <template>
     <div class="f-row">
         <div class="w-333">
-            <fn-input :tit="'课程编号'" class="mb_x">
-                <input class="input" placeholder="请输入" />
+            <fn-input :tit="'課程編號'" class="mb_x">
+                <input class="input" placeholder="請輸入" />
             </fn-input>
         </div>
         <div class="fx-1"></div>

@@ -1,5 +1,5 @@
 <template>
-    <layout-page :mode="1">
+    <layout-form>
         <template v-slot:opera><eos-form-submit/></template>
         <template v-slot:cont>
             <nav class="panner">
@@ -10,16 +10,16 @@
                 <course-creat-time/>
             </nav>
             <nav class="panner mt_x2">
-                <eos-form-titie :tit="'课程单元'" :btn="'添加单元名称'"/>
+                <eos-form-titie :tit="'課程單元'" :btn="'添加單元名稱'"/>
                 <course-creat-unit/>
             </nav>
             <nav class="panner mt_x2">
-                <eos-form-titie :tit="'课程学生'" :btn="'添加学生'"/>
+                <eos-form-titie :tit="'課程學生'" :btn="'添加學生'"/>
                 <course-creat-studen/>
             </nav>
             <course-creat-notif/>
         </template>
-    </layout-page>
+    </layout-form>
 </template>
 
 <script lang="ts" setup>

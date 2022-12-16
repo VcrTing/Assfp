@@ -15,7 +15,7 @@ const val_timed = function(v: string, txt: string, short: boolean) {
     return true
 }
     
-// true 为通过
+// true 為通過
 const val_phone = function(v: string) {
     let res = v ? true : false
     try {

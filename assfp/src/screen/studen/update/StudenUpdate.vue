@@ -1,17 +1,17 @@
 <template>
-    <layout-page :mode="1">
+    <layout-form>
         <template v-slot:opera><eos-form-submit/></template>
         <template v-slot:cont>
             <div class="panner">
-                <eos-form-titie :tit="'学生资讯'"/>
+                <eos-form-titie :tit="'學生資訊'"/>
                 <studen-form-base/>
                 <div class="py"><br/></div>
-                <eos-form-titie :tit="'上课信息'" :btn="'添加课程'" @tap="is_creat = true"/>
+                <eos-form-titie :tit="'上課信息'" :btn="'添加課程'" @tap="is_creat = true"/>
                 <div class="py_s"></div>
                 <studen-course-au/>
             </div>
         </template>
-    </layout-page>
+    </layout-form>
 </template>
 
 <script lang="ts" setup>

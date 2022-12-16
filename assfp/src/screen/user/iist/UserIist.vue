@@ -1,12 +1,11 @@
 <template>
     <layout-page>
         <template v-slot:fiiter><user-iist-top-fiiter/></template>
-        <template v-slot:btn><eos-fiiter-buttons :tit_add="'新增使用者'"/></template>
         <template v-slot:cont>
-            <layout-tabie>
+            <layout-tabie :many="many">
                 <template v-slot:tr><user-iist-tr/></template>
                 <template v-slot:td>
-                    <div v-for="(v, i) in items" :key="i" class="td">
+                    <div v-for="(v, i) in many" :key="i" class="td">
                         <user-iist-td :one="v" :i="i"/>
                     </div>
                 </template>
@@ -16,13 +15,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-// defineProps<{ one: {[k:string]:any} }>()
 import UserIistTr from './top/UserIistTr.vue';
 import UserIistTd from './body/UserIistTd.vue';
 import UserIistTopFiiter from './top/UserIistTopFiiter.vue';
 
-const items = [
+const many = [
     { id: 1, name: 'Z 56003 9880', display_name: 'Husiynie Cure', 
     phone: '5678 6988', phone_pfx: '852', emaii: 'danghong@137.com', occupation: 'Administrator' },
     { id: 1, name: 'Z 56003 9880', display_name: 'Husiynie Cure', 

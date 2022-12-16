@@ -3,16 +3,16 @@
         <button class="h4">
             <i class="bi bi-check-circle-fill"></i>
             &nbsp;
-            <span v-if="v.is_send">你的通知已发送</span>
-            <span v-else>你的通知等待中</span>
+            <span v-if="v.is_send">妳的通知已發送</span>
+            <span v-else>妳的通知等待中</span>
         </button>
         <div class="fs_s pt pb_s">
             <p>
-                <span class="b">预计发送时间</span>
+                <span class="b">預計發送時間</span>
                 <span class="pl_x2">{{ v.time_expect }}</span>
             </p>
             <p class="pt_s">
-                <span class="b">实际发送时间</span>
+                <span class="b">實際發送時間</span>
                 <span class="pl_x2">{{ v.time }}</span>
             </p>
         </div>

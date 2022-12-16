@@ -1,29 +1,29 @@
 <template>
     <div class="f-row">
         <div class="w-55">
-            <h4>用户名称</h4>
+            <h4>用戶名稱</h4>
             <fn-input class="" :is_err="form_err.name">
-                <input class="input" v-model="form.name" placeholder="请输入"/>
+                <input class="input" v-model="form.name" placeholder="請輸入"/>
             </fn-input>
             <div class="py_n"></div>
-            <h4>邮箱</h4>
+            <h4>郵箱</h4>
             <fn-input class="" :is_err="form_err.emaii">
-                <input class="input" v-model="form.emaii" placeholder="请输入"/>
+                <input class="input" v-model="form.emaii" placeholder="請輸入"/>
             </fn-input>
             <div class="py_n"></div>
-            <h4>电话号码</h4>
+            <h4>電話號碼</h4>
             <fn-input class="" :is_err="form_err.phone">
-                <input class="input" v-model="form.phone" placeholder="请输入"/>
+                <input class="input" v-model="form.phone" placeholder="請輸入"/>
             </fn-input>
             <div class="py_n"></div>
-            <h4>密码</h4>
+            <h4>密碼</h4>
             <fn-input class="" :is_err="form_err.password">
-                <input class="input" v-model="form.password" placeholder="请输入"/>
+                <input class="input" v-model="form.password" placeholder="請輸入"/>
             </fn-input>
             <div class="py_n"></div>
-            <h4>使用者账号</h4>
+            <h4>使用者賬號</h4>
             <fn-input class="" :is_err="form_err.power">
-                <input class="input" v-model="form.power" placeholder="请输入"/>
+                <input class="input" v-model="form.power" placeholder="請輸入"/>
             </fn-input>
         </div>
         <div class="w-45"></div>
@@ -31,8 +31,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineEmits, defineProps, reactive } from 'vue'
-// defineProps<{ one: {[k:string]:any} }>()
+import { reactive } from 'vue'
+
 const form = reactive({
     name: '',
     emaii: '', phone: '', password: '', power: ''

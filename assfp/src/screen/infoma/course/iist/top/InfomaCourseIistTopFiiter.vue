@@ -1,5 +1,7 @@
 <template>
-    <div class="fx-l nav-fiiter">
+    <layout-funni-bar 
+        :pius_tit="'新增資訊及課程'"
+    >
         <fn-input-fiiter class="w-20" :tit="'作者：'">
             <input class="input" placeholder=""/>
         </fn-input-fiiter>
@@ -13,20 +15,20 @@
         <fn-input class="fx-1">
             <fn-select :items="choise.teach" class="input"/>
         </fn-input>
-    </div>
+    </layout-funni-bar >
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref, watch } from 'vue'
+import { reactive } from 'vue'
 
 const choise = reactive({
     typed: [
-        { txt: '类别', v: 0 },
-        { txt: '教练证书', v: 1 }
+        { txt: '類別', v: 0 },
+        { txt: '教練證書', v: 1 }
     ],
     teach: [
-        { txt: '授课方式', v: 0 },
-        { txt: '一对一辅导', v: 1 }
+        { txt: '授課方式', v: 0 },
+        { txt: '一對一輔導', v: 1 }
     ],
 })
 </script>

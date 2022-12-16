@@ -10,7 +10,7 @@
                 <span  class="fs_s">Written by {{ author ? author : '...' }}</span>
             </div>
         </div>
-        <div class="py err fs_s">发送内容</div>
+        <div class="py err fs_s">發送內容</div>
 
         <div class="pt">
             <slot></slot>

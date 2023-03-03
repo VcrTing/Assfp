@@ -1,0 +1,37 @@
+
+
+// 配置
+$br_t: 2px
+$br_s: 4.5px
+.br_t
+    border-radius: $br_t
+.br_s
+    border-radius: $br_s
+    
+$br: 8px
+.br
+    border-radius: $br
+    
+@media screen and ( max-width: 782px )
+    $br: 5.5px
+    .br
+        border-radius: $br
+        
+
+.tr,
+.card-def,
+.td-collsp,
+.modal-center
+    @extend .br
+
+input,
+button
+    @extend .br
+
+.ul-pagenation > li
+    @extend .br
+
+.cir
+    border-radius: 100%
+.rnd
+    border-radius: 3em

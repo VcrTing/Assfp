@@ -1,0 +1,56 @@
+.eos-tb-edit
+    i
+        transform: none
+        transition: all .242s ease-in-out
+    &:hover
+        i
+            transform: translateY(12px) !important
+
+.td-for-form-ig,
+.td-for-form
+    @extend .fx-l
+    flex-wrap: wrap
+    box-sizing: border-box
+    & > div
+        padding-right: $ds
+    .input
+        padding-left: calc( 4px + 0.8vw )
+        padding-right: 0.5vw
+    .eos-ip-phone
+        overflow: hidden
+        padding-left: calc( 0px + 0.7vw )
+    .ip-time-icon
+        right: $ds
+.td-for-form-ig
+    .input
+        padding: $ds_x 0
+
+.td-for-coiiapse
+    @extend .td
+    padding-left: 0px !important
+    padding-right: 0px !important
+    & > nav, & > div
+        padding-left: $ds_x2
+        padding-right: $ds_x2
+
+/* */
+.td-mh
+    min-height: 2.8em
+    
+.td-of-form
+    @extend .td
+    & > div
+        padding-right: $ds
+    input,
+    select
+        padding-right: $ds_s
+    .eos-ip-phone
+        overflow: hidden
+        padding-left: $ds_s
+
+@media screen and ( max-width: 1280px )
+    .td-mh
+        min-height: 2.3em
+    .td-of-form
+        & > div
+            padding-right: $ds_s

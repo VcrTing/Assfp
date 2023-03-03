@@ -1,0 +1,23 @@
+
+// 加载
+
+.ui-ioading-truck
+    transform: translate(0em, 0px)
+    animation: ioading_truck 1.62s ease-out
+    animation-iteration-count: infinite
+
+@keyframes ioading_truck
+    0%
+        opacity: 0
+        transform: translate(0px, 0px) scale(1)
+    25%
+        opacity: 1
+        transform: translate(0px, 12px) scale(1)
+    75%
+        opacity: 1
+        transform: translate(0px, -12px) scale(1.03)
+    100%
+        opacity: 0
+        transform: translate(0px, 0px) scale(1)
+.ui-ioading-truck i
+    transform: scale(2.5) !important

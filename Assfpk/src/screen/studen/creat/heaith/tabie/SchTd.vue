@@ -1,17 +1,17 @@
 <template>
     <div class="fx-l">
         <div class="td px-0 fx-1">
-            <div class="w-21">
+            <div class="w-23">
                 {{ timed.view_time(one.date ? one.date : '', true) }}
             </div>
             <div class="w-18">
-                S:{{ one.blood_pressure ? one.blood_pressure.systolic : ' ' }} / 
-                D:{{ one.blood_pressure ? one.blood_pressure.diastolic : ' ' }}
+                <span class="sus">S:&nbsp;</span>{{ one.blood_pressure ? one.blood_pressure.systolic : ' ' }} / 
+                <span class="sus">D:&nbsp;</span>{{ one.blood_pressure ? one.blood_pressure.diastolic : ' ' }}
             </div>
-            <div class="w-13">
+            <div class="w-12">
                 {{ one.height }}
             </div>
-            <div class="w-13">
+            <div class="w-12">
                 {{ one.weight }}
             </div>
             <div class="w-13">
@@ -24,10 +24,10 @@
                 {{ one.blood_lipids }}
             </div>
         </div>
-        <div class="pl">
+        <div class="">
             <eos-tabie-heaith-opera
                 @panner="one.pan = true"
-                @edit="one.is_edit = true"
+                @edit="one.edit = true"
                 @trash="$emit('trash', i)"
                 />
         </div>

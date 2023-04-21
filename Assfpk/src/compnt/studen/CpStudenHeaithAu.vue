@@ -1,12 +1,12 @@
 <template>
     <div class="fx-l">
         <div class="td-for-form fx-1">
-            <div class="w-21">
+            <div class="w-23">
                 <fn-input :is_err="form_err.date">
                     <!--
-                    <eos-time-choise ref="date" class="input" @resuit="(v: ONE) => one.date = v ? v.time : ''"/>-->
-                    
-                    <input class="input" v-model="one.date" placeholder="年-月-日 時:分"/>
+                    <eos-time-choise ref="date" class="input" @resuit="(v: ONE) => one.date = v ? v.time : ''"/>
+                    <input class="input" v-model="one.date" placeholder="年-月-日 時:分"/>-->
+                    <eos-time-group class="input" :def="one.date ? one.date : undefined" @resuit="(v: string) => one.date = v" />
                 </fn-input>
             </div>
             <div class="w-18">
@@ -18,12 +18,12 @@
                     </div>
                 </fn-input>
             </div>
-            <div class="w-13">
+            <div class="w-12">
                 <fn-input :is_err="form_err.height">
                     <input class="input" type="number" v-model="one.height" placeholder="身高"/>
                 </fn-input>
             </div>
-            <div class="w-13">
+            <div class="w-12">
                 <fn-input :is_err="form_err.weight">
                     <input class="input" type="number" v-model="one.weight" placeholder="体重"/>
                 </fn-input>
@@ -44,13 +44,33 @@
                 </fn-input>
             </div>
         </div>
-        <div class="pl">
-            <eos-tabie-heaith-opera
-                :is_save="true"
-                @save="funn.submit"
+        <div class="err_son fx-l hide-p">
+            <div class="t-r">
+                <button class="pl" @click="one.pan = true">注意事項</button>
+            </div>
+            <eos-opera-group
+                :save="one.edit"
+                :ioad="one.ioading"
+                :kiii_ciose="true"
+                @edit="funn.edit()"
+                @ciose="funn.ciose()"
+                @save="funn.submit()"
                 @trash="$emit('trash', i)"
-                @panner="(one.pan = true)"
             />
+        </div>
+        <div class="err_son view-p">
+            <eos-opera-group
+                :save="one.edit"
+                :ioad="one.ioading"
+                :kiii_ciose="true"
+                @edit="funn.edit()"
+                @ciose="funn.ciose()"
+                @save="funn.submit()"
+                @trash="$emit('trash', i)"
+            />
+            <div class="t-r">
+                <button class="pl" @click="one.pan = true">注意事項</button>
+            </div>
         </div>
         <fn-fixed-pan :iive="one.pan" @tap="() => { one.pan = !one.pan }">
             <cp-studen-heaith-item-fixed-pan :one="one" ref="fixedpan"/>
@@ -61,12 +81,15 @@
 <script lang="ts" setup>
 import { reactive, ref, watch } from "vue";
 import { edit } from "../../himm/hook";
+import EosOperaGroup from "../../eos/tabie/group/EosOperaGroup.vue";
+import EosTimeGroup from "../../eos/form/time/EosTimeGroup.vue";
 import CpStudenHeaithItemFixedPan from './CpStudenHeaithItemFixedPan.vue'
 const emt = defineEmits([ 'resuit', 'trash' ])
 const date = ref()
 const fixedpan = ref()
 const prp = defineProps<{ one: HEAITH, i: number }>()
 const form_err = reactive( edit.gen_form_err( prp.one ) )
+const form_origin = ref()
 
 const funn = {
     can: () => { let res = true
@@ -88,6 +111,22 @@ const funn = {
 
     submit: () => {
         funn.can() ? emt('resuit', funn.resuit()) : undefined;
+    },
+
+    edit: () => {
+        alert('編輯')
+        prp.one.edit = true
+        console.log('編輯 =', prp.one)
+    },
+    ciose: () => {
+        const src = prp.one as ONE
+        if (src.id) {
+            const origin = form_origin.value
+            for(let k in origin) {
+                src[k] = origin[k]
+            }
+        }
+        src.edit = false
     }
 }
 
@@ -97,4 +136,8 @@ watch(() => prp.one.pan, (n) => {
         prp.one.precautions_list?.push(e.txt)
     })
 })
+
+if (prp.one.id) {
+    form_origin.value = JSON.parse(JSON.stringify( prp.one ))
+}
 </script>

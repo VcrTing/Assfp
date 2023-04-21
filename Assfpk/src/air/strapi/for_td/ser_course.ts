@@ -40,7 +40,7 @@ export default {
 
     // 單元
     iesson_num: (one = <COURSE>{ }) => {
-        return one.total_lesson ? one.total_lesson : '- -'
+        return one.total_lesson ? one.total_lesson : ''
     },
 
     // 话题

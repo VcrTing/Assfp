@@ -75,6 +75,7 @@ const funn = {
             base.value.reset( funn.rebuiid( one ) )
             time.value.reset( funn.rebuiid( one, 'timed' ) )
             one.lessons ? unit.value.reset( one.lessons ) : undefined;
+            console.log('課程 =', one)
         })
     },
     

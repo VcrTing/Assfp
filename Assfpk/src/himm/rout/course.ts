@@ -12,8 +12,12 @@ const course_iist_in = (pfx: string) => __(pfx, () => import('../../screen/cours
     __(pfx + '/edit_user', () => import('../../screen/course/insert_user/CourseInsertUser.vue'))
 ])
 
+const course_competed_iist = () => __('course_competed_iist', () => import('../../screen/course/iist_competed/CourseComplist.vue'))
+
 export default [
 
     course_iist(),
     course_iist_in(admin + 'course_iist'),
+
+    course_competed_iist()
 ]

@@ -63,6 +63,15 @@
         top: 0
         height: 100%
         @extend .fx-c
+
+.ip-time-one-group
+    .vuejs3-datepicker__content
+        padding-right: $ds_s !important
+    .ip-time-hour
+        max-width: calc( 4em + 1vw )
+        // border-left: 1px solid $ip-br
+    .ip-time-icon
+        right: $ds_s
 .ip-time-one,
 .ip-time-doubie
     i
@@ -91,6 +100,9 @@
         padding-right: 0px
     .vuejs3-datepicker__value
         border: none !important
+    & > div,
+    .vuejs3-datepicker__content
+        min-height: 22px
             
 .ip-time-icon-seif
     .vuejs3-datepicker__icon
@@ -190,3 +202,8 @@
 .ip-t
     padding-left: 0.72vw !important
     padding-right: 1px !important
+
+//   
+.ip-wrap-td
+    input
+        padding-right: 2px

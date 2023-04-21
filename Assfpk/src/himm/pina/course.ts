@@ -5,10 +5,17 @@ export const coursePina = defineStore("coursePina", {
         categories: <CATEGORY[]>[ ],
 
         one: <COURSE>{ },
+
+        one_timer: <ONE> { },
+
+        iesson_of_edit: <ONE>{ }
     }),
     actions: {
         do_one(v = <COURSE>{ }) { this.one = v },
-        do_categories(cates: CATEGORY[]) { this.categories = cates ? cates : [ ]; console.log('CATE =', cates) }
+        do_one_timer(v = <ONE>{ }) { this.one_timer = v },
+        do_categories(cates: CATEGORY[]) { this.categories = cates ? cates : [ ]; console.log('CATE =', cates) },
+
+        do_iesson_of_edit(v = <ONE>{ }) { this.iesson_of_edit = v }
     },
     getters: {
         

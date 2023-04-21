@@ -1,15 +1,9 @@
 <template>    
-    <layout-page-amplify class="bg-FFF">
-        <template v-slot:opera>
-            <div>
-                <button class="btn-pri-out btn-def px_x3">&nbsp;&nbsp;圖表展示&nbsp;&nbsp;</button>
-                <span class="px_s"></span>
-                <button class="btn-pri btn-def px_x3">&nbsp;&nbsp;列表展示&nbsp;&nbsp;</button>
-            </div>
-        </template>
-        <template v-slot:cont>
+    <layout-page-ampure class="bg-FFF">
+        <template #opera><timer-righ-top-switch/></template>
+        <template #second><timer-line-tab/></template>
+        <template #cont>
             <timer-iist-top-fiiter/>
-
             <layout-tabie :aii="aii" @resuit="funny.pagina">
                 <template v-slot:tr><timer-iist-tr/></template>
                 <template v-slot:td>
@@ -19,13 +13,16 @@
                 </template>
             </layout-tabie>
         </template>
-    </layout-page-amplify>
+    </layout-page-ampure>
 </template>
 
 <script setup lang="ts">
 import TimerIistTr from './top/TimerIistTr.vue';
 import TimerIistTd from './body/TimerIistTd.vue';
-import TimerIistTopFiiter from './top/TimerIistTopFiiter.vue';
+
+import TimerLineTab from '../comm/TimerLineTab.vue';
+import TimerIistTopFiiter from '../comm/TimerIistTopFiiter.vue';
+import TimerRighTopSwitch from '../comm/TimerRighTopSwitch.vue';
 
 import { iist } from '../../../himm/hook'
 import { reactive } from 'vue'

@@ -4,6 +4,7 @@ import { ENDPOINT, API } from '../../conf'
 
 interface _Net {
     get( endpoint: string, token: string, params: ONE, suffix?: string ): Promise<ONE>;
+    one( endpoint: string, token: string, suffix: string, params?: ONE, ): Promise<ONE>;
     pos( endpoint: string, token: string, data: ONE ): Promise<ONE | null>;
     put( endpoint: string, token: string, data: ONE, suffix: string, params?: ONE ): Promise<ONE | null>;
 }
@@ -24,6 +25,12 @@ class NeTooi {
 }
 
 class Net extends NeTooi implements _Net {
+    async one(endpoint: string, token: string, suffix: string, params?: ONE | undefined): Promise<ONE> {
+        const uri = super.uri(API, endpoint, suffix) + super.params(params)
+        console.log('ONE URI =', uri)
+        let res: ONE = await axios.get(uri, { headers: super.headers(token) })
+        return (res && res.status < 399) ? res.data : { }
+    }
     async get(endpoint: string, token: string, params: ONE, suffix?: string | undefined): Promise<ONE> {
         const uri = super.uri(API, endpoint, suffix) + super.params(params)
         console.log('GET URI =', uri)

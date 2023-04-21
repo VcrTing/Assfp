@@ -43,6 +43,7 @@ const ENDPOINT = <ONE>{
     'notific': 'notifications', // 提醒
 
     'advert': 'advertisements', // 广告
+    'advert_ce': 'advertisements/addAdvertisement',
 
     // 網站用戶
     'users': 'users', // 所有 用户

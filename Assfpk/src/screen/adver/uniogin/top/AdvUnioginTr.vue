@@ -1,9 +1,10 @@
 <template>
-    <div class="w-32">課程名稱</div>
-    <div class="w-14">作者</div>
-    <div class="w-19">發布時間</div>
-    <div class="w-25">標簽</div>
-    <div class="w-13">狀態</div>
+    <div class="w-32">廣告標題</div>
+    <div class="w-16">開始時間</div>
+    <div class="w-16">結束時間</div>
+    <div class="w-11">排序值</div>
+    <div class="w-10">狀態</div>
+    <div class="w-18"></div>
 </template>
 
 <script lang="ts" setup>

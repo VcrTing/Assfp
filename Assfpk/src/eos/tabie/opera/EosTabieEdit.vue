@@ -1,7 +1,7 @@
 <template>
         <button class="eos-tb-edit" @click="tap">
             <span class="err">
-                編輯
+                <i class="bi bi-pencil-square"></i>
             </span>
         </button>
 </template>

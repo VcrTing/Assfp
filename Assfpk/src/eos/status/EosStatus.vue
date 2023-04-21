@@ -37,7 +37,3 @@ export default defineComponent({
     async mounted( ) { },
 })
 </script>
-
-<style lang="sass" scoped>
-
-</style>

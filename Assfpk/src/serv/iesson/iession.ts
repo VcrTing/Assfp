@@ -10,7 +10,9 @@ const many = async ( params: ONE ) => {
         uu.is_admin ? 'iessons' : 'iesson_my', 
         uu.jwt, params, 
         uu.is_admin ? '' : uu.pk )
-    if (res) { return strapi.ser_aii(res, [ ]) } return { }
+    if (res) { 
+        console.log('單元 =', res)
+        return strapi.ser_aii(res, [ ]) } return { }
 }
 
 

@@ -1,16 +1,25 @@
 
 .ani_mod_hui
     opacity: 0.4
-    animation: ani_mod_hui .062s ease-in
+    animation: ani_mod_hui 0.122s ease-in
 @keyframes ani_mod_hui
     0%
         opacity: 0
     100%
         opacity: 0.4
 
-.ui-modai
+.ani_mod_hui_s
+    opacity: 0.122
+    animation: ani_mod_hui 0.082s ease-in
+@keyframes ani_mod_hui
+    0%
+        opacity: 0
+    100%
+        opacity: 0.122
+
+.eos-modai
     &,
-    .modai-hui
+    .eos-modai-hui
         position: absolute
         bottom: 0
         right: 0
@@ -23,56 +32,48 @@
         display: none
         position: fixed !important
         transition: all 0s
-    .modai-hui
-        @extend .ani_mod_hui
+    .eos-modai-hui
         background: #000
-        transition: all .062s ease-in
-    .modai-cont
-        @extend .fx-c
-    .modai-center
+        transition: all .122s ease-in
+        @extend .ani_mod_hui
+
+    .eos-modai-inner
         position: relative
+        z-index: 802
+        width: 100%
+        max-width: calc( 21vw + 400px )
+
+    .eos-modai-center
+        position: relative
+        overflow: hidden
+        z-index: 802
+        @extend .br
         @extend .upper_mod
+
+    .eos-modai-center
+        width: 100%
+        height: auto
         background: #FFF
         box-shadow: 0px 0.618px 6px -1.2px rgba(11, 20, 26, 0.24)
 
-    .modai-center
-        @extend .fx-c
-        width: auto
-        height: auto
-        z-index: 802
-        overflow: hidden
-        border-radius: 6px
-        max-width: calc(360px + 30vw)
-
-    .modai-center > div
-        max-width: 100%
+    .eos-modai-center > nav
+        min-height: 30vh
+        width: 100%
         max-height: 80vh
         overflow-x: hidden
         overflow-y: scroll
         & > div
             overflow-y: scroll
 
+.eos-modai-sure
+    .eos-modai-inner
+        max-width: calc(12vw + 200px)
+        nav
+            padding: $ds
+            @extend .br
+            background: #FFFFFF
 
 .modai-active
     @extend .fx-c
     top: 0vh
     display: flex
-
-.modal-menu
-    .modal-center
-        margin-left: $menuW
-    &,
-    .modal-hui,
-    .modal-cont
-        z-index: 550
-
-.min-w
-    min-width: 60vw
-
-// 最后 宽度
-.modal-w-min
-    .modal-center
-        width: 100%
-        max-width: 60vw
-        & > div 
-            width: 100%

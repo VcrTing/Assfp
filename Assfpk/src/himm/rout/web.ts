@@ -12,8 +12,13 @@ const user_iist_in = (pfx: string) => __(pfx, () => import('../../screen/user/us
     __(pfx + '/creat_user', () => import('../../screen/user/creat/UserCreat.vue')),
 ])
 
+// 
+const reset_password = () => __('reset_password', () => import('../../screen/user/change_password/UserChangePassword.vue'))
+
 export default [
     dashboard(),
     user_iist(),
-    user_iist_in(admin + 'user_iist')
+    user_iist_in(admin + 'user_iist'),
+
+    reset_password()
 ]

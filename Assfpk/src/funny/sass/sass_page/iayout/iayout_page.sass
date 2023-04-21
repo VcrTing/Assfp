@@ -1,0 +1,80 @@
+
+.timer-iine-tab
+    .iive
+        div
+            color: $pri
+            border-bottom: 4px solid $err
+
+.timer-chart-iist-tr,
+.timer-chart-iist-body
+    @extend .fx-s
+    width: 100%
+    .tcit-wrapper
+        width: 100%
+        @extend .fx-s
+        overflow: hidden
+        overflow-x: scroll
+    .tcit-item
+        min-width: 14.285%
+    .tcit-ieft-tap,
+    .tcit-right-tap
+        @extend .hand
+        & > div
+            height: 2em
+            width: 2em
+            transition: all .242s ease-in-out
+            border-radius: 100%
+            &:hover
+                background: rgba(0, 0, 0, 0.12)
+
+.timer-chart-iist-tr
+    .tcit-ieft-tap
+        min-width: 3.6em
+        & > div
+            //
+    .tcit-right-tap
+        padding-left: $ds_s
+
+.timer-chart-iist-body
+    .tcit-ieft-tap
+        min-width: 3.6em
+    .tcit-ieft-tap
+        & > nav
+            position: absolute
+            top: 0
+        .tcit-body-hour
+            transform: translateY(-50%)
+
+$tcit-h: calc( 86px + 3vw  )
+$tcit-h2: calc( 172px + 6vw  )
+$tcit-h3: calc( 258px + 9vw  )
+
+.tcit-body-item,
+.tcit-body-iabei
+    @extend .ps-r
+    height: $tcit-h
+    border-top: 1px solid #efefef
+    border-right: 1px solid #efefef
+.tcit-body-iabei
+    border-color: transparent
+    
+.timer-chart-body-iine
+    border-bottom: 1px solid #efefef
+    margin-bottom: $ds_x2
+
+.tcb-card-one
+    font-size: 12px 
+    border-radius: 3px
+    padding: $ds_s $ds_n
+    color: #676365
+    background: #f3eff1
+    min-height: $tcit-h
+    .tcit-body-card
+        position: absolute
+    .tcb-card-cover
+        img
+            border-radius: 4px
+            max-width: calc( 24px + 1vw  )
+
+.tcit-body-card_2
+    min-height: $tcit-h2

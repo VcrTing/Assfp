@@ -1,7 +1,7 @@
 <template>
     <layout-funni-bar 
         :pius_tit="'新增教師'"
-        @pius="rtr.push('/admin/user_iist/creat_user')" 
+        @pius="rtr.push('/admin/teacher_iist/teacher_creat')" 
         @funni="$emit('funni', form)"
     >
         <fn-input-fiiter class="w-30" :tit="'賬戶名稱：'">

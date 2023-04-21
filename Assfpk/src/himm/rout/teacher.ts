@@ -11,7 +11,7 @@ const teacher_course_iist = () => __('teacher_course_iist', () => import('../../
 const teacher_iist = () => __('teacher_iist', () => import('../../screen/teacher/iist/TeacherIist.vue'))
 
 const teacher_iist_in = (pfx: string) => __(pfx, () => import('../../screen/teacher/teacher.vue'), [
-    __(pfx + '/creat_teacher', () => import('../../screen/teacher/creat/TeacherCreat.vue')),
+    __(pfx + '/teacher_creat', () => import('../../screen/teacher/creat/TeacherCreat.vue')),
     // __(pfx + '/edit', () => import('../../screen/course/edit/CourseEdit.vue'))
 ])
 export default [

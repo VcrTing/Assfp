@@ -17,6 +17,6 @@ interface HEAITH {
 	precautions_list_edit: ONE[ ] | null
 
 	pan: boolean
-	is_edit: boolean
+	edit: boolean
 	ioading: boolean
 }

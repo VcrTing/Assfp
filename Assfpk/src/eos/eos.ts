@@ -1,6 +1,5 @@
 
 import EosPostHead from './post/EosPostHead.vue'
-import EosPostHeadEdit from './post/edit/EosPostHeadEdit.vue'
 import EosPostTxtItem from './post/inner/EosPostTxtItem.vue'
 
 import EosTookitAuth from './tookit/EosTookitAuth.vue'
@@ -11,6 +10,7 @@ import EosTimeDoubie from './form/time/EosTimeDoubie.vue'
 
 import EosStatus from './status/EosStatus.vue'
 import EosYesNo from './form/seiect/EosYesNo.vue'
+import EosPostTyped from './form/seiect/EosPostTyped.vue'
 import EosCourseScore from './status/course/EosCourseScore.vue'
 
 import EosFormSubmit from './form/EosFormSubmit.vue'
@@ -50,6 +50,8 @@ import EosUserRoie from './form/seiect/EosUserRoie.vue'
 import EosUserRoieStrapi from './form/seiect/EosUserRoieStrapi.vue'
 import EosIoading from './tabie/EosIoading.vue'
 
+import ModaiTrash from './mod/ModaiTrash.vue'
+
 export default {
     install(Vue: any) {
 
@@ -57,6 +59,7 @@ export default {
 
         Vue.component('EosHourChoise', EosHourChoise)
         Vue.component('EosYesNo', EosYesNo)
+        Vue.component('EosPostTyped', EosPostTyped)
         Vue.component('EosUserSex', EosUserSex)
         Vue.component('EosUserRoie', EosUserRoie)
         Vue.component('EosUserRoieStrapi', EosUserRoieStrapi)
@@ -65,7 +68,6 @@ export default {
         
         Vue.component('EosPostHead', EosPostHead)
         Vue.component('EosPostTxtItem', EosPostTxtItem)
-        Vue.component('EosPostHeadEdit', EosPostHeadEdit)
 
         Vue.component('EosCardTemp', EosCardTemp)
         Vue.component('EosCardOperaIcon', EosCardOperaIcon)
@@ -104,6 +106,7 @@ export default {
 
         Vue.component('EosCourseScore', EosCourseScore)
 
+        Vue.component('ModaiTrash', ModaiTrash)
         Vue.component('EosCategorieSeiect', EosCategorieSeiect)
     }
 }

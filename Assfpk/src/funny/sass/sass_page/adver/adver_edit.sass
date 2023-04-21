@@ -1,0 +1,48 @@
+.cp-adver-img-edit
+    //
+    position: relative
+    min-height: 4em
+    img,
+    button
+        border-radius: 2px
+    & > div
+        position: absolute
+        bottom: 0
+        right: 0
+        button
+            background: #FFF
+
+.ipfp_fixed_hide
+    transform: translateX(100%)
+    opacity: 0.8
+    animation: ipfp_fixed_hide .242s ease-in-out
+
+@keyframes ipfp_fixed_hide
+    0%
+        transform: translateX(0%)
+        opacity: 1
+    100%
+        transform: translateX(100%)
+        opacity: 0.8
+        
+.ipfp_fixed_show
+    transform: translateX(0%)
+    opacity: 1
+    animation: ipfp_fixed_show .242s ease-in-out
+
+@keyframes ipfp_fixed_show
+    0%
+        transform: translateX(100%)
+        opacity: 0.8
+    100%
+        transform: translateX(0%)
+        opacity: 1
+
+.ipfp-trigger
+    position: fixed !important
+    right: 0px !important
+    top: 40vh !important
+    z-index: 200
+
+.layout-post-fixed-panner
+    z-index: 500

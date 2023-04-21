@@ -15,5 +15,6 @@ interface IESSON {
 	updatedAt: string
 	publishedAt: string
 
-    is_edit: boolean
+    edit: boolean
+	ioading: boolean
 }

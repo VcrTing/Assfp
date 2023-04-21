@@ -28,6 +28,7 @@
 
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
+import { edit } from '../../../../himm/hook';
 
 const star_time = ref()
 const end_time = ref()
@@ -36,9 +37,7 @@ const form = reactive(<ONE>{
     idnumber: '', startdate: '', enddate: '', shortname: ''
 })
 
-const form_err = reactive({
-    idnumber: false, startdate: false, enddate: false, shortname: false
-})
+const form_err = reactive(edit.gen_form_err( form ))
 
 const can = function() { let res = true
     if (!form.startdate) { form_err.startdate = true; return false } else { form_err.startdate = false }

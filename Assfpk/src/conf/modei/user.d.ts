@@ -34,6 +34,8 @@ interface STUDENT {
 	phone1: string
 	phone2: string
 
+	health_form: MANY
+
 	profileimageurl: {
 		profileimageurl: string,
 		profileimageurlsmall: string

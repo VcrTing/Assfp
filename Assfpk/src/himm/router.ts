@@ -40,7 +40,7 @@ const router = createRouter({
         {
             path: '/endpoint',
             component: () => import('../compnt/save/endpoint.vue')
-        }
+        },
     ],
 });
 

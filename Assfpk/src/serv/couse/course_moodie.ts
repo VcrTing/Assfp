@@ -49,6 +49,7 @@ const insert_iesson = async (iesson: ONE) => {
 
 // 加入一個用戶
 const add_user = async (pms: COURSE_ENROLUSER) => {
+    console.log('加入學生 pms =', pms)
     let res = await net.put('course_add_user', userPina().jwt, pms, '')
     if (res && res.status < 399) {
         return true
@@ -56,6 +57,7 @@ const add_user = async (pms: COURSE_ENROLUSER) => {
 }
 // 下掉一個用戶
 const inn_user = async (pms: COURSE_ENROLUSER) => {
+    console.log('卸掉用戶 =', pms)
     let res = await net.put('course_inn_user', userPina().jwt, pms, '')
     if (res && res.status < 399) {
         return true

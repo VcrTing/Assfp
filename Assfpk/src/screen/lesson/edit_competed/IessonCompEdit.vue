@@ -1,11 +1,15 @@
 <template>
     <layout-form>
-        <template v-slot:opera><eos-form-submit @back="funn.dump"/></template>
-        <template v-slot:cont>
-            <div class="panner">
-                <eos-form-titie :tit="'編輯學生'"/>
-                <ice-base/>
-                <div class="py"><br/></div>
+        <template #opera><eos-form-submit @back="funn.dump"/></template>
+        <template #cont>
+            <div v-if="!aii.ioading">
+                <div class="panner">
+                    <iesson-edit-course-msg :one="aii.one"/>
+                </div>
+                <div class="py"></div>
+                <div class="panner">
+                    <ice-student :one="aii.one"/>
+                </div>
             </div>
         </template>
     </layout-form>
@@ -14,11 +18,24 @@
 <script lang="ts" setup>
 import { reactive } from 'vue'
 import { useRouter } from 'vue-router';
-import IceBase from './base/IceBase.vue';
+import IessonEditCourseMsg from '../edit/course/IessonEditCourseMsg.vue';
+import IceStudent from './student/IceStudent.vue';
+import course from '../../../serv/couse/course';
+import { coursePina } from '../../../himm/store';
+
+const aii = reactive({
+    one: <COURSE>{ }, ioading: true
+})
+
+const ioe: ONE = coursePina().iesson_of_edit
 const rtr = useRouter()
 const funn = {
-    dump: () => {
-        rtr.back()
+    dump: () => rtr.push('/admin/iesson_iist'),
+    init: async (id: ID) => {
+        const res = await course.one(id)
+        if (res) { aii.one = res as COURSE; console.log('要編輯的課程 =', res) }
+        setTimeout(() => aii.ioading = false, 20)
     }
 }
+if (ioe.course_id) { funn.init(ioe.course_id) } else { rtr.back() }
 </script>

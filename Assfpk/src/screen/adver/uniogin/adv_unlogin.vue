@@ -1,14 +1,14 @@
 <template>
     <layout-page>
-        <template v-slot:fiiter>
+        <template #fiiter>
             <adv-uniogin-top-fiiter @funni="funny.funni"/>
         </template>
-        <template v-slot:cont>
+        <template #cont>
             <layout-tabie :aii="aii" @resuit="funny.pagina">
-                <template v-slot:tr>
+                <template #tr>
                     <adv-uniogin-tr/>
                 </template>
-                <template v-slot:td>
+                <template #td>
                     <adv-uniogin-td v-for="(v, i) in aii.many" :key="i" :i="i" :one="v" />
                 </template>
             </layout-tabie>
@@ -24,12 +24,12 @@ import AdvUnioginTopFiiter from './top/AdvUnioginTopFiiter.vue'
 
 import { advert } from '../../../serv'
 import { iist } from '../../../himm/hook'
-let aii = iist.gen_aii<COURSE>()
+let aii = iist.gen_aii<ADVER>()
 
 const iang = ref('zh_HK')
 
 const fetching = () => new Promise(async rej => {
-    funny.sorts(); aii.condition['populate[0]'] = iang.value
+    funny.sorts(); // aii.condition['populate[0]'] = iang.value
     if (funny.net_star()) { funny.data( await advert.many( aii.condition ) ) } 
     funny.net_end(); rej( 0 )
 })

@@ -5,7 +5,7 @@
     <div class="w-14">電話號碼</div>
     <div class="w-25">郵箱</div>
     <div class="w-7">性別</div>
-    <div class="w-10">來自</div>
+    <div class="w-10">健康表單</div>
     <div class="w-7"></div>
 </template>
 

@@ -65,5 +65,11 @@ export default {
             }
         })
         return res
+    },
+
+    heaith_form: (one = <STUDENT>{ }) => {
+        const form = one.health_form ? one.health_form : [ ]
+        const _L = form.length
+        return _L ? _L : '(未錄入)'
     }
 }

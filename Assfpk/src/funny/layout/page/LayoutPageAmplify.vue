@@ -5,10 +5,17 @@
             <slot name="opera"></slot>
         </div>
         <hr class="hr-deep"/>
-        <div class="ipd-cont pt upper">
-            <slot name="cont"></slot>
-            <br/>
-        </div>
+        <nav class="ps-r">
+            <nav>
+                <slot name="top"/>
+            </nav>
+            <div class="ipd-cont pt upper">
+                <slot name="cont"></slot>
+                <br/>
+            </div>
+
+            <slot name="pan"></slot>
+        </nav>
     </div>
 </template>
 

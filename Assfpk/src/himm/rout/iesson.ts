@@ -6,8 +6,8 @@ const __ = (path: string, component: any, children: any = [ ]) => { return { pat
 //
 const iesson_iist = () => __('iesson_iist', () => import('../../screen/lesson/iist/IessonIist.vue'))
 const iesson_iist_in = (pfx: string) => __(pfx, () => import('../../screen/lesson/lesson.vue'), [
-    // __(pfx + '/creat_iesson', () => import('../../screen/lesson/iist')),
-    // __(pfx + '/edit', () => import('../../screen/course/edit/CourseEdit.vue'))
+    __(pfx + '/creat_iesson', () => import('../../screen/lesson/creat/IessonCreat.vue')),
+    __(pfx + '/edit', () => import('../../screen/lesson/edit/IessonEdit.vue')),
     __(pfx + '/iesson_compeieted_edit', () => import('../../screen/lesson/edit_competed/IessonCompEdit.vue')),
 ])
 

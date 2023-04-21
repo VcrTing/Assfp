@@ -14,7 +14,13 @@ const category = async (params: ONE): Promise<ONE> => {
     return res ? strapi.ser_aii(res, [ ]) : { }
 }
 
+const one = async (id: ID): Promise<ONE> => {
+    let res = await net.one('courses', userPina().jwt, id + '')
+    return res ? strapi.data(res) : { }
+}
+
 export default {
+    one,
     many_my,
     category
 }

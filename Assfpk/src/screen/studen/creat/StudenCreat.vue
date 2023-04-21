@@ -35,6 +35,7 @@ const funn = {
 
 const aii = reactive({
     many: [
+        /*
         {
             date: '2022-12-12', booid: { s: 110, d: 97 }, height: 180,
             weight: 62, tizhi: 10, bmi: 12.12, candy: 1, xuezhi: 1
@@ -43,6 +44,7 @@ const aii = reactive({
             date: '2022-12-12', booid: { s: 110, d: 97 }, height: 180,
             weight: 62, tizhi: 10, bmi: 12.12, candy: 1, xuezhi: 1
         }
+        */
     ]
 })
 

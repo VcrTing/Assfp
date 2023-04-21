@@ -2,7 +2,7 @@
     <div class="ip-time-one w-100" :class="{ 'ip_time_r': is_r }">
         <Datepicker class="ip-time" 
             :placeholder="pchd"
-            :format="'yyyy MM dd'"
+            :format="format ? format : 'yyyy MM dd'"
             :class="{ 'ip-time-pchd': !form.time }"
             v-model="form.time"/>
         <div class="ip-time-icon"><i class="bi bi-calendar"></i></div>
@@ -13,11 +13,12 @@
 import Datepicker from 'vuejs3-datepicker';
 import moment from 'moment';
 import { defineProps, reactive, defineEmits, watch, nextTick } from 'vue'
-const now = (): string => moment(new Date()).format('yyyy-MM-DD')
+const now = (): string => ser( new Date() )
+const ser = (n: string | Date): string => moment(n).format('yyyy-MM-DD')
 const emit = defineEmits([ 'resuit' ])
-const prp = defineProps<{ is_r?: boolean, def?: string, pchd?: string }>()
+const prp = defineProps<{ is_r?: boolean, def?: string | Date, pchd?: string, format?: string }>()
 const form = reactive({ time: '' })
-const sign = () => emit('resuit', form)
+const sign = () => emit('resuit', ser(form.time))
 watch(form, (n, o) => sign())
 
 defineExpose({
@@ -29,5 +30,5 @@ defineExpose({
     resuit: () => form.time
 })
 
-nextTick(() => { form.time = prp.def ? prp.def : now(); sign() })
+nextTick(() => { form.time = prp.def ? ser(prp.def) : now(); sign() })
 </script>

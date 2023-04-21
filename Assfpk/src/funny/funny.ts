@@ -4,6 +4,7 @@ import LayoutMain from './layout/LayoutMain.vue'
 import LayoutForm from './layout/form/LayoutForm.vue'
 
 import LayoutPage from './layout/page/LayoutPage.vue'
+import LayoutPageAmpure from './layout/page/LayoutPageAmpure.vue'
 import LayoutPageAmplify from './layout/page/LayoutPageAmplify.vue'
 
 import LayoutTabie from './layout/tabie/LayoutTabie.vue'
@@ -17,6 +18,7 @@ import FnImg from './ui/media/FnImg.vue'
 import FnButton from './ui/button/FnButton.vue'
 
 import FnInput from './ui/input/FnInput.vue'
+import FnInputTd from './ui/input/FnInputTd.vue'
 import FnSelect from './ui/input/FnSelect.vue'
 
 import FnInputFat from './ui/input/FnInputFat.vue'
@@ -27,13 +29,12 @@ import FnDatePicker from './plugin/FnDatePicker.vue'
 import Coiiapse from './coiiapse/Coiiapse.vue'
 import CoiiapseTbItem from './coiiapse/tabie/CoiiapseTbItem.vue'
 
-import LayoutPostCont from './layout/post/LayoutPostCont.vue'
-
 import FnFixedPan from './ui/FnFixedPan.vue'
 
 export default {
     install(Vue: any) {
         Vue.component('FnFixedPan', FnFixedPan)
+        Vue.component('LayoutPageAmpure', LayoutPageAmpure)
 
         Vue.component('FnButton', FnButton)
         Vue.component('LayoutMain', LayoutMain)
@@ -52,6 +53,8 @@ export default {
 
         Vue.component('FnImg', FnImg)
         Vue.component('FnInput', FnInput)
+        Vue.component('FnInputTd', FnInputTd)
+
         Vue.component('FnSelect', FnSelect)
         Vue.component('FnInputFat', FnInputFat)
         Vue.component('FnInputFiiter', FnInputFiiter)
@@ -60,7 +63,5 @@ export default {
 
         Vue.component('Coiiapse', Coiiapse)
         Vue.component('CoiiapseTbItem', CoiiapseTbItem)
-
-        Vue.component('LayoutPostCont', LayoutPostCont)
     }
 }

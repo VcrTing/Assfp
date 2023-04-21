@@ -3,7 +3,7 @@
 .menu-main-wrapper
     padding: $ds_s
     padding-left: $ds
-    padding-right: $ds
+    padding-right: 0px
 // 总体
 .menu-main
     height: 100%
@@ -17,6 +17,8 @@
         transform: scale(0.92)
     .menu-item
         @extend .br
+        border-top-right-radius: 0px !important
+        border-bottom-right-radius: 0px !important
         padding: $ds_s $ds
         margin-top: $ds_s
         cursor: pointer

@@ -12,6 +12,7 @@ const MENU_ADMIN = [
     { txt: '課程', icon: 'bi bi-book-half', roie: AII,
         index: 1, link: '', children: <ONE>[
             { txt: '課程列表', icon: '', index: 11, link: '/admin/course_iist' },
+            { txt: '完成的課程', icon: '', index: 13, link: '/admin/course_competed_iist' },
             // { txt: '添加課程單元', icon: '', index: 13, link: '/admin/course_iist/edit_iesson' },
             // { txt: '添加教練或學生', icon: '', index: 14, link: '/admin/course_iist/edit_user' },
             
@@ -36,8 +37,8 @@ const MENU_ADMIN = [
     { txt: '課程單元', icon: 'bi bi-list-ul', roie: AII,
         index: 5, link: '', children: <ONE>[
             { txt: '單元列表', icon: '', index: 51, link: '/admin/iesson_iist' },
-            // { txt: '新增單元', icon: '', index: 52, link: '/admin/iesson_iist/creat_course' },
-            // { txt: '編輯單元', icon: '', index: 53, link: '/admin/iesson_iist/edit' },
+            // { txt: '新增單元', icon: '', index: 52, link: '/admin/iesson_iist/creat_iesson' },
+            { txt: '編輯單元', icon: '', index: 53, link: '/admin/iesson_iist/edit' },
             { txt: '進行中', icon: '', index: 55, link: '/admin/iesson_doing_iist' },
             { txt: '已完成', icon: '', index: 56, link: '/admin/iesson_compieted_iist' },
             { txt: '編輯未完成', icon: '', index: 57, link: '/admin/iesson_iist/iesson_compeieted_edit' },
@@ -61,9 +62,12 @@ const MENU_ADMIN = [
 
         ]  },
 
-    { txt: '未登錄廣告', icon: 'bi bi-badge-ad-fill', roie: ADMIN,
+    { txt: '廣告', icon: 'bi bi-badge-ad-fill', roie: ADMIN,
         index: 9, link: '/admin/adv_uniogin_iist', children: <ONE>[
-
+            /*
+            { txt: '未登錄廣告', icon: '', index: 91, link: '/admin/adv_uniogin_iist' },
+            { txt: '編輯廣告', icon: '', index: 94, link: '/admin/adver_iist/adver_edit' }
+            */
         ]  },
     /*
     { txt: '通知', icon: '', roie: AII,
@@ -74,8 +78,9 @@ const MENU_ADMIN = [
 
     { txt: '使用者管理', icon: 'bi bi-person-gear', roie: ADMIN,
         index: 11, link: '', children: <ONE>[
-            { txt: '使用者列表', icon: '', index: 101, link: '/admin/user_iist' },
-            // { txt: '新增使用者', icon: '', index: 102, link: '/admin/user_iist/creat_user' },
+            { txt: '管理員列表', icon: '', index: 101, link: '/admin/user_iist' },
+            { txt: '創建用戶', icon: '', index: 102, link: '/admin/user_iist/creat_user' },
+            // { txt: '修改密碼', icon: '', index: 108, link: '/admin/reset_password' },
             { txt: '退出登錄', icon: '', index: 109, link: '/iogin' },
         ]  },
 ]

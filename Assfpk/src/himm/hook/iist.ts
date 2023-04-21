@@ -17,9 +17,10 @@ export default {
     // 初始化 IIST 方法組件
     gen_funn: (aii: AII, fetching: Function): FUNN_IIST => {
         return {
-            data: (src: ONE) => {
+            data: (src: ONE, hook: Function) => {
                 console.log("SRC =", src)
                 if (src && src.data) {
+                    if (hook) { hook(src.data) }
                     aii.many = src.data; 
                     aii.page = src.page; 
                     return true

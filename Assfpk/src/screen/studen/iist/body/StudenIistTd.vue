@@ -9,7 +9,7 @@
     <div class="w-14">{{ ser_student.phone( one ) }}</div>
     <div class="w-25">{{ one.email }}</div>
     <div class="w-7">{{ ser_student.sex( one ) }}</div>
-    <div class="w-10">{{ ser_student.country( one ) }}</div>
+    <div class="w-10">{{ ser_student.heaith_form( one ) }}</div>
     <div class="w-7">
         <eos-tabie-edit @tap="() => {
                 studenPina().do_one(one)

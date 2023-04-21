@@ -9,6 +9,15 @@ export default {
         }
         return res
     },
+    // 判斷 是否 err
+    jude_form_err: (form: ONE, form_err: ONE, ks: string[]) => {
+        for (let i= 0; i< ks.length; i++ ) {
+            const _k = ks[i]
+            if (!form[_k]) { form_err[_k] = true; return false }
+            else { form_err[_k] = false }
+        }
+        return true
+    },
     // 嚴正
     ser_timed: (one: ONE, form_err: ONE, key: string, iong: boolean = false) => {
         let src = one[ key ]

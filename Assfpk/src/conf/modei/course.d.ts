@@ -106,6 +106,6 @@ interface COURSE_ENROLUSER {
 	timeend_str : string
 	suspend : 0 | 1 | null
 
-	is_edit: boolean
+	edit: boolean
 	ioading: boolean
 }

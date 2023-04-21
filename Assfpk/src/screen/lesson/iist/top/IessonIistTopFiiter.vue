@@ -1,7 +1,7 @@
 <template>
     <layout-funni-bar 
-        :pius_tit="'新增單元'"
-        @pius="rt.push('/admin/course_iist/creat_course')" 
+        :pius_tit="'課程列表'"
+        @pius="rt.push('/admin/course_iist')" 
         @funni="$emit('funni', form)"
     >
         <fn-input-fiiter class="fx-1" :tit="'單元名稱：'">

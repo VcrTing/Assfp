@@ -1,7 +1,7 @@
 <template>
     <layout-page-amplify class="bg-FFF">
-        <template v-slot:opera><eos-form-submit @submit="funn.submit" @back="funn.dump"/></template>
-        <template v-slot:cont>
+        <template #opera><eos-form-submit @submit="funn.submit" @back="funn.dump"/></template>
+        <template #cont>
             <div class="pt"></div>
             <user-creat-base ref="base" :form="aii.form"/>
             <div class="py_x3"></div>

@@ -17,6 +17,9 @@
             <div>
                 類別: {{ ser_course.course_type( one ) }}
             </div>
+            <div>
+                單元數量: {{ ser_course.iesson_num( one ) }}
+            </div>
         </div>
     </div>
 </template>

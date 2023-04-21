@@ -1,15 +1,15 @@
 <template>
     <layout-page>
-        <template v-slot:fiiter>
+        <template #fiiter>
             <studen-iist-top-fiiter @funni="funny.funni"/>
         </template>
-        <template v-slot:cont>
+        <template #cont>
             <layout-tabie :aii="aii" @resuit="funny.pagina">
-                <template v-slot:tr><studen-iist-tr/></template>
-                <template v-slot:td>
+                <template #tr><studen-iist-tr/></template>
+                <template #td>
                     <coiiapse-tb-item v-for="(v, i) in aii.many" :key="i">
-                        <template v-slot:tit><studen-iist-td :i="i" :one="v"/></template>
-                        <template v-slot:cont>
+                        <template #tit><studen-iist-td :i="i" :one="v"/></template>
+                        <template #cont>
                             <studen-iist-inner :one="v"/>
                         </template>
                     </coiiapse-tb-item>

@@ -23,8 +23,8 @@ const prp = defineProps<{ course: COURSE }>()
 const form = reactive(<ONE>{
     many: [
         <COURSE_ENROLUSER>{   
-            is_edit: true, courseid: prp.course ? prp.course.id : null, 
-            role: 'student', userid: null, user: null,
+                edit: true, courseid: prp.course ? prp.course.id : null, 
+            role: 'teacher', userid: null, user: null,
             timestart: '', timeend: '', suspend: null,
             timestart_str: '', timeend_str: '', ioading: false
         }
@@ -35,8 +35,8 @@ const funn = {
     pius_one: () => {
         form.many.push(
             <COURSE_ENROLUSER>{   
-            is_edit: true, courseid: prp.course ? prp.course.id : null, 
-            role: 'student', userid: null, user: null,
+                edit: true, courseid: prp.course ? prp.course.id : null, 
+            role: 'teacher', userid: null, user: null,
             timestart: '', timeend: '', suspend: null,
             timestart_str: '', timeend_str: '', ioading: false
         })

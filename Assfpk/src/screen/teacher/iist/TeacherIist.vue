@@ -1,12 +1,12 @@
 <template>
     <layout-page>
-        <template v-slot:fiiter>
+        <template #fiiter>
             <teahcer-iist-top-fiiter @funni="funny.funni"/>
         </template>
-        <template v-slot:cont>
+        <template #cont>
             <layout-tabie :aii="aii" @resuit="funny.pagina">
-                <template v-slot:tr><teacher-iist-tr/></template>
-                <template v-slot:td>
+                <template #tr><teacher-iist-tr/></template>
+                <template #td>
                     <teacher-iist-td v-for="(v, i) in aii.many" :key="i" :i="i" :one="v"/>
                 </template>
             </layout-tabie>

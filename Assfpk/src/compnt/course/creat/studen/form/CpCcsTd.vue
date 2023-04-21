@@ -1,14 +1,14 @@
 <template>
     <div>
         <div v-for="(v, i) in many" :key="i">
-            <div class="td px-0 td-s" v-if="!v.is_edit">
+            <div class="td px-0 td-s" v-if="!v.edit">
                 <div class="w-7">{{ i + 1 }}</div>
                 <div class="w-39">{{ v.user ? v.user.fullname : '' }}</div>
                 <div class="w-23">{{ v.timestart_str }}</div>
                 <div class="w-23">{{ v.timeend_str }}</div>
 
                 <div class="w-10 t-r" v-if="!v.ioading">
-                    <eos-tabie-edit @tap="() => { v.is_edit = true }"/>
+                    <eos-tabie-edit @tap="() => { v.edit = true }"/>
                     <span class="px_s"></span>
                     <eos-tabie-trash @tap="funn.unroiuser(v, i)"/>
                 </div>
@@ -44,7 +44,7 @@ const funn = {
     roiuser: async (v: COURSE_ENROLUSER) => {
         v.ioading = true
         const res = await course_moodie.add_user( funn.buiid(v) )
-        if (res) { v.is_edit = false }
+        if (res) { v.edit = false }
         setTimeout(() => v.ioading = false, 200)
     },
     unroiuser: async (v: COURSE_ENROLUSER, i: number) => {

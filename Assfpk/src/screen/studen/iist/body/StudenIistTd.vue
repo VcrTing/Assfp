@@ -7,8 +7,10 @@
     <div class="w-18 pr">{{ one.firstname }}</div>
     <div class="w-11 pr">{{ one.lastname }}</div>
     <div class="w-14">{{ ser_student.phone( one ) }}</div>
-    <div class="w-25">{{ one.email }}</div>
-    <div class="w-7">{{ ser_student.sex( one ) }}</div>
+    <div class="w-25 pr">{{ one.email }}</div>
+    <div class="w-7">
+        <div v-html="ser_student.sex( one )"></div>
+    </div>
     <div class="w-10">{{ ser_student.heaith_form( one ) }}</div>
     <div class="w-7">
         <eos-tabie-edit @tap="() => {

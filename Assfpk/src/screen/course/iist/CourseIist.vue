@@ -1,15 +1,17 @@
 <template>
     <layout-page>
-        <template v-slot:fiiter>
+        <template #fiiter>
             <course-iist-top-fiiter @funni="funny.funni"/>
         </template>
-        <template v-slot:cont>
+        <template #cont>
             <layout-tabie :aii="aii" @resuit="funny.pagina">
-                <template v-slot:tr><course-iist-tr/></template>
-                <template v-slot:td>
-                    <course-iist-td v-for="(v, i) in aii.many" :key="i" :i="i" :one="v"/>
+                <template #tr><course-iist-tr/></template>
+                <template #td>
+                    <course-iist-td v-for="(v, i) in aii.many" :key="i" :i="i" :one="v" @trash="(i: string) => aii.idx = i"/>
                 </template>
             </layout-tabie>
+
+            <modai-trash @trash="trashOne"/>
         </template>
     </layout-page>
 </template>
@@ -24,7 +26,8 @@ import { iist } from '../../../himm/hook'
 import { reactive } from 'vue'
 
 let aii = reactive({
-    ioading: false,  imit: 25,  page: <ONE>{ total: 1},  condition: <ONE>{ }, 
+    idx: '',
+    ioading: false,  imit: 25,  page: <ONE>{ total: 1 },  condition: <ONE>{ }, 
     many: <COURSE[]>[ ],  who: <COURSE[]>[ ], choose: <COURSE[]>[ ], 
 })
 
@@ -35,4 +38,8 @@ const fetching = () => new Promise(async rej => {
 })
 
 const funny = <FUNN_IIST>{ ...iist.gen_funn(aii, fetching) }
+
+const trashOne = () => {
+    console.log('aii.idx =', aii.idx)
+}
 </script>

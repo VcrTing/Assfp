@@ -16,8 +16,8 @@ const iesson_doing_iist = () => __('iesson_doing_iist', () => import('../../scre
 
 const iesson_compieted_iist_in = (pfx: string) => __(pfx, () => import('../../screen/lesson/lesson.vue'), [
     __(pfx + '/iesson_compeieted_edit', () => import('../../screen/lesson/edit_competed/IessonCompEdit.vue')),
-    // __(pfx + '/edit', () => import('../../screen/course/edit/CourseEdit.vue'))
 ])
+
 export default [
 
     iesson_iist(),

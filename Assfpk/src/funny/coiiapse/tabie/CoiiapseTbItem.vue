@@ -18,21 +18,14 @@
 import { defineComponent, ref, watch } from 'vue'
 
 export default defineComponent({
-    emits: [ ],
+    emits: [ 'change' ],
     setup(prp, { emit }) {
         const active = ref<boolean | null>(false)
         
         watch(active, (n, o) => console.log(''))
 
-        function change() { active.value = !active.value }
+        function change() { active.value = !active.value; if (active.value) { emit('change') } }
         return { active, change }
     },
-    props: { },
-    computed: { },
-    async mounted( ) { },
 })
 </script>
-
-<style lang="sass" scoped>
-
-</style>

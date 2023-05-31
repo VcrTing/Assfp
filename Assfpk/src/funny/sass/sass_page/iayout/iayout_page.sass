@@ -18,6 +18,9 @@
         min-width: 14.285%
     .tcit-ieft-tap,
     .tcit-right-tap
+        position: absolute
+        top: 0
+        z-index: 400
         @extend .hand
         & > div
             height: 2em
@@ -26,13 +29,20 @@
             border-radius: 100%
             &:hover
                 background: rgba(0, 0, 0, 0.12)
+    .tcit-ieft-tap
+        left: 0
+    .tcit-right-tap
+        right: 0
 
 .timer-chart-iist-tr
+    .tcit-ieft-tap,
+    .tcit-right-tap
+        top: 50%
+        transform: translateY(-70%)
     .tcit-ieft-tap
         min-width: 3.6em
-        & > div
-            //
     .tcit-right-tap
+        right: -1.5em
         padding-left: $ds_s
 
 .timer-chart-iist-body

@@ -3,15 +3,18 @@ const admin = '/admin/'
 
 const __ = (path: string, component: any, children: any = [ ]) => { return { path, children, component } }
 
-//
-const info_course_iist = () => __('infoma_course_iist', () => import('../../screen/infoma/course/iist/InfomaCourseIist.vue'))
+const news_iist = () => __('news_iist', () => import('../../screen/news/iist/NewIist.vue'))
 
-const info_course_iist_in = (pfx: string) => __(pfx, () => import('../../screen/class/class.vue'), [
-    __(pfx + '/post_review', () => import('../../screen/infoma/course/post/InfomaCoursePost.vue')),
-    __(pfx + '/post_edit', () => import('../../screen/infoma/course/post_edit/InfomaCoursePostEdit.vue')),
+// Notification
+const notification_iist = () => __('notification_iist', () => import('../../screen/notification/iist/NotificationIist.vue'))
+const notification_iist_in = (pfx: string) => __(pfx, () => import('../../screen/notification/notification.vue'), [
+    __(pfx + '/creat_notific', () => import('../../screen/notification/creat/NotificCreat.vue')),
+    __(pfx + '/edit_notific', () => import('../../screen/notification/edit/NotificEdit.vue')),
 ])
 
 export default [
-    info_course_iist(),
-    info_course_iist_in(admin + 'infoma_course_iist'),
+    news_iist(),
+
+    notification_iist(),
+    notification_iist_in(admin + 'notification_iist')
 ]

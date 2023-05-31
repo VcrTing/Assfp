@@ -8,8 +8,12 @@
             <slot name="cont"></slot>
             <br/>
         </div>
+        <div v-if="space" class="ipd-space"></div>
     </div>
 </template>
 
 <script setup lang="ts">
+defineProps<{
+    space?: boolean
+}>()
 </script>

@@ -32,7 +32,7 @@ const IOGIN = {
         name: 'henrywong39@gmail.com', pass: '1Qazxc2Wsxcv?!'
     },
     'student': {
-        name: 'chankhhk@yahoo.com', pass: 'Zchankhhk@yahoo.com'
+        name: 'vcrting@163.com', pass: '123456'
     }
 }
 

@@ -2,12 +2,14 @@
     <div>
         <div v-for="(v, i) in many" :key="i">
             <div class="td px-0 td-s" v-if="!v.edit">
-                <div class="w-16">
+                <div class="w-20">
                     <eos-user-roie :def="v.role" :is_txt_mode="true"/>
                 </div>
-                <div class="w-36">{{ v.user ? v.user.fullname : '' }}</div>
-                <div class="w-20">{{ v.timestart_str }}</div>
-                <div class="w-20">{{ v.timeend_str }}</div>
+                <div class="w-72">{{ v.user ? v.user.fullname : '' }}</div>
+                <!--
+                <div class="w-21">{{ v.timestart_str }}</div>
+                <div class="w-21">{{ v.timeend_str }}</div>
+                -->
 
                 <eos-opera-group class="w-10 t-r"
                     :ioad="v.ioading"

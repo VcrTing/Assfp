@@ -14,6 +14,4 @@ const notice_iist_in = (pfx: string) => __(pfx, () => import('../../screen/class
 
 export default [
     notice_iist(),
-    // ciass_iist_in(admin + 'ciass_iist'),
-
 ]

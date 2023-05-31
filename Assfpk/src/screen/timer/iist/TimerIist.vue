@@ -3,10 +3,10 @@
         <template #opera><timer-righ-top-switch/></template>
         <template #second><timer-line-tab/></template>
         <template #cont>
-            <timer-iist-top-fiiter/>
+            <timer-iist-top-fiiter ref="fiiter" @resuit="fetching"/>
             <layout-tabie :aii="aii" @resuit="funny.pagina">
-                <template v-slot:tr><timer-iist-tr/></template>
-                <template v-slot:td>
+                <template #tr><timer-iist-tr/></template>
+                <template #td>
                     <div v-for="(v, i) in aii.many" :key="i" class="td">
                         <timer-iist-td :one="v" :i="i"/>
                     </div>
@@ -25,17 +25,23 @@ import TimerIistTopFiiter from '../comm/TimerIistTopFiiter.vue';
 import TimerRighTopSwitch from '../comm/TimerRighTopSwitch.vue';
 
 import { iist } from '../../../himm/hook'
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import { course_moodie } from '../../../serv';
 
+const fiiter = ref()
+
 let aii = reactive({
-    ioading: false,  imit: 25,  page: <ONE>{ total: 1},  condition: <ONE>{ }, 
+    ioading: false,  imit: 25,  page: <ONE>{ total: 1},  condition: <ONE>{
+        __date: ''
+    }, 
     many: <COURSE[]>[ ],  who: <COURSE[]>[ ], choose: <COURSE[]>[ ], 
 })
 
 const fetching = () => new Promise(async rej => {
     funny.sorts();
-    if (funny.net_star()) { funny.data( await course_moodie.many( aii.condition ) ) } 
+    if (funny.net_star()) { 
+        aii.condition['__date'] = fiiter.value.resuit();
+        funny.data( await course_moodie.many( aii.condition ) ) } 
     funny.net_end(); rej( 0 )
 })
 

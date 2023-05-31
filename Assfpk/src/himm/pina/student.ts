@@ -10,13 +10,12 @@ export const studenPina = defineStore("studenPina", {
     getters: {
         
     },
-
     persist: {
         enabled: true,
         strategies: [
             {
-                key: 'assfp_studen',
-                storage: localStorage, 
+                key: 'assfp_studen_',
+                storage: sessionStorage, 
                 paths: [ 'one' ]
             }
         ]

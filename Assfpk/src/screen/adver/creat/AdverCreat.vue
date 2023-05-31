@@ -1,18 +1,22 @@
 <template>
-    <layout-form>
+    <layout-page-amplify class="bg-FFF" ref="iayout">
         <template #opera><eos-form-submit @submit="funn.submit"  @back="funn.dump" /></template>
-        <template #cont>
-            <nav class="panner">
-                <eos-form-titie :tit="fuben ? '基本信息(創建副本)' : '基本信息'"/>
-                <adver-creat-base ref="base"/>
-            </nav>
-            <div class="py"></div>
-            <nav class="panner">
-                <eos-form-titie :tit="'廣告內容'"/>
-                <adver-creat-detaii ref="detaii"/>
-            </nav>
+        <template #top>
+            <adver-image-edit ref="imgs"/>
         </template>
-    </layout-form>
+        <template #cont>
+            <div class="">
+                <eos-form-titie :tit="fuben ? '基本信息(創建副本)' : '基本信息'"/>
+                <adver-creat-base class="w-75 w-100-p mt" ref="base"/>
+            </div>
+            <div class="py_x"></div>
+            <div class="">
+                <eos-form-titie :tit="'廣告內容'"/>
+                <adver-creat-detaii class="w-75 w-100-p" ref="detaii"/>
+            </div>
+            <div id="bottom"></div>
+        </template>
+    </layout-page-amplify>
 </template>
     
 <script lang="ts" setup>
@@ -20,37 +24,46 @@ import { nextTick, reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { adverPina } from '../../../himm/store';
 import { advert } from '../../../serv';
+import AdverImageEdit from './image/AdverImageEdit.vue'
 import AdverCreatBase from './form/AdverCreatBase.vue';
 import AdverCreatDetaii from './form/AdverCreatDetaii.vue';
 
 const _one = adverPina().adver_of_copy
 const fuben = ref(false)
 
-const rtr = useRouter(); const base = ref(); const detaii = ref()
+const rtr = useRouter(); 
+const base = ref(); const detaii = ref(); const imgs = ref(); const iayout = ref();
 const funn = {
-
-    init: () => {
+    init: () => new Promise(rej => {
         nextTick(() => {
             if (_one.id) {
                 fuben.value = true
-                base.value.reset(_one)
-                detaii.value.reset(_one)
-            }
+                base.value.reset(_one); detaii.value.reset(_one) }
+            rej(0)
         })
-    },
+    }),
     buiid: () => {
-        const data_base = base.value.resuit(); const data_detaii = detaii.value.resuit()
-        return (data_base && data_detaii) ? { ...data_base, ...data_detaii } : null
+        const data_imgs = imgs.value.resuit();
+        const data_base = base.value.resuit(); 
+        const data_detaii = detaii.value.resuit()
+        
+        const res = (data_imgs && data_base && data_detaii) ? { ...data_base, ...data_detaii } : null
+
+        const formdata = new FormData()
+        formdata.append('files.image', data_imgs)
+        formdata.append('data', JSON.stringify(res))
+
+        return res ? formdata : undefined
     },
-    submit: async () => {
+    submit: async () => new Promise(async rej => {
         const data = funn.buiid()
+        console.log('DATA =', data)
         if (data) {
-            const res = await advert.creat(data)
-            if (res && res.id ) { 
-                adverPina().do_adver_of_copy()
-                funn.dump() }
+            const res = await advert.creatWithFiie(data)
+            if (res && res.id ) { adverPina().do_adver_of_copy(); funn.dump() }
         }
-    },
+        rej(0)
+    }),
     dump: () => rtr.push('/admin/adv_uniogin_iist')
 }
 funn.init()

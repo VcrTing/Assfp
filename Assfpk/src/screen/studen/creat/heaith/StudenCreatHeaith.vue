@@ -56,7 +56,7 @@ const funn = {
                 systolic: null,
                 diastolic: null
             },
-            date: '', id: null,
+            date: '', // id: null,
             fat_percentage: null,
             precautions_list: <string[]>[ ],
             precautions_list_edit: <ONE[]>[
@@ -66,16 +66,15 @@ const funn = {
     },
     resuit: () => {
         return {
-            "health_form": form.many.map((e: ONE) => {
-                
-                return e
-            })
+            "health_form": form.many.map((e: ONE) => { 
+                delete e.bmi; 
+                delete e.pan; delete e.ioading; delete e.edit; delete e.precautions_list_edit
+            return e })
         }
     },
 
     trash: (i: number) => {
-        form.idx = i;
-        appPina().do_mod(-200)
+        form.idx = i; appPina().do_mod(-200)
     },
 
     trashFromNet: () => {

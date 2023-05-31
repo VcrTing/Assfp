@@ -2,7 +2,8 @@ import CRUMBS from "./conf/menus/crumbs"
 import { ROIES, IOGIN, roieType } from "./conf/contro_roie"
 
 const TEST = true 
-const ROIE = 'admin'
+const ROIE = 'student'
+const VERSION = '1.0.2'
 
 const BASE = 'https://strapi09.svr.up5d.com'
 const API = BASE + '/api'
@@ -24,11 +25,15 @@ const ENDPOINT = <ONE>{
     'course_my_finish': 'me/course-completions', // 完成的课程
 
     // 創建課程
+    'course_edit': 'moodle-courses/editCourse',
     'course_creat': 'moodle-courses/createCourse',
     
     'course_add_iesson': 'lesson/addLessons', // 为课程 加入 單元
     'course_add_user': 'moodle-courses/enrolUser', // 为课程 加入 学生
     'course_inn_user': 'moodle-courses/unrolUser', // 为课程 移除 学生
+
+    // 用户和课程
+    'course_sheet_of_user': 'course_completion_sheet',
 
     // 單元
     'iessons': 'lessons',
@@ -40,6 +45,7 @@ const ENDPOINT = <ONE>{
     'iesson_my_finish': 'me/lesson-completions', // 我完成的课程 // 全用户可访问
 
     //
+    'news': 'newses',
     'notific': 'notifications', // 提醒
 
     'advert': 'advertisements', // 广告
@@ -49,11 +55,12 @@ const ENDPOINT = <ONE>{
     'users': 'users', // 所有 用户
     'admin_register': 'users-permissions/admin/registerUser',
     //
-    'user_heaith': 'users-permissions/users/health_detail'
+    'user_heaith': 'users-permissions/users/health_detail',
 }
 
 export {
     TEST,
     BASE, API, ADMIN,
-    CRUMBS, ENDPOINT
+    CRUMBS, ENDPOINT,
+    VERSION
 }

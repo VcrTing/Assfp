@@ -1,10 +1,10 @@
 <template>
-    <nav class="panner mt mb">
-        <studen-course-iist/>
-    </nav>
+    <div class="py">
+        <studen-course-au :one="one"/>
+    </div>
 </template>
-
+    
 <script lang="ts" setup>
-import StudenCourseIist from '../../comp_for_au/StudenCourseIist.vue'
-
+// import { reactive } from 'vue'
+defineProps<{ one: ONE }>()
 </script>

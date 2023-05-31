@@ -1,30 +1,29 @@
 <template>
     <div>
         <div class="row_x2 fx-l">
-            <div class="w-333">
-                <fn-input :tit="'廣告開始時間'">
+            <div class="w-50">
+                <fn-input :tit="'開始時間'">
                     <eos-time-choise class="input" ref="star" :def="form.startDate" @resuit="(n: string) => form.startDate = n"/>
                 </fn-input>
             </div>
-            <div class="w-333">
-                <fn-input :tit="'廣告結束時間'">
+            <div class="w-50">
+                <fn-input :tit="'結束時間'">
                     <eos-time-choise class="input" ref="end" :def="form.endDate" @resuit="(n: string) => form.endDate = n"/>
-                </fn-input>
-            </div>
-            <div class="w-333">
-                <fn-input :tit="'狀態'">
-                    <eos-status-seiect class="input" ref="sts" :def="form.isActive" @resuit="(n: string) => form.isActive = (n == 'true')"/>
                 </fn-input>
             </div>
         </div>
         <div class="py"></div>
         <div class="row_x2 fx-l">
-            <div class="w-333">
+            <div class="w-50">
                 <fn-input :tit="'廣告排序值'">
                     <input v-model="form.sorting_order" placeholder="請輸入正數" class="input"/>
                 </fn-input>
             </div>
-            <div class="fx-1"></div>
+            <div class="w-50">
+                <fn-input :tit="'狀態'">
+                    <eos-status-seiect class="input" ref="sts" :def="form.isActive" @resuit="(n: string) => form.isActive = (n == 'true')"/>
+                </fn-input>
+            </div>
         </div>
     </div>
 </template>

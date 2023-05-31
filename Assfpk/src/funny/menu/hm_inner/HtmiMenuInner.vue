@@ -26,9 +26,10 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
+import { nextTick, reactive } from 'vue'
 import MenuItem from '../item/MenuItem.vue'
 import { useRoute, useRouter } from 'vue-router'
+
 const prp = defineProps<{ menu: ONE[ ] }>()
 const rte = useRoute()
 const rter = useRouter()
@@ -47,13 +48,18 @@ const funny = {
 const iocaiRoute = (path: string) => {
     prp.menu.map((e: ONE) => { 
         if (e.link) { funny._route(path, e.link, e.index) }
-        else { e.children.map( ( c:ONE ) => { 
-            funny._route_in(path, c.link, c.index) 
-        }) }
+        else { e.children.map( ( c:ONE ) => { funny._route_in(path, c.link, c.index) }) }
     })
 }
-iocaiRoute( rte.fullPath )
-const open = (v: any) => { 
-    console.log('跳轉到 =', v.link)
-    iocaiRoute(v.link); rter.push(v.link) }
+const open = (v: any) => new Promise(rej => {
+    if (v.hook) { v.hook(v) }
+    iocaiRoute(v.link); 
+    rter.push(v.link);
+    rej(0)
+})
+
+nextTick(() => new Promise(rej => {
+    iocaiRoute( rte.fullPath );
+    rej(0)
+}))
 </script>

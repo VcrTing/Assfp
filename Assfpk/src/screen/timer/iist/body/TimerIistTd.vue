@@ -15,7 +15,7 @@
         {{ ser_course.course_type( one ) }}
     </div>
     <div class="w-10">
-        Henry
+        
     </div>
     <div class="w-7">
         <eos-tabie-edit/>

@@ -35,7 +35,7 @@ import { ref, reactive } from 'vue'
 const cate = ref()
 
 const form: ONE = reactive({
-    fullname: '', categoryid: -1, url: 'https://img0.baidu.com/it/u=2670710653,1192831318&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=500'
+    fullname: '', categoryid: -1, url: 'https://img1.baidu.com/it/u=868084581,1504858908&fm=253&fmt=auto&app=138&f=JPEG?w=714&h=500'
 })
 const form_err = reactive({
     fullname: false, categoryid: false, url: false

@@ -47,5 +47,11 @@ export default {
     topic_num: (one = <COURSE>{ }) => {
         const tps: MANY = one.course_topic ? one.course_topic : [ ]
         return tps.length
+    },
+
+    // 教師
+    teacher: (one = <COURSE>{ }) => {
+        const _n = one.teacher_name
+        return _n ? _n : '' 
     }
 }

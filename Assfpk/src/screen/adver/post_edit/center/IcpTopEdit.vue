@@ -6,7 +6,6 @@
     
 <script lang="ts" setup>
 import { reactive } from 'vue'
-import CpAdverImgEdit from '../../../../compnt/adver/img/CpAdverImgEdit.vue';
 const prr = defineProps<{
     typed: number,
     post: ONE

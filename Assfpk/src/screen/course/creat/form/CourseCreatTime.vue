@@ -2,9 +2,7 @@
     <div class="f-row">
         <div class="w-48">
             <fn-input :tit="'開課時間'" :is_err="form_err.startdate" class="mb_x">
-                <eos-time-choise ref="star_time" class="input" @resuit="(v: ONE) => {
-                    form.startdate = v.time;    
-                }" :pchd="'請選擇'"/>
+                <eos-time-choise ref="star_time" class="input" @resuit="(v: string) => form.startdate = v" :pchd="'請選擇'"/>
             </fn-input>
 
             <fn-input :tit="'課程代碼'" :is_err="form_err.idnumber" class="mb_x">
@@ -14,9 +12,7 @@
         <div class="w-4"></div>
         <div class="w-48">
             <fn-input :tit="'結課時間'" class="mb_x" :is_err="form_err.enddate">
-                <eos-time-choise ref="end_time" class="input" @resuit="(v: ONE) => {
-                    form.enddate = v.time;    
-                }" :pchd="'請選擇'"/>
+                <eos-time-choise ref="end_time" class="input" @resuit="(v: string) => form.enddate = v" :pchd="'請選擇'"/>
             </fn-input>
 
             <fn-input :tit="'課程簡易名稱'" class="mb_x" :is_err="form_err.shortname">

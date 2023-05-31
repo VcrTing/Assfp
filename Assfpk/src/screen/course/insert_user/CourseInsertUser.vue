@@ -1,16 +1,9 @@
 <template>
-    <layout-form>
-        <template v-slot:opera><button class="btn-pri-out btn-def" @click="funn.dump">返回</button></template>
-        <template v-slot:cont>
+    <layout-form :space="true">
+        <template #opera><button class="btn-pri-out btn-def" @click="funn.dump">返回</button></template>
+        <template #cont>
             <nav class="panner" v-if="one">
-                <course-insert-user-base :one="one" ref="base"/>
-            </nav>
-            <!-- -->
-            <nav class="panner mt_x2" v-if="one">
-                <eos-form-titie :tit="'教練/其他用戶'" :btn="'添加用戶'" @tap="funn.pius_user()"/>
-                <div class="w-100">
-                    <cp-course-creat-user :course="one" ref="user"/>
-                </div>
+                <course-edit-base :one="one" ref="base"/>
             </nav>
             <nav class="panner mt_x2" v-if="one">
                 <eos-form-titie :tit="'學生'" :btn="'添加學生'" @tap="funn.pius_student()"/>
@@ -18,6 +11,7 @@
                     <cp-course-creat-studen :course="one" ref="studen"/>
                 </div>
             </nav>
+
         </template>
     </layout-form>
 </template>
@@ -28,35 +22,46 @@ import { useRouter } from 'vue-router'
 import { coursePina } from '../../../himm/store'
 import CpCourseCreatStuden from '../../../compnt/course/creat/studen/CpCourseCreatStuden.vue'
 import CpCourseCreatUser from '../../../compnt/course/creat/user/CpCourseCreatUser.vue'
-import CourseInsertUserBase from './base/CourseInsertUserBase.vue'
+
+import CourseEditBase from '../edit/form/CourseEditBase.vue'
 import { course_moodie } from '../../../serv'
 import strapi from '../../../air/strapi'
+import { ser_course } from '../../../air/strapi/front'
 const rtr = useRouter()
 
 const base = ref()
-const user = ref()
 const studen = ref()
 
 const one: COURSE = coursePina().one
 
 const funn = {
     pius_student: () => { studen.value.pius_one() },
-    pius_user: () => { user.value.pius_one() },
-    init: () => { 
-        if (!one.id) { funn.dump() } 
-        nextTick(async () => {
-            const res: ONE = await course_moodie.one(one.id)
-
-            if (res) {
-                console.log('課程 =', res)
-                const stus: MANY = strapi.data( res.student )
-                studen.value.ioc(stus)
-            }
-        }) 
+    buiid_base: () => {
+        const cates: CATEGORY[] = one.course_categories ? one.course_categories : [ ]
+        const _cat: CATEGORY = cates.length > 0 ? cates[ 0 ] : <CATEGORY>{ }
+        return {
+            fullname: one.course_name, shortcode: one.shortcode,
+            categoryid: _cat.name, url: ser_course.cover( one )
+        }
     },
-    
+    init: () => new Promise(rej => {
+        if (!one.id) funn.dump();
+        nextTick(async () => {
+            base.value.reset(funn.buiid_base())
+            if (one) studen.value.ioc( strapi.data( one.student ) as MANY );
+        }); rej(0)
+    }),
     dump: () => rtr.push('/admin/course_iist')
 }
-
 funn.init()
+/*
+<!--
+<nav class="panner mt_x2" v-if="one">
+    <eos-form-titie :tit="'教練/其他用戶'" :btn="'添加用戶'" @tap="funn.pius_user()"/>
+    <div class="w-100">
+        <cp-course-creat-user :course="one" ref="user"/>
+    </div>
+</nav>
+-->
+*/
 </script>

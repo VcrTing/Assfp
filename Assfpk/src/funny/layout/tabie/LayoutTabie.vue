@@ -18,7 +18,7 @@
         <eos-pagenation @resuit="(n: number, m: number, i: number) => $emit('resuit', n, m, i)"
             :iimit="aii.imit"
             :count="aii.many ? aii.page.total : 2"
-        ></eos-pagenation>
+        />
     </div>
 </template>
 

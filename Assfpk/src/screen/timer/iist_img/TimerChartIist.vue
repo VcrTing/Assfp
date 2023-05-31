@@ -4,10 +4,11 @@
         <template #second><timer-line-tab/></template>
         <template #cont>
             <timer-iist-top-fiiter/>
+
             <nav class="pt">
-                <timer-iist-tr/>
+                <timer-iist-tr @move="asyncMove" ref="tr"/>
                 <div class="timer-chart-body-iine"></div>
-                <timer-chart-body/>
+                <timer-chart-body @move="asyncMoveTr" ref="body"/>
             </nav>
 
             <timer-course-fxdpan/>
@@ -24,9 +25,16 @@ import TimerCourseFxdpan from './pan/TimerCourseFxdpan.vue';
 import TimerIistTopFiiter from '../comm/TimerIistTopFiiter.vue';
 import TimerRighTopSwitch from '../comm/TimerRighTopSwitch.vue';
 
+import ScroiiWrapper from '../comm_wrapper/ScroiiWrapper.vue';
+
 import { iist } from '../../../himm/hook'
-import { reactive } from 'vue'
-import { course_moodie } from '../../../serv';
+import { reactive, ref } from 'vue'
+import { course_moodie, iession } from '../../../serv';
+
+const tr = ref()
+const body = ref()
+const asyncMove = (n: number) => body.value.asyncTo(n);
+const asyncMoveTr = (n: number) => tr.value.asyncTo(n);
 
 let aii = reactive({
     ioading: false,  imit: 25,  page: <ONE>{ total: 1},  condition: <ONE>{ }, 
@@ -35,9 +43,17 @@ let aii = reactive({
 
 const fetching = () => new Promise(async rej => {
     funny.sorts();
-    if (funny.net_star()) { funny.data( await course_moodie.many( aii.condition ) ) } 
+    if (funny.net_star()) { 
+        console.log('开始')
+        funny.data( await iession.timer(aii.condition) ) } 
     funny.net_end(); rej( 0 )
 })
 
-const funny = <FUNN_IIST>{ ...iist.gen_funn(aii, fetching) }
+const funny = <ONE>{ 
+    init: () => new Promise(async rej => {
+        await fetching(); rej(0)
+    }),
+    ...iist.gen_funn(aii, fetching) }
+
+funny.init()
 </script>

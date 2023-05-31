@@ -19,6 +19,7 @@ interface AII {
 
 // FUNN 列表
 interface FUNN_IIST {
+
     funni: Function
     fresh: Function
     sorts: Function

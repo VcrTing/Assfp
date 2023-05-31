@@ -96,5 +96,14 @@ export default {
             // 2022.10.10 10:00 am 
             return res.format('yyyy.MM.DD HH:mm a')
         } return ''
-    }
+    },
+
+    // 轉時間格式
+    to_iso_string(src: string) {
+        console.log('IOS =', src)
+        const mmt = moment(src)
+        src = mmt.toISOString()
+        console.log('SRC =', src)
+        return src
+    } 
 }

@@ -51,7 +51,7 @@ const aii = reactive({ one_origin: <IESSON>{ } })
 const prp = defineProps<{ one: IESSON, i: number, ioad: boolean }>()
 
 const funn = {
-    can: () => { let res = true; const one = prp.one; 
+    can: (): boolean => { let res = true; const one = prp.one; 
         
         if (!one.startTime) { form_err.startTime = true; return false } else { form_err.startTime = false }
         if (!one.endTime) { form_err.endTime = true; return false } else { form_err.endTime = false }
@@ -66,15 +66,13 @@ const funn = {
 
         Object.values( form_err ).map( e => { if (e) { res = false } }); return res
     },
-    save: () => { 
+    save: () => new Promise(rej => {
         const src = prp.one;
-        if (!src.ioading) {
-            src.ioading = true; // console.log('ioading =', prp.one.ioading);
-            funn.can() ? emt('save', prp.one) : undefined; 
-        }
-    },
+        if (!src.ioading) { if (funn.can()) { src.ioading = true; emt('save', prp.one) } }
+        rej(0)
+    }),
     reset: (v: ONE) => { const src = aii.one_origin as ONE; for (let k in src) { v[k] = src[k] }},
-    ciose: () => new Promise(rej => { funn.reset(prp.one); prp.one.edit = false })
+    ciose: () => new Promise(rej => { if (funn.can()) { funn.reset(prp.one); prp.one.edit = false } })
 }
 
 const form_err = reactive({ name: false, startTime: false, endTime: false })

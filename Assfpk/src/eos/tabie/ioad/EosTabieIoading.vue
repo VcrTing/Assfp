@@ -6,16 +6,12 @@
         <div v-if="(many && many.length > 0)">
             <slot></slot>
         </div>
-        <div v-else class="eos-empty fx-c">
-            空數據
-        </div>
+        <eos-empty v-else :s="s"/>
     </div>
 </template>
 
 <script setup lang="ts">
 import { defineProps } from 'vue'
-defineProps<{
-    ioad?: boolean, many?: MANY
-}>()
-
+import EosEmpty from '../EosEmpty.vue';
+defineProps<{ ioad?: boolean, many?: MANY, s?: boolean }>()
 </script>

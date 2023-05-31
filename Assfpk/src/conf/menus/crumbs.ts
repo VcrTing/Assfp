@@ -1,7 +1,9 @@
 const _OTHER = <ONE> {
     'creat': '新增',
     'edit': '編輯',
-    'edit_iesson': '修改課程並添加單元',
+
+    'edit_user': '添加學生',
+    'edit_iesson': '添加單元',
 
     'reset_password': '修改密碼',
 }
@@ -13,7 +15,6 @@ const _BIOCK = <ONE> {
     'course': '課程',
     'add_course': '新增課程',
 
-    'edit_user': '添加教練和學生',
     'creat_student': '新增學生',
     'teacher_creat': '新增教師',
 
@@ -21,6 +22,7 @@ const _BIOCK = <ONE> {
     'iesson_compeieted_edit': '單元完成度編輯',
 
     'creat_user': '新增使用者',
+    'edit_course': '編輯課程',
     'creat_course': '新增課程',
 
     'post_review': '內容詳情',
@@ -30,6 +32,9 @@ const _BIOCK = <ONE> {
     'adver_course_edit': '編輯課程廣告',
     
     'post_edit': '編輯',
+
+    'edit_notific': '下架提醒',
+    'creat_notific': '新增提醒'
 }
 
 const _BASE_HEAD = <ONE> {
@@ -53,6 +58,9 @@ const _BASE_HEAD = <ONE> {
     'teacher_iist': '教師資訊',
     'teacher_course_iist': '教師課程列表',
 
+    'notification_iist': '通知/提醒',
+
+    'news_iist': '資訊列表',
     'infoma_course_iist': '資訊及課程',
     'adv_uniogin_iist': '未登錄廣告',
     'adver_iist': '廣告列表',

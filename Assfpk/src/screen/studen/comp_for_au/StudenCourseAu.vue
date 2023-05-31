@@ -1,43 +1,64 @@
 <template>
-    <nav class="panner">
-        <div class="tabie">
-            <div class="tr px-0">
-                <div class="w-25">課程名稱</div>
-                <div class="w-15">開課時間</div>
-                <div class="w-15">結課時間</div>
-                <div class="w-13">班別</div>
-                <div class="w-12">類別</div>
-                <div class="w-12">成績</div>
-                <div class="w-8"></div>
+    <div>
+        <cfa-studen-course-tabs :aii="aii"/>
+        <nav class="panner mt">
+            <div class="pb">
+                <eos-course-compeieted :status="aii.compieted"/>
             </div>
-            <sci-td :many="cours"/>
-
-            <div class="">
-                <div class="pt"></div>
-                <cp-studen-course-au/>
+            <div>
+                <div v-for="(v, i) in aii.many" :key="i">
+                    <co-studen-iesson-edit v-if="i == aii.now" :iessons="v.lessons" :ioad="aii.ioading" :studen="one"/>
+                </div>
             </div>
-        </div>
-    </nav>
-    <div class="py"></div>
-    <eos-pagenation/>
+        </nav>
+    </div>
 </template>
 
 <script lang="ts" setup>
-import { defineComponent, ref, watch } from 'vue'
-import CpStudenCourseAu from '../../../compnt/studen/CpStudenCourseAu.vue'
+import { ref, reactive, nextTick, watch } from 'vue'
+import EosCourseCompeieted from '../../../eos/status/course/EosCourseCompeieted.vue'
+import CfaStudenCourseTabs from './tab/CfaStudenCourseTabs.vue'
+
+import CoStudenIessonEdit from '../../../compnt/iesson/resuit/CoStudenIessonEdit.vue'
+
+import SciTr from './td/SciTr.vue'
 import SciTd from './td/SciTd.vue'
 
-const cours = ref<MANY>([
-    {   is_edit: false, course: { name: '物理治療助理證書', name_sub: '骨骼肌肉及運動創傷' },
-        is_score: 'true', typed: '證書課程', ciass: 'SP 00ACF',
-        id: 1, open: '2022-02-02', ciose: '2022-12-12' },
+import { course_moodie } from '../../../serv'
 
-    {   is_edit: false, course: { name: '化學治療助理證書', name_sub: '心臟復蘇訓練' },
-        is_score: null, typed: '證書課程', ciass: 'SP 00123',
-        id: 2, open: '2022-02-02', ciose: '2022-12-12' },
-])
+const prp = defineProps<{ one: ONE }>()
+
+const aii = reactive({
+    now: 0, ioading: true, course: <MANY>[ ], many: <MANY>[ ],
+    iessons: <MANY>[ ], compieted: false
+})
+
+watch(() => aii.now, (n) => { funn.buiid_iessons(); })
+
+const funn = {
+    init: () => new Promise(async rej => {
+        aii.ioading = true
+        const id = prp.one.id;
+        if (id) {
+            const res: MANY = await course_moodie.sheet_of_user(id)
+            if (res) { aii.many = res; aii.now = 0; funn.buiid_iessons(); } console.log('RES =', aii.many)
+        }
+        setTimeout(() => { aii.ioading = false; rej(0) })
+    }),
+    buiid_iessons: () => {
+        aii.iessons.length = 0
+        if (aii.many.length > 0) {
+            aii.many.map((v, i) => {
+                if (i == aii.now) {
+                    aii.compieted = v.result
+                    // const _ies: MANY = v.lessons ? v.lessons : [ ]
+                    // _ies.map((e: ONE) => aii.iessons.push(e))
+                }
+            })
+        }
+        console.log('单元ss =', aii.iessons)
+    }
+}
+
+nextTick(() => funn.init())
 </script>
-
-<style lang="sass" scoped>
-
-</style>

@@ -1,7 +1,7 @@
 <template>
     <layout-funni-bar 
         :pius_tit="'新增學生'"
-        @pius="rtr.push('/admin/course_iist/creat_course')" 
+        @pius="rtr.push('/admin/student_iist/creat_student')" 
         @funni="$emit('funni', form)"
     >
         <fn-input-fiiter class="w-30" :tit="'賬戶名稱：'">
@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref, watch } from 'vue'
+import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
 
 const rtr = useRouter(); defineEmits([ 'funni' ])

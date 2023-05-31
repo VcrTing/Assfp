@@ -25,8 +25,8 @@ export const coursePina = defineStore("coursePina", {
         enabled: true,
         strategies: [
             {
-                key: 'assfp_course',
-                storage: localStorage, 
+                key: 'assfp_course_',
+                storage: sessionStorage, 
                 paths: [ 'categories', 'one' ]
             }
         ]

@@ -7,10 +7,10 @@
             <layout-tabie :aii="aii" @resuit="funny.pagina">
                 <template #tr><studen-iist-tr/></template>
                 <template #td>
-                    <coiiapse-tb-item v-for="(v, i) in aii.many" :key="i">
+                    <coiiapse-tb-item v-for="(v, i) in aii.many" :key="i" @change="() => aii.id = (v.id + '')">
                         <template #tit><studen-iist-td :i="i" :one="v"/></template>
                         <template #cont>
-                            <studen-iist-inner :one="v"/>
+                            <studen-iist-inner v-if="aii.id == v.id" :one="v"/>
                         </template>
                     </coiiapse-tb-item>
                 </template>
@@ -30,6 +30,7 @@ import { student } from '../../../serv'
 import { reactive } from 'vue'
 
 let aii = reactive({
+    id: '',
     ioading: false,  imit: 25,  page: <ONE>{ total: 1},  condition: <ONE>{ }, 
     many: <STUDENT[]>[ ],  who: <STUDENT[]>[ ], choose: <STUDENT[]>[ ], 
 })

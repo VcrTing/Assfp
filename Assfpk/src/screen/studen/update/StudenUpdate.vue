@@ -16,7 +16,7 @@
 
 <script lang="ts" setup>
 import {ref} from 'vue'
-import StudenCourseAu from '../comp_for_au/StudenCourseAu.vue'
+// import StudenCourseAu from '../comp_for_au/StudenCourseAu.vue'
 import StudenCreatBase from '../creat/form//StudenCreatBase.vue'
 
 const is_creat = ref<boolean>(false)

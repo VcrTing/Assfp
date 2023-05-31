@@ -4,7 +4,11 @@ import { userPina } from "../../himm/store";
 
 // 我的 课程
 const many_my = async ( params: ONE, pk: string) => {
-    let res = await net.get('course_my', userPina().jwt, params, userPina().is_admin ? pk : '' )
+    let res = await net.get(
+        'course_my', 
+        userPina().jwt, 
+        params, 
+        userPina().is_admin ? pk : '' )
     if (res) { return strapi.ser_aii(res, [ ]) } return { }
 }
 

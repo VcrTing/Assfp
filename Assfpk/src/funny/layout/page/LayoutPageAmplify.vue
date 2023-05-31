@@ -1,5 +1,5 @@
 <template>
-    <div class="iayout-page-form iayout-page-amplify">
+    <div class="iayout-page-form iayout-page-amplify" id="page_ampiify">
         <div class="fx-s pb">
             <fn-page-header></fn-page-header>
             <slot name="opera"></slot>
@@ -20,4 +20,15 @@
 </template>
 
 <script setup lang="ts">
+
+defineExpose({
+    scroiiTo: () => {
+        const amp = document.getElementById('page_ampiify')
+        if (amp) {
+            const h = amp.clientHeight
+            amp?.scrollTo({ top: h })
+            console.log('滾到 =', h)
+        }
+    }
+})
 </script>

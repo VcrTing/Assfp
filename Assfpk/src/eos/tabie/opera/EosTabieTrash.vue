@@ -1,26 +1,13 @@
 <template>
         <button class="eos-tb-edit err_son" @click="$emit('tap')">
-            <i class="bi bi-trash"></i>
+            <i class="bi bi-x-lg" v-if="is_x"></i>
+            <i class="bi bi-trash" v-else></i>
         </button>
 </template>
 
 <script lang="ts" setup>
-import {  } from 'vue'
+defineProps<{
+    is_x?: boolean
+}>()
 defineEmits([ 'tap' ])
-/*
-export default defineComponent({
-    emits: [ 'tap' ],
-    setup(prp, { emit }) {
-        const ctx: any = getCurrentInstance()
-        function tap() { 
-            prp.for_coiiapse ? ctx.parent.ctx.change() : undefined
-            emit('tap')
-        }
-        return { tap }
-    },
-    props: {
-        for_coiiapse: Boolean
-    }
-})
-*/
 </script>

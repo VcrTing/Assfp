@@ -12,10 +12,13 @@
                 <div>
                     結束時間:&nbsp;{{ timed.view_time(one.end_date) }}
                 </div>
+                <!--
                 <div class="pt_s">
                     單元數量:&nbsp;{{ iessonL() }}
                 </div>
+                -->
             </div>
+            <slot></slot>
         </div>
     </div>
 </template>

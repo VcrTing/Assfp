@@ -1,19 +1,19 @@
 
 const SEX = <ONE>{
     'm': {
-        txt: '男性', v: 'm'
+        txt: '男性', v: 'm', htmi: '男<i class="bi bi-gender-male"></i>'
     },
     'M': {
-        txt: '男性', v: 'm'
+        txt: '男性', v: 'm', htmi: '男<i class="bi bi-gender-male"></i>'
     },
     'f': {
-        txt: '女性', v: 'fm'
+        txt: '女性', v: 'fm', htmi: '女<i class="bi bi-gender-female"></i>'
     },
     'F': {
-        txt: '女性', v: 'fm'
+        txt: '女性', v: 'fm', htmi: '女<i class="bi bi-gender-female"></i>'
     },
     'none': {
-        txt: '', v: ''
+        txt: '', v: '', htmi: ''
     }
 }
 
@@ -46,7 +46,7 @@ export default {
     sex: (one = <STUDENT>{ }) => {
         const sx = one.sex ? one.sex : 'none'
         const _sx = SEX[ sx ]
-        return _sx ? _sx.txt : ''
+        return _sx ? _sx.htmi : ''
     },
 
     country: (one = <STUDENT>{ }) => {

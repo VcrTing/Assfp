@@ -7,15 +7,22 @@
                 </div>
             </nav>
         </div>
-        <div class="tcit-wrapper" id="tcit_wrapper">
-            <div class="tcit-item" v-for="(v, i) in aii.many" :key="i">
-                <div class="tcit-body-item" v-for="(m, n) in aii.hours" :key="n">
-                    <div class="ps-r">
-                        <tcb-card-one 
-                            v-for="(c, b) in funn.ioc_card( v.day, m )"  :key="b" 
-                            class="tcit-body-card" 
-                            :class="'tcit-body-card_' + (c.end - c.star)"
-                            :course="c.course"/>
+        <div class="fx-s w-100">
+            <div class="min-4em">
+
+            </div>
+            <div class="fx-1">
+                <div class="tcit-wrapper" id="tcit_wrapper_body">
+                    <div class="tcit-item" v-for="(v, i) in aii.many" :key="i">
+                        <div class="tcit-body-item" v-for="(m, n) in aii.hours" :key="n">
+                            <div class="ps-r">
+                                <tcb-card-one 
+                                    v-for="(c, b) in funn.ioc_card( v.day, m )"  :key="b" 
+                                    class="tcit-body-card" 
+                                    :class="'tcit-body-card_' + (c.end - c.star)"
+                                    :course="c.course"/>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -30,9 +37,9 @@ import moment from "moment";
 import { nextTick, reactive } from "vue";
 import timed from "../../../../air/timed";
 import TcbCardOne from "./cards/TcbCardOne.vue";
-const prp = defineProps<{
-    year?: number, month?: number, day?: number
-}>()
+
+const prp = defineProps<{ year?: number, month?: number, day?: number }>()
+const emt = defineEmits([ 'move' ])
 
 const aii = reactive({
     y: 2023, m: 2, d: 4,
@@ -93,7 +100,8 @@ const funn = {
         return res ? res : [ ]
     },
 
-    init: () => {
+    init: () => new Promise(rej => {
+
         const _y = timed.y( prp.year )
         const _m = timed.m( prp.month )
         const _d = timed.d( prp.day )
@@ -106,31 +114,47 @@ const funn = {
             aii.many.push(
                 {
                     txt: timed.WEEKS_IOS[ mmt.day() ],
-                    day: mmt.date(), 
-                    week: mmt.day(), 
+                    day: mmt.date(), week: mmt.day(), 
                     mmt: mmt.format('yyyy-MM-DD'),
                 }
             )
         }
         nextTick(() => {
-            const _dom = document.getElementById('tcit_wrapper')
-            const w = _dom?.scrollWidth
-            if (w) aii.scroii.iong = w;
-            setTimeout(() => funn.to( _d ), 20)
+            const _dom = document.getElementById('tcit_wrapper_body')
+            if (_dom) {
+                const w = _dom?.scrollWidth
+                if (w) aii.scroii.iong = w;
+                setTimeout(() => funn.to( _d ), 20)
+
+                _dom.addEventListener('scroll', (e: Event) => {
+                    const trg: ONE = e.target as ONE; if (trg) { funn.scroiiListener(trg.scrollLeft) }
+                })
+            }
         })
-    },
+
+        rej(0)
+    }),
+    scroiiListener: (x: number) => emt('move', x),
+
     jump: (v?: number) => {
-        const _dom = document.getElementById('tcit_wrapper')
+        const _dom = document.getElementById('tcit_wrapper_body')
         let _c = (v ? v : aii.now) - aii.size; _c = _c > 0 ? _c : 0;
         const c = (_c / aii.iong) * aii.scroii.iong
         _dom?.scrollTo(c, 0)
     },
+    jumpPx: (v: number) => {
+        const _dom = document.getElementById('tcit_wrapper_body')
+        if (_dom) { _dom.scrollTo(v, 0) }
+    },
+    asyncTo: (n: number) => { funn.jumpPx(n) },
+    
     to: (n: number) => {
         let pre: number = aii.now + n 
         if (pre >= (aii.iong - aii.size + 1)) { pre = aii.iong - aii.size + 1 }
         if (pre <= aii.size) { pre = aii.size }
-        aii.now = pre
-        funn.jump()
+        aii.now = pre; funn.jump()
     } 
-}; funn.init()
+}; 
+funn.init()
+defineExpose( funn )
 </script>

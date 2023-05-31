@@ -3,7 +3,7 @@
         <label v-if="tit">
             {{ tit }}&nbsp;
         </label>
-        <nav :class="{ 'input-err': is_err, 'pt_s': tit }">
+        <nav :class="{ 'input-err': is_err, 'input-err-die': !is_err, 'pt_s': tit }">
             <slot v-if="!is_txt_mode"></slot>
             <div v-else class="input input-txt-mode">
                 <slot></slot>

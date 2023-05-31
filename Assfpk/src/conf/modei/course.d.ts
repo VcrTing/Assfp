@@ -50,10 +50,13 @@ interface COURSE {
 	updatedAt: string
 
 	id: ID
+	student: MANY
 	lessons: IESSON[]
 	app_visible: boolean
 	course_active: boolean
 	moodle_visible: boolean
+
+	teacher_name: string
 
 	course_type: COURSE_CATEGORY
 	course_image: IMAGE[]

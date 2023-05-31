@@ -1,0 +1,21 @@
+
+.studen-course-tabs
+    @extend .fx-l
+    @extend .fx-wp
+    & > nav
+        padding-right: $ds_x2
+        & > div
+            cursor: pointer
+    .sct-active
+        & > div
+            position: relative
+        & > div::after
+            position: absolute
+            content: ''
+            left: 0
+            bottom: 0
+            height: 2px
+            width: 100%
+            background: $tit
+            border-radius: 1em
+        

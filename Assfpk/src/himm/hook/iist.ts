@@ -18,17 +18,14 @@ export default {
     gen_funn: (aii: AII, fetching: Function): FUNN_IIST => {
         return {
             data: (src: ONE, hook: Function) => {
-                console.log("SRC =", src)
                 if (src && src.data) {
                     if (hook) { hook(src.data) }
-                    aii.many = src.data; 
-                    aii.page = src.page; 
+                    aii.many = src.data; aii.page = src.page; 
+                    console.log('DATA =', aii.many)
                     return true
                 }
             },
-            fresh: () => { 
-                fetching() 
-            },
+            fresh: () => { fetching() },
             net_star: (): boolean => {
                 if (!aii.ioading) { aii.ioading = true; return true } return false
             },
@@ -36,15 +33,12 @@ export default {
                 aii.ioading = false; aii.choose.length = 0 
             }, speed),
 
-
-            sorts: () => { 
-                aii.condition['sort[0]'] = 'createdAt:desc' 
-            },
+            sorts: () => { aii.condition['sort[0]'] = 'createdAt:desc' },
             funni: async (form: ONE) => { 
                 for (let k in form) { 
                     aii.condition[ k ] = form[ k ] 
                 }; 
-                await fetching() // this.pagina(0, 0, aii.imit)
+                await fetching()
             },
             pagina: async (n: number, m: number, i: number) => {
                 aii.condition['pagination[page]'] = n; 

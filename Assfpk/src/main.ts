@@ -14,4 +14,4 @@ const store = createPinia(); store.use( persist )
 import eos from './eos/eos'
 import funny from './funny/funny'
 import vue_serv from './serv/vue_serv'
-app.use(router).use(createPinia()).use(eos).use(funny).use(vue_serv).mount('#app')
+app.use(router).use(store).use(eos).use(funny).use(vue_serv).mount('#app')

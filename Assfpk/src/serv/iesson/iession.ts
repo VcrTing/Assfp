@@ -9,13 +9,18 @@ const many = async ( params: ONE ) => {
     let res = await net.get(
         uu.is_admin ? 'iessons' : 'iesson_my', 
         uu.jwt, params, 
-        uu.is_admin ? '' : uu.pk )
+        '')
     if (res) { 
         console.log('單元 =', res)
         return strapi.ser_aii(res, [ ]) } return { }
 }
 
-
-export default {
-    many
+const timer = async ( params: ONE ) => {
+    const uu = userPina()
+    let res = await net.get( 'iessons', uu.jwt, params)
+    if (res) { 
+        console.log('單元 =', res)
+        return strapi.ser_aii(res, [ ]) } return { }
 }
+
+export default { many, timer }

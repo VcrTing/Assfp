@@ -1,5 +1,5 @@
 <template>
-    <select v-model="form[ key ]">
+    <select v-model="form[ ky ]">
         <option value="true">是</option>
         <option value="false">否</option>
     </select>
@@ -7,6 +7,6 @@
     
 <script lang="ts" setup>
 defineProps<{
-    form: ONE, key: string
+    form: ONE, ky: string
 }>()
 </script>

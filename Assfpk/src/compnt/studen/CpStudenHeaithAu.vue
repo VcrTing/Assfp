@@ -1,15 +1,15 @@
 <template>
     <div class="fx-l">
         <div class="td-for-form fx-1">
-            <div class="w-23">
+            <div class="w-20">
                 <fn-input :is_err="form_err.date">
+                    <eos-time-choise ref="date" class="input" :def="one.date" @resuit="(v: string) => one.date = v"/>
                     <!--
-                    <eos-time-choise ref="date" class="input" @resuit="(v: ONE) => one.date = v ? v.time : ''"/>
-                    <input class="input" v-model="one.date" placeholder="年-月-日 時:分"/>-->
-                    <eos-time-group class="input" :def="one.date ? one.date : undefined" @resuit="(v: string) => one.date = v" />
+                    <input class="input" v-model="one.date" placeholder="年-月-日 時:分"/>
+                    <eos-time-group class="input" :def="one.date ? one.date : undefined" @resuit="(v: string) => one.date = v" />-->
                 </fn-input>
             </div>
-            <div class="w-18">
+            <div class="w-20">
                 <fn-input :is_err="form_err.blood_pressure" v-if="one.blood_pressure">
                     <div class="fx-l">
                         <input class="input ip-t" v-model="one.blood_pressure.systolic" placeholder="S"/>
@@ -23,7 +23,7 @@
                     <input class="input" type="number" v-model="one.height" placeholder="身高"/>
                 </fn-input>
             </div>
-            <div class="w-12">
+            <div class="w-13">
                 <fn-input :is_err="form_err.weight">
                     <input class="input" type="number" v-model="one.weight" placeholder="体重"/>
                 </fn-input>
@@ -114,7 +114,6 @@ const funn = {
     },
 
     edit: () => {
-        alert('編輯')
         prp.one.edit = true
         console.log('編輯 =', prp.one)
     },

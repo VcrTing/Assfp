@@ -33,7 +33,6 @@ const cate = ref()
 const init = () => { const one = prp.one;
     const cates: CATEGORY[] = one.course_categories ? one.course_categories : [ ]
     const _cat: CATEGORY = cates.length > 0 ? cates[ 0 ] : <CATEGORY>{ }
-    // _cat.id ? cate.value.ioc( _cat.id ) : undefined;
 }
 nextTick(init)
 // const img = ref<string>('https://img2.baidu.com/it/u=1239266471,3599012891&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500')

@@ -2,10 +2,8 @@
     <div class="">
         <div class="tabie">
             <div class="tr px-0">
-                <div class="w-16">職位</div>
-                <div class="w-36">參加課程的學生</div>
-                <div class="w-20">開課時間</div>
-                <div class="w-20">結課時間</div>
+                <div class="w-20">職位</div>
+                <div class="w-72">用戶名稱</div>
                 <div class="w-10"></div>
             </div>
             <cp-ccs-td :many="form.many" @pius_one="funn.pius_one"/>
@@ -23,10 +21,9 @@ const prp = defineProps<{ course: COURSE }>()
 const form = reactive(<ONE>{
     many: [
         <COURSE_ENROLUSER>{   
-                edit: true, courseid: prp.course ? prp.course.id : null, 
+            courseid: prp.course ? prp.course.moodle_id : null, 
             role: 'teacher', userid: null, user: null,
-            timestart: '', timeend: '', suspend: null,
-            timestart_str: '', timeend_str: '', ioading: false
+            ioading: false, edit: true,
         }
     ]
 })
@@ -35,13 +32,21 @@ const funn = {
     pius_one: () => {
         form.many.push(
             <COURSE_ENROLUSER>{   
-                edit: true, courseid: prp.course ? prp.course.id : null, 
+            courseid: prp.course ? prp.course.moodle_id : null, 
             role: 'teacher', userid: null, user: null,
-            timestart: '', timeend: '', suspend: null,
-            timestart_str: '', timeend_str: '', ioading: false
+            ioading: false, edit: true,
         })
     },
 }
 
 defineExpose( funn )
+/*
+            // timestart: '', timeend: '', suspend: null,
+            // timestart_str: '', timeend_str: '', 
+
+                <!--
+                <div class="w-21">開課時間</div>
+                <div class="w-21">結課時間</div>
+                -->
+*/
 </script>

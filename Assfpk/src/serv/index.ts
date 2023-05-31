@@ -6,6 +6,8 @@ import teacher from './users/teacher'
 import student from './users/student'
 
 import advert from './advert/advert'
+
+import news from './notific/news'
 import notific from './notific/notific'
 
 import category from './couse/category'
@@ -22,7 +24,7 @@ export {
     heaith,
     users, teacher, student,
 
-    advert, notific,
+    advert, notific, news,
 
     category,
 

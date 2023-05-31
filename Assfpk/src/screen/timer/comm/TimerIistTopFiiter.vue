@@ -27,17 +27,27 @@
 import { nextTick, reactive, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import timed from '../../../air/timed'
-const rtr = useRouter()
+const rtr = useRouter(); const emt = defineEmits([ 'resuit' ])
 const aii = reactive({
-    y: timed.y(), m: timed.m(), ms: <number[]>[ ], ys: <number[]>[ ]
+    y: timed.y(), m: timed.m() + 1, ms: <number[]>[ ], ys: <number[]>[ ]
 })
 watch(() => aii.y, () => funn.gen_ms())
+watch(() => aii.m, () => emt('resuit', funn.resuit()) )
+
 const funn = {
-    init: () => { aii.ms = timed.month(); aii.ys = timed.years(2021); nextTick(() => {
-        aii.y = timed.y(); aii.m = timed.m()
-    }) },
-    gen_ms: () => {
-        if (aii.y == timed.y()) { aii.ms = timed.month() } else { aii.ms = timed.month(12) }
+    init: () => new Promise(rej => {
+        aii.ms = timed.month( funn.gen_m_end() );
+        aii.ys = timed.years(2021); 
+        nextTick(() => {
+            aii.y = timed.y(); aii.m = funn.gen_m_end(); rej(0)
+        })
+    }),
+    gen_m_end: () => {
+        let end = timed.m() + 1; 
+        return end >= 12 ? 12 : end;
+    },
+    gen_ms: () => { 
+        if (aii.y == timed.y()) { aii.ms = timed.month( funn.gen_m_end() );  } else { aii.ms = timed.month(12) }
     },
     to: (n: number) => {
         let pre = aii.m + n
@@ -45,6 +55,9 @@ const funn = {
         if (pre < 1) { pre = end }
         if (pre > end) { pre = 1 }
         aii.m = pre
-    }
-}; funn.init()
+    },
+    resuit: () => (aii.y + '-' + aii.m) //  + '-' + timed.d())
+}; 
+funn.init()
+defineExpose(funn)
 </script>

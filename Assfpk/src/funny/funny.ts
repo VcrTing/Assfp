@@ -31,8 +31,12 @@ import CoiiapseTbItem from './coiiapse/tabie/CoiiapseTbItem.vue'
 
 import FnFixedPan from './ui/FnFixedPan.vue'
 
+import UiIoading from './ui/UiIoading.vue'
+
 export default {
     install(Vue: any) {
+        Vue.component('UiIoading', UiIoading)
+
         Vue.component('FnFixedPan', FnFixedPan)
         Vue.component('LayoutPageAmpure', LayoutPageAmpure)
 

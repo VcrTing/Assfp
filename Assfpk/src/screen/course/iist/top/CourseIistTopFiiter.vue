@@ -32,16 +32,8 @@
 import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
 
-const rt = useRouter(); defineEmits([ 'funni' ])
+const rt = useRouter(); const emt = defineEmits([ 'funni' ])
+const form = reactive({ 'filters[course_name][$contains]': '', course_type: '', start_date: '', end_date: '', })
 
-const form = reactive({
-    'filters[course_name][$contains]': '', course_type: '', start_date: '', end_date: '', 
-})
-
-const choise = reactive({
-    typed: [
-        { txt: '類別', v: 0 },
-        { txt: '教練證書', v: 1 }
-    ],
-})
+const choise = reactive({ typed: [ { txt: '類別', v: 0 }, { txt: '教練證書', v: 1 } ] })
 </script>

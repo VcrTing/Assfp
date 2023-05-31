@@ -13,7 +13,12 @@ const many = async ( params: ONE ) => {
     if (res) { return strapi.ser_aii(res, [ ]) } return { }
 }
 
+const edit = async ( param: ONE ) => {
+    let res = await net.put('iesson_finish', userPina().jwt, param, '') as ONE
+    return (res && res.status == 200)
+}
 
 export default {
-    many
+    many,
+    edit
 }

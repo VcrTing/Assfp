@@ -13,7 +13,7 @@ class NeTooi {
     // 构建 链接
     uri(api: string, endpoint: string, suffix: string = ''): string { return api + '/' + (ENDPOINT)[ endpoint ] + '/' + suffix }
     // 构建 HEADERS
-    headers (jwt: string | null): ONE { return jwt ? { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + jwt } : { 'Content-Type': 'application/json' } }
+    headers (jwt: string | null, isF: boolean = false): ONE { return jwt ? { 'Content-Type': isF ? 'multipart/form-data' : 'application/json', 'Authorization': 'Bearer ' + jwt } : { 'Content-Type': isF ? 'multipart/form-data' : 'application/json' } }
     // 构建 QUERY PARAMS
     params (condition: any, res: string = '?'): string { 
         if (JSON.stringify(condition) != '{}') { 
@@ -42,6 +42,9 @@ class Net extends NeTooi implements _Net {
         console.log('POST uri =', uri)
         console.log('POST DATA =', data)
         return await axios.post(uri, data, { headers: super.headers(token) })
+    }
+    async posF(endpoint: string, token: string, data: ONE): Promise<ONE | null> {
+        return await axios.post(super.uri(API, endpoint, ''), data, { headers: super.headers(token, true) })
     }
     async put(endpoint: string, token: string, data: ONE, suffix: string, params?: ONE): Promise<ONE | null> {
         const uri = super.uri(API, endpoint, suffix)

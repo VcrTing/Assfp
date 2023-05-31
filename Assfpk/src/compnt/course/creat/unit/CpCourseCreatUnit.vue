@@ -59,7 +59,7 @@ const form = reactive(<ONE>{
             "name": '', "course_id": '',
             "startTime": '', "endTime": '',
             "isOnSchedule": true,
-            "is_edit": true, "ioading": false
+            "edit": true, "ioading": false
         },
     ]
 })
@@ -71,8 +71,12 @@ const funn = {
             "name": '', "course_id": '',
             "startTime": '', "endTime": '',
             "isOnSchedule": true,
-            "is_edit": true, "ioading": false
-        }) => { form.many.push(v) },
+            "edit": true, "ioading": false
+        }) => { 
+            let res = true
+            form.many.map((e: ONE) => { if (!e.name) { res = false } })
+            if (res) { form.many.push(v)  }
+    },
     can: () => { let res = true
         Object.values( form_err ).map( e => { if (e) { res = false } }); return res
     },
@@ -97,17 +101,23 @@ const funn = {
             })
         }
     },
-    submit: async(v: ONE) => { 
-        form.ioading = true
+    ser_src: (v: ONE) => {
         v.course_id = prp.one.id
         const src = JSON.parse(JSON.stringify(v)); 
-        delete src.is_edit;
+        delete src.edit;
         delete src.ioading;
-        console.log('修改的單元 =', src)
-        const res = await course_moodie.insert_iesson(src)
-        if (res && res.id) { v.id = res.id; v.is_edit = false; console.log('插入成功，新 form =', form.many) }
-        setTimeout(() => { form.ioading = false; v.ioading = false; v.edit = false  }, 200)
+        src.startTime = timed.to_iso_string(src.startTime)
+        src.endTime = timed.to_iso_string(src.endTime)
+        return src
     },
+    submit: async(v: ONE) => new Promise(async rej => {
+        form.ioading = true
+        const src = funn.ser_src(v)
+        const res = await course_moodie.insert_iesson(src)
+        if (res && res.id) { v.id = res.id; v.edit = false }
+        setTimeout(() => { form.ioading = false; v.ioading = false; v.edit = false  }, 200)
+        rej(0)
+    }),
     kiiiOne: (idx: number) => {
         console.log('反饋刪除 idx =', form.idx); if (form.idx >= 0) { form.many.splice(form.idx, 1) }
     }

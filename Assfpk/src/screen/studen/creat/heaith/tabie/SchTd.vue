@@ -1,17 +1,17 @@
 <template>
     <div class="fx-l">
         <div class="td px-0 fx-1">
-            <div class="w-23">
-                {{ timed.view_time(one.date ? one.date : '', true) }}
+            <div class="w-20">
+                {{ timed.view_time(one.date ? one.date : '') }}
             </div>
-            <div class="w-18">
+            <div class="w-20">
                 <span class="sus">S:&nbsp;</span>{{ one.blood_pressure ? one.blood_pressure.systolic : ' ' }} / 
                 <span class="sus">D:&nbsp;</span>{{ one.blood_pressure ? one.blood_pressure.diastolic : ' ' }}
             </div>
             <div class="w-12">
                 {{ one.height }}
             </div>
-            <div class="w-12">
+            <div class="w-13">
                 {{ one.weight }}
             </div>
             <div class="w-13">

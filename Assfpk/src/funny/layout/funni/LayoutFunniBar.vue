@@ -5,7 +5,13 @@
         </div>
         <div>
             <div>
-                <button v-if="pius_tit" @click="$emit('pius')" class="btn-pri-out btn-def mr">{{ pius_tit }}</button>
+                <button 
+                    v-if="pius_tit && is_admin" 
+                    @click="$emit('pius')" 
+                    class="btn-pri-out btn-def mr">
+                    {{ pius_tit }}
+                </button>
+
                 <eos-funni-button @resuit="$emit('funni')">
                     {{ funni_tit ? funni_tit : '查詢' }}
                 </eos-funni-button>
@@ -15,6 +21,10 @@
 </template>
 
 <script setup lang="ts">
-defineEmits([ 'pius', 'funni' ])
+import { userPina } from "../../../himm/store"
+
+defineEmits([ 'pius', 'funni', '' ])
 defineProps<{ pius_tit?: string, funni_tit?: string }>()
+
+const is_admin = userPina().is_admin
 </script>

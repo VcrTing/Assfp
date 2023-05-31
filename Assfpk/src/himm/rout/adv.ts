@@ -12,7 +12,6 @@ const adver_iist_in = (pfx: string) => __(pfx, () => import('../../screen/adver/
     __(pfx + '/adver_edit', () => import('../../screen/adver/edit/AdverEdit.vue')),
     
     __(pfx + '/adver_course_edit', () => import('../../screen/adver/post_edit/AdverCourseEdit.vue')),
-    // __(pfx + '/adver_review', () => import('../../screen/adver/post_review/AdverReview.vue')),
 ])
 
 export default [

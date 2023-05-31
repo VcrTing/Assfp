@@ -56,7 +56,7 @@
 
 <script setup lang="ts">
 import { reactive, ref } from "vue";
-import CpAdverImgEdit from "../../../../compnt/adver/img/CpAdverImgEdit.vue";
+// import CpAdverImgEdit from "../../../../compnt/adver/img/CpAdverImgEdit.vue";
 const prp = defineProps<{
     temp: number,
     one: ONE

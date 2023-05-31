@@ -7,6 +7,7 @@ import EosAutoIoginTookit from './tookit/EosAutoIoginTookit.vue'
 
 import EosTimeChoise from './form/time/EosTimeChoise.vue'
 import EosTimeDoubie from './form/time/EosTimeDoubie.vue'
+import EosTimeGroup from './form/time/EosTimeGroup.vue'
 
 import EosStatus from './status/EosStatus.vue'
 import EosYesNo from './form/seiect/EosYesNo.vue'
@@ -52,9 +53,11 @@ import EosIoading from './tabie/EosIoading.vue'
 
 import ModaiTrash from './mod/ModaiTrash.vue'
 
+import EosIoadButton from './page/button/EosIoadButton.vue'
+
 export default {
     install(Vue: any) {
-
+        Vue.component('EosIoadButton', EosIoadButton)
         Vue.component('EosIoading', EosIoading)
 
         Vue.component('EosHourChoise', EosHourChoise)
@@ -100,6 +103,7 @@ export default {
 
         Vue.component('EosTimeChoise', EosTimeChoise)
         Vue.component('EosTimeDoubie', EosTimeDoubie)
+        Vue.component('EosTimeGroup', EosTimeGroup)
 
         Vue.component('EosTookitAuth', EosTookitAuth)
         Vue.component('EosAutoIoginTookit', EosAutoIoginTookit)

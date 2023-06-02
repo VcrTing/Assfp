@@ -1,7 +1,7 @@
 <template>
     <div class="">
         <div class="tabie">
-            <div class="tr px-0">
+            <div class="tr panner-x">
                 <div class="w-10">序號</div>
                 <div class="w-32">參加課程的學生</div>
 
@@ -18,7 +18,7 @@
                 
                 <div class="w-10"></div>
             </div>
-            <cp-ccs-td :many="form.many" @pius_one="funn.pius_one"/>
+            <cp-ccs-td class="pt_s" :many="form.many" @pius_one="funn.pius_one"/>
         </div>
     </div>
 </template>

@@ -2,7 +2,7 @@
     <div class="pb fx-s">
         <h3>{{ tit }}</h3>
         <div v-if="btn">
-            <button class="btn-pri btn-def-ig" @click="$emit('tap')">{{ btn }}</button>
+            <materiai-btn class="btn-pri btn-def-ig" @tap="$emit('tap')">{{ btn }}</materiai-btn>
         </div>
     </div>
 </template>
@@ -12,4 +12,5 @@ defineProps<{
     tit?: String, 
     btn?: String
 }>()
+defineEmits(['tap'])
 </script>

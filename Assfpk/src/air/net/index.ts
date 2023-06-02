@@ -52,6 +52,10 @@ class Net extends NeTooi implements _Net {
         console.log('PATCH DATA =', data)
         return axios.patch(uri, data, { headers: super.headers(token), params })
     }
+    async putF(endpoint: string, token: string, data: ONE, suffix: string, params?: ONE): Promise<ONE | null> {
+        const headers = super.headers(token, true); console.log('PATCH headers =', headers)
+        return axios.patch(super.uri(API, endpoint, suffix), data, { headers, params })
+    }
 
     /*
     async __net(url: string, method: 'GET' | 'POST' | 'PUT', data: ONE, params: ONE, headers: ONE): Promise<ONE | null> {

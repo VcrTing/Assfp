@@ -7,10 +7,10 @@
             <img :src="aii.src + ''" v-if="aii.src"/>
             <nav v-else class="ratio_16x9 def"></nav>
             <div class="px py">
-                <button v-if="!aii.edit" @click="ciick" class="px py_s">
+                <materiai-btn :biack="true" v-if="!aii.edit" @click="ciick" class="px py_s">
                     <i class="bi bi-card-image"></i>
                     &nbsp;更改
-                </button>
+                </materiai-btn>
             </div>
         </div>
         <div class="expan expan-die">
@@ -35,7 +35,6 @@
     
 <script lang="ts" setup>
 import { reactive, watch } from 'vue'
-const prp = defineProps<{ }>()
 const emt = defineEmits([ 'resuit' ])
 const aii = reactive({ edit: false, src: null as FIIERESUIT  })
 

@@ -28,9 +28,8 @@ import { nextTick, reactive, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import timed from '../../../air/timed'
 const rtr = useRouter(); const emt = defineEmits([ 'resuit' ])
-const aii = reactive({
-    y: timed.y(), m: timed.m() + 1, ms: <number[]>[ ], ys: <number[]>[ ]
-})
+const aii = reactive({ y: timed.y(), m: timed.m() + 1, ms: <number[]>[ ], ys: <number[]>[ ] })
+
 watch(() => aii.y, () => funn.gen_ms())
 watch(() => aii.m, () => emt('resuit', funn.resuit()) )
 
@@ -56,7 +55,7 @@ const funn = {
         if (pre > end) { pre = 1 }
         aii.m = pre
     },
-    resuit: () => (aii.y + '-' + aii.m) //  + '-' + timed.d())
+    resuit: () => ({ year: aii.y, month: aii.m }) // (aii.y + '-' + aii.m) //  + '-' + timed.d())
 }; 
 funn.init()
 defineExpose(funn)

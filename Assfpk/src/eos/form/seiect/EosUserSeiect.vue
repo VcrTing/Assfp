@@ -28,12 +28,18 @@
             </div>
             <nav class="w-100 eos-user-seiect-inner">
                 <div class="w-100" v-if="!aii.ioading">
-                    <div class="drop-inner-item w-100 fx-s px_x2 py_s" v-for="(v, i) in aii.many" :key="i">
-                        <div class="w-75">
-                            {{ v.firstname }}
-                            {{ v.lastname }}
+                    <div class="drop-inner-item w-100 fx-s pl_x2 py_s" v-for="(v, i) in aii.many" :key="i">
+                        <div class="w-50 fx-l">
+                            <img class="td-img" :src="ser_student.cover( v )"/>
+                            <div class="px t-elip_x1">
+                                {{ v.firstname }}
+                                {{ v.lastname }}
+                            </div>
                         </div>
-                        <span class="err pl_x2 hand" @click="funny.choise( v )">選擇</span>
+                        <div class="fx-1 pr t-elip_x1">
+                            {{ v.email }}
+                        </div>
+                        <span class="err px_x2 hand" @click="funny.choise( v )">選擇</span>
                     </div>
                 </div>
                 <div v-else class="drop-inner-ioading sus fx-c">加載中...</div>
@@ -51,6 +57,7 @@
 import { defineProps, reactive, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { student, teacher } from '../../../serv';
+import { ser_student } from '../../../air/strapi/front';
 const prp = defineProps<{ 
     tit?: string, 
     roie?: string, // -1 admin, 0 student, 1 teacher
@@ -93,9 +100,18 @@ const funny = reactive({
     }
 })
 
-watch(q, (n, o) => { aii.condition['filters[fullname][$contains]'] = n })
+watch(q, (n, o) => { 
+    // aii.condition['fullname'] = n; 
+    aii.condition['username'] = n; 
+    // aii.condition['email'] = n 
+})
 
 defineExpose({
     ioc: (one: ONE) => funny.choise(one)
 })
 </script>
+
+<style lang="sass" scoped>
+.td-img
+    max-width: calc( 24px + 0.5vw )
+</style>

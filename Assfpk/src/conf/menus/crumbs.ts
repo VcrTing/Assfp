@@ -15,6 +15,8 @@ const _BIOCK = <ONE> {
     'course': '課程',
     'add_course': '新增課程',
 
+    'creat_news': '新增資訊及課程',
+
     'creat_student': '新增學生',
     'teacher_creat': '新增教師',
 

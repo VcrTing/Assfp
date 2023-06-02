@@ -8,6 +8,9 @@ $td-br_x2: #A3AED078
 ._tr
     font-weight: 500
 
+.us-t-son, .us-t-son *
+    user-select: text
+
 .tabie
     @extend .br
     @extend .upper
@@ -21,16 +24,21 @@ $td-br_x2: #A3AED078
         @extend ._tr
         padding: $ds $ds_x2
     .td
+        @extend .us-t-son
         min-height: 4em
         padding: $ds_s $ds_x2
     .td-wrap
         padding: $ds_s 0 0
     .td-empty
         min-height: 5em
+.td-hv
+    transition: all .082s ease-in-out
+    &:hover
+        background: #f9f9f9 // #f9fafc
 .td-s
     @extend .td
-    padding-top: 0.2em !important
-    padding-bottom: 0.2em !important
+    padding-top: 0.4em !important
+    padding-bottom: 0.4em !important
     line-height: 1em 
     min-height: 1em !important
 

@@ -1,7 +1,7 @@
 <template>
     <div class="fx-l">
         <div class="w-26 w-30-p pr_x4">
-            <img :src="one.course_shop_url"/>
+            <img class="br" :src="one.course_shop_url"/>
         </div>
         <div class="fx-1">
             <h2>{{one.course_name}}</h2>
@@ -12,11 +12,12 @@
                 <div>
                     結束時間:&nbsp;{{ timed.view_time(one.end_date) }}
                 </div>
-                <!--
                 <div class="pt_s">
-                    單元數量:&nbsp;{{ iessonL() }}
+                    課程類別:&nbsp;{{ ser_course.course_type(one) }}
                 </div>
-                -->
+                <div class="pt_s">
+                    授課教師:&nbsp;{{ ser_course.teacher(one) }}
+                </div>
             </div>
             <slot></slot>
         </div>
@@ -26,6 +27,7 @@
 <script lang="ts" setup>
 import { reactive } from 'vue'
 import timed from '../../../../air/timed';
+import { ser_course } from '../../../../air/strapi/front';
 const prp = defineProps<{ one: COURSE }>()
 const iessonL = () => {
     const iss: ONE = prp.one.lessons

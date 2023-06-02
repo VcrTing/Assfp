@@ -22,14 +22,11 @@ const many = async (params: ONE): Promise<ONE> => {
     return { }
 }
 
-const admin_creat = async (data: ONE) => {
-    console.log('DATA =', data)
+const admin_creat = async (data: ONE): Promise<number> => {
     try {
-        const res = await net.put('admin_register', userPina().jwt, data, '')
-        return res && res.status < 399
-    } catch (err) {
-        return false
-    }
+        const res = await net.put('admin_register', userPina().jwt, data, ''); console.log('CREAT RES =', res)
+        if (res && res.status < 399) { const data: number[] = res.data; if (data && data.length > 0) { return data[0]; } }
+    } catch (err) { console.error(err) } return 0
 }
 
 export default {

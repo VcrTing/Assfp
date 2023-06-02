@@ -15,7 +15,7 @@ const creat = async (data: ONE): Promise<ONE> => {
 }
 
 const creatWithFiie = async (data: ONE): Promise<ONE> => {
-    let res: ONE | null = await net.posF('advert_ce', userPina().jwt, data); console.log('新增 advert with file 的结果 =', res)
+    let res: ONE | null = await net.putF('advert_ce', userPina().jwt, data, ''); console.log('新增 advert with file 的结果 =', res)
     if (res && res.status < 399) {
         const dt: COURSE[] | COURSE = res.data; if (dt instanceof Array) { return dt.length > 0 ? dt[0] : { } as COURSE; } return dt
     } return { } as COURSE

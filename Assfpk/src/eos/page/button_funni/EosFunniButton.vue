@@ -1,12 +1,12 @@
 <template>
-    <button class="btn-def btn-pri eos-search-button" @click="search">
+    <materiai-btn class="btn-def btn-pri eos-search-button" @tap="search">
         <div class="fx-c" :class="{ 'eos-searching': iock }">
             <div class="eos-search-button-icon"><i class="bi bi-search"></i></div>
             <div class="pl">
                 <slot></slot>
             </div>
         </div>
-    </button>
+    </materiai-btn>
 </template>
 
 <script setup lang="ts">

@@ -1,16 +1,16 @@
 <template>
-    <layout-form>
+    <layout-form :space="true">
         <template #opera><eos-form-submit :kiii_save="true" @back="funn.dump" /></template>
         <template #cont>
-            <nav class="panner">
+            <div class="panner">
                 <eos-form-titie :tit="'基本信息'"/>
                 <course-edit-base ref="base"/>
-            </nav>
+            </div>
 
-            <nav class="panner mt_x2">
-                <eos-form-titie :tit="'課程單元'" :btn="'添加單元'" @tap="funn.pius()"/>
+            <div class="pan panner-y mt_x2">
+                <eos-form-titie class="panner-x" :tit="'課程單元'" :btn="'添加單元'" @tap="funn.pius()"/>
                 <cp-course-creat-unit ref="unit" :one="one"/>
-            </nav>
+            </div>
         </template>
     </layout-form>
 </template>

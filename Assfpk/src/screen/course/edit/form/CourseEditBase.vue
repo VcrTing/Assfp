@@ -4,10 +4,12 @@
             <fn-input :tit="'課程封面預覽'" class="mb">
                 <div class="fx-s fx-t">
                     <div>
-                        <img class="img-s" :src="form.url"/>
+                        <img class="img-s" v-if="form.url" :src="form.url"/>
+                        <div v-else>(無封面)</div>
                     </div>
                     <div class="fx-1 pl_x2">
-                        <img class="br" :src="form.url"/>
+                        <img class="br" v-if="form.url" :src="form.url"/>
+                        <div v-else class="img"></div>
                         <!--
                             <button class="btn-pri-out btn-biock mt">上傳縮略圖</button>
                         -->

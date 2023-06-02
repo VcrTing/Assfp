@@ -1,7 +1,7 @@
 <template>
     <div class="">
         <div class="tabie">
-            <div class="tr px-0">
+            <div class="tr panner-x">
                 <div class="w-31">單元名稱</div>
                 <div class="w-23">上堂日期</div>
                 <div class="w-23">下堂時間</div>
@@ -9,7 +9,7 @@
                 <div class="w-9"></div>
             </div>
             <div v-for="(v, i) in form.many" :key="i">
-                <div class="td px-0 td-s" v-if="!v.edit">
+                <div class="td panner-x td-s td-hv" v-if="!v.edit">
                     <div class="w-31">
                         {{ v.name }}
                     </div>
@@ -32,7 +32,7 @@
                         }"
                     />
                 </div>
-                <cp-ccu-form :one="v" :ioad="form.ioading" :i="i + 1" v-else @save="funn.submit"/>
+                <cp-ccu-form class="panner-x" :one="v" :ioad="form.ioading" :i="i + 1" v-else @save="funn.submit"/>
             </div>
         </div>
         <div class="py"></div>

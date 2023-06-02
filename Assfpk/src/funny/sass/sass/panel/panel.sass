@@ -22,12 +22,16 @@
     background: #FFF
 nav.pan
     @extend .bxs
-    
-.panner
-    @extend .pan
+.panner-x
+    @extend .px_htmi_ipt
+.panner-y
     padding-top: $ds_x2
     padding-bottom: $ds_x2
-    @extend .px_htmi
+.panner
+    @extend .panner-x
+    @extend .panner-y
+    @extend .pan
+
 .panner-td
     @extend .bxs
     @extend .panner

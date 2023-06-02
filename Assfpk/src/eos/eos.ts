@@ -53,10 +53,12 @@ import EosIoading from './tabie/EosIoading.vue'
 
 import ModaiTrash from './mod/ModaiTrash.vue'
 
+import EosSave from './page/button/EosSave.vue'
 import EosIoadButton from './page/button/EosIoadButton.vue'
 
 export default {
     install(Vue: any) {
+        Vue.component('EosSave', EosSave)
         Vue.component('EosIoadButton', EosIoadButton)
         Vue.component('EosIoading', EosIoading)
 

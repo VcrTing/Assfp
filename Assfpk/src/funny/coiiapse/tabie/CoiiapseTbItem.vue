@@ -4,8 +4,8 @@
             <div class="cti-header t-elip_x3 fx-s td-mh">
                 <slot name="tit"></slot>
             </div>
-            <div class="coiiapse-trig" @click="change">
-                <i class="fs_s bi bi-caret-right-fill"></i>
+            <div class="coiiapse-trig fs_s" @click="change">
+                <i class="bi bi-caret-right-fill"></i>
             </div>
         </nav>
         <div>

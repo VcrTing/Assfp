@@ -25,19 +25,10 @@
                             {{ v.location }}
                         </div>
                         <div class="w-13 pr">
-                            <eos-iesson-absent
-                                @resuit="(n: string) => funn.changeAbsent(v, n)"
-                                :def="v.absent" 
-                                class="input"
-                                />
+                            <eos-iesson-absent class="input" :def="v.absent" @resuit="(n: string) => funn.changeAbs(v, n)"/>
                         </div>
                         <div class="w-15">
-                            <eos-iesson-resuit 
-                                @change="(n: string) => funn.changeResuit(v, n)"
-                                :need_nuii="true"
-                                :def="v.result" 
-                                class="input"
-                                />
+                            <eos-iesson-resuit class="input" :need_nuii="false" :def="v.result" @change="(n: string) => funn.changeRes(v, n)"/>
                         </div>
                     </div>
                 </eos-tabie-ioading>
@@ -60,27 +51,25 @@ const prp = defineProps<{
 }>()
 
 const funn = {
-    buiid: (iesson: ONE, result: string) => { 
+    buiid: (v: ONE) => { 
         return { 
-            student_id: prp.studen.id, // .moodle_id, 
-            lesson_id: iesson.lesson_id, 
-            absent: iesson.absent, result } 
+            student_id: prp.studen.id,
+            lesson_id: v.lesson_id, 
+            absent: v.absent, 
+            result: v.result } 
     },
-    changeResuit: (iesson: ONE, n: string) => new Promise(async rej => {
-        iesson.result = n;
-        const res = await iession_compieted.edit( funn.buiid(iesson, n) )
-        rej(0)
-    }),
-    changeAbsent: (iesson: ONE, n: string) => new Promise(async rej => {
-        const src = (n == 'true')
-        if (iesson.absent != src) {
-            iesson.absent = n
-            const res = await iession_compieted.edit( funn.buiid(iesson, iesson.result) )
-            if (res) {
+    
+    changeAbs: (v: ONE, n: string) => {
+        if ((v.absent + '') !== n + '') { v.absent = (n == 'true'); funn.change(v); }
+    },
+    changeRes: (v: ONE, n: string) => {
+        if ((v.result + '') !== n + '') { v.result = n; funn.change(v); }
+    },
 
-            }
-        }
-        rej(0)
-    })
+    change: async (v: ONE) => {
+        const data = funn.buiid(v)
+        // console.log('改動 data =', data)
+        const res = await iession_compieted.edit(data) 
+    }
 }
 </script>

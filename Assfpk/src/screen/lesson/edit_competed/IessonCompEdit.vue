@@ -12,7 +12,8 @@
                 </div>
                 <div class="py"></div>
                 <div class="panner">
-                    <ice-student ref="student" :one="aii.one"/>
+                    <eos-form-titie :tit="'學生列表'"/>
+                    <ice-student ref="student" :one="aii.one" :iesson="ioe"/>
                 </div>
             </div>
         </template>

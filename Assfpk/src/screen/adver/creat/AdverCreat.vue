@@ -60,7 +60,7 @@ const funn = {
         console.log('DATA =', data)
         if (data) {
             const res = await advert.creatWithFiie(data)
-            if (res && res.id ) { adverPina().do_adver_of_copy(); funn.dump() }
+            // if (res && res.id ) { adverPina().do_adver_of_copy(); funn.dump() }
         }
         rej(0)
     }),

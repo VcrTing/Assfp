@@ -1,1 +1,0 @@
-import{u as n,n as e}from"./index.e0b1985f.js";import{s as a}from"./index.14b8c86b.js";const r=async i=>{const s=n();let t=await e.get(s.is_admin?"iesson_finish":"iesson_my_finish",s.jwt,i,s.is_admin?"":s.pk);return t?a.ser_aii(t,[]):{}},o=async i=>{let s=await e.put("iesson_finish",n().jwt,i,"");return s&&s.status==200},_={many:r,edit:o};export{_ as i};

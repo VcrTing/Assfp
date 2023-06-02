@@ -1,7 +1,7 @@
 <template>
     <layout-funni-bar
         :pius_tit="'新增資訊'"
-        @pius="rt.push('/admin/notification_iist/creat_notific')" 
+        @pius="rt.push('/admin/news_iist/creat_news')" 
         @funni="$emit('funni', form)"
         >
         <fn-input-fiiter class="w-333" :tit="'通知標題：'">

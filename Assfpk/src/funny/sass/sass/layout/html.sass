@@ -1,8 +1,8 @@
 
 $topH: 38px
 
-$menuW: calc(132px + 8vw )
-$menuW_r: calc(-192px - 8vw )
+$menuW: calc(132px + 7vw )
+$menuW_r: calc(-192px - 7vw )
 $menuC: #FFF // #1F2C2E
 $menuC_Hv: #24262D
 $menuHr: #24262D
@@ -134,3 +134,24 @@ $menuTxt: rgba(255, 255, 255, 0.92)
     100%
         opacity: 1
         display: block
+
+
+.htmi-menu-trig
+    position: fixed
+    z-index: 300
+    top: 55%
+    left: 0
+    width: 2.5em
+    height: 3.4em
+    background: #FFF
+    border: 1px solid transparent
+    border-left: none
+    border-top-left-radius: 0px
+    border-bottom-left-radius: 0px
+    &:hover
+        background: #FFF
+        border-color: $pri
+        // box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2)
+    &:focus, &:active, &:focus-visible
+        background: $pri_Thin
+        border-color: $pri

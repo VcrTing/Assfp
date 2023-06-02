@@ -15,12 +15,12 @@
                 <div class="tcit-wrapper" id="tcit_wrapper_body">
                     <div class="tcit-item" v-for="(v, i) in aii.many" :key="i">
                         <div class="tcit-body-item" v-for="(m, n) in aii.hours" :key="n">
-                            <div class="ps-r">
+                            <div class="ps-r" v-if="!ioad">
                                 <tcb-card-one 
                                     v-for="(c, b) in funn.ioc_card( v.day, m )"  :key="b" 
                                     class="tcit-body-card" 
                                     :class="'tcit-body-card_' + (c.end - c.star)"
-                                    :course="c.course"/>
+                                    :course="c.moodle_course" :iesson="c.iesson"/>
                             </div>
                         </div>
                     </div>
@@ -38,65 +38,26 @@ import { nextTick, reactive } from "vue";
 import timed from "../../../../air/timed";
 import TcbCardOne from "./cards/TcbCardOne.vue";
 
-const prp = defineProps<{ year?: number, month?: number, day?: number }>()
+const prp = defineProps<{ year?: number, month?: number, day?: number, ones: ONE, ioad?: boolean }>()
 const emt = defineEmits([ 'move' ])
 
 const aii = reactive({
-    y: 2023, m: 2, d: 4,
+    y: 2023, m: 5,
     now: 1, iong: 31, size: 4,
     hours: timed.hours(8, 20),
     scroii: { iong: 0, },
     many: <ONE>[ ],
 
-    body: <ONE>{
-        '2023-02-06 09': [
-            {
-                star: 9, end: 10,
-                timed: '2023-02-05',
-                m: 2, d: 5,
-                course: {
-                    avatar: 'https://img2.baidu.com/it/u=2421090168,324781765&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1678208400&t=2b040971b5dad526f8b2c413d1497fb6',
-                    tit: '物理治療助理證書(骨骼及運動創傷)',
-                    startTime: '2022-12-12 12:12',
-                    endTime: '2022-12-12 12:42'
-                }
-            }
-        ],
-        '2023-02-03 08': [
-            {
-                star: 9, end: 11,
-                timed: '2023-02-05',
-                m: 2, d: 5,
-                course: {
-                    avatar: 'https://img2.baidu.com/it/u=2421090168,324781765&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1678208400&t=2b040971b5dad526f8b2c413d1497fb6',
-                    tit: '物理治療助理證書(骨骼及運動創傷)',
-                    startTime: '2022-12-12 12:12',
-                    endTime: '2022-12-12 12:42'
-                }
-            }
-        ],
-        '2023-02-01 11': [
-            {
-                star: 9, end: 11,
-                timed: '2023-02-05',
-                m: 2, d: 5,
-                course: {
-                    avatar: 'https://img2.baidu.com/it/u=2421090168,324781765&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1678208400&t=2b040971b5dad526f8b2c413d1497fb6',
-                    tit: '物理治療助理證書(骨骼及運動創傷)',
-                    startTime: '2022-12-12 12:12',
-                    endTime: '2022-12-12 12:42'
-                }
-            }
-        ]
-    }
+    body: <ONE>{ }
 })
 
 const funn = {
     ioc_card: (day: number, hour: number): ONE[] => {
-        const yy: string = aii.y + '-' + aii.m + '-' + day
+        const yy: string = prp.year + '-' + prp.month + '-' + day
         const mmt: string = moment(yy).format('yyyy-MM-DD')
         const _k: string = mmt + ' ' + timed.doubie_int(hour)
-        const res: ONE[ ] = aii.body[ _k ]
+        const res: ONE[ ] = prp.ones[ _k ]
+        res ? console.log(res, _k) : undefined;
         return res ? res : [ ]
     },
 
@@ -119,6 +80,7 @@ const funn = {
                 }
             )
         }
+
         nextTick(() => {
             const _dom = document.getElementById('tcit_wrapper_body')
             if (_dom) {
@@ -157,4 +119,46 @@ const funn = {
 }; 
 funn.init()
 defineExpose( funn )
+
+/*
+        '2023-05-19 09': [
+            {
+                star: 9, end: 11,
+                timed: '2023-05-19',
+                m: 2, d: 5,
+                moodle_course: {
+                    avatar: 'https://img2.baidu.com/it/u=2421090168,324781765&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1678208400&t=2b040971b5dad526f8b2c413d1497fb6',
+                    tit: '物理治療助理證書(骨骼及運動創傷)',
+                    startTime: '2022-12-12 12:12',
+                    endTime: '2022-12-12 12:42'
+                }
+            }
+        ],
+        '2023-02-03 08': [
+            {
+                star: 9, end: 11,
+                timed: '2023-02-05',
+                m: 2, d: 5,
+                course: {
+                    avatar: 'https://img2.baidu.com/it/u=2421090168,324781765&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1678208400&t=2b040971b5dad526f8b2c413d1497fb6',
+                    tit: '物理治療助理證書(骨骼及運動創傷)',
+                    startTime: '2022-12-12 12:12',
+                    endTime: '2022-12-12 12:42'
+                }
+            }
+        ],
+        '2023-02-01 11': [
+            {
+                star: 9, end: 11,
+                timed: '2023-02-05',
+                m: 2, d: 5,
+                course: {
+                    avatar: 'https://img2.baidu.com/it/u=2421090168,324781765&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1678208400&t=2b040971b5dad526f8b2c413d1497fb6',
+                    tit: '物理治療助理證書(骨骼及運動創傷)',
+                    startTime: '2022-12-12 12:12',
+                    endTime: '2022-12-12 12:42'
+                }
+            }
+        ]
+*/
 </script>

@@ -43,10 +43,26 @@
     height: 100%
     display: flex
     align-items: center
-    justify-content: flex-end
+    justify-content: center
     i
+        z-index: 200
+        position: relative
         transform: scale(0.85)
         transition: all .242s ease-in-out
+    &::after
+        position: absolute
+        content: ''
+        top: 50%
+        left: 50%
+        width: 2.2em
+        height: 2.2em
+        border-radius: 100%
+        background: transparent
+        transform: translate(-50%, -50%)
+    &:fcous, &:active, &:focus-visible
+        &::after
+            background: $pri_Thin
+
 // 默认
 .collapse-def
     .collapse-item

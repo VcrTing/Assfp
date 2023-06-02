@@ -38,6 +38,17 @@ const val_email = function(v: string) {
     char = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$")
     return char.test(v)
 }
+const val_password = function(v: string) {
+    // 長度
+    if (v.length < 8 || v.length > 200) { return false }
+
+    // 特殊字符
+    let char = /[`~!$^&*(“”‘’'、`～·！—_|=;？，。\\)<>?:"{},\/;'[\]]/;
+    if (!char.test(v)) { return false }
+
+    char = /^.*[A-Z]+.*$/;
+    return char.test(v)
+}
     
 // 中英文
 const val_chinese = function(str: string) {
@@ -56,5 +67,6 @@ export default {
     val_email,
     val_phone,
     val_chinese,
-    val_timed
+    val_timed,
+    val_password
 }

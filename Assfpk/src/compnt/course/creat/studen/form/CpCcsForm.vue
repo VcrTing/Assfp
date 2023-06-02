@@ -1,6 +1,6 @@
 <template>
     <div class="pt">
-        <div class="td-of-form px-0">
+        <div class="td-of-form panner-x">
             <div class="w-10 sus">{{ i + 1 }}</div>
             <div class="w-48 pr">
                 <fn-input :is_err="form_err.userid">
@@ -16,7 +16,7 @@
             </div>
 
             <nav class="w-10 t-r" v-if="!ioading">
-                <eos-tabie-save @tap="funn.save"/>
+                <eos-tabie-save @tap="funn.save" :icon="true"/>
                 <span class="px_s"></span>
                 <span class="err" @click="() => { funn.can() ? undefined : $emit('trash', i); }">取消</span>
             </nav>

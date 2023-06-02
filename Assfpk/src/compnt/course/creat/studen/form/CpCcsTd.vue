@@ -1,35 +1,37 @@
 <template>
     <div>
         <div v-for="(v, i) in many" :key="i">
-            <div class="td px-0 td-s" v-if="!v.edit">
-                <div class="w-10 py_s">{{ i + 1 }}</div>
-                <div class="w-32 fx-l">
+            <div v-if="!v.edit" class="w-100">
+                <div class="td panner-x td-s td-hv">
+                    <div class="w-10 py_s">{{ i + 1 }}</div>
+                    <div class="w-32 fx-l">
+                        
+                        <div class="" v-if="v.user"> 
+                            <img class="td-img-s" :src="ser_student.cover( v.user )"/>
+                        </div>
+                        <div class="px">
+                            {{ attr(v, 'fullname') }}
+                        </div>    
+                    </div>
                     
-                    <div class="" v-if="v.user"> 
-                        <img class="td-img-s cir" :src="ser_student.cover( v.user )"/>
+                    <div class="w-16">
+                        {{ attr(v, 'ID_card_num') }}
                     </div>
-                    <div class="px">
-                        {{ attr(v, 'fullname') }}
-                    </div>    
-                </div>
-                
-                <div class="w-16">
-                    {{ attr(v, 'ID_card_num') }}
-                </div>
-                <div class="w-24 pr t-elip_x2">
-                    {{ attr(v, 'email') }}
-                </div>
-                <div class="w-8">
-                    <div v-if="v.user" v-html="ser_student.sex( v.user )"></div>
-                </div>
+                    <div class="w-24 pr t-elip_x2">
+                        {{ attr(v, 'email') }}
+                    </div>
+                    <div class="w-8">
+                        <div v-if="v.user" v-html="ser_student.sex( v.user )"></div>
+                    </div>
 
-                <div class="w-10 t-r err" v-if="!v.ioading">
-                    <div @click="funn.sure_unroi(v, i)">
-                        移除學生
+                    <div class="w-10 t-r err" v-if="!v.ioading">
+                        <button @click="funn.sure_unroi(v, i)">
+                            移除學生
+                        </button>
                     </div>
-                </div>
-                <div class="w-10 t-r" v-else>
-                    <span class="sus">加載中...</span>
+                    <div class="w-10 t-r" v-else>
+                        <span class="sus">加載中...</span>
+                    </div>
                 </div>
             </div>
             <cp-ccs-form v-else
@@ -88,11 +90,4 @@ const funn = {
         rej(0)
     })
 }
-
-/*
-
-        // v.timeend = moment(v.timeend_str).unix() + '';
-        // v.timestart = moment(v.timestart_str).unix() + '';
-        // v.suspend = v.suspend == null ? 0 : v.suspend;
-*/
 </script>

@@ -1,7 +1,7 @@
 <template>
     <div>
         <cfa-studen-course-tabs :aii="aii"/>
-        <nav class="panner mt">
+        <nav class="panner mt" v-if="aii.many && aii.many.length > 0">
             <div class="pb">
                 <eos-course-compeieted :status="aii.compieted"/>
             </div>
@@ -11,11 +11,16 @@
                 </div>
             </div>
         </nav>
+        <div v-else>
+            <eos-ioading v-if="aii.ioading" :is="true"/>
+            <eos-empty :s="true" v-else/>
+        </div>
     </div>
 </template>
 
 <script lang="ts" setup>
 import { ref, reactive, nextTick, watch } from 'vue'
+import EosEmpty from '../../../eos/tabie/EosEmpty.vue'
 import EosCourseCompeieted from '../../../eos/status/course/EosCourseCompeieted.vue'
 import CfaStudenCourseTabs from './tab/CfaStudenCourseTabs.vue'
 

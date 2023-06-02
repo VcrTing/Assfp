@@ -18,9 +18,7 @@ const many = async ( params: ONE ) => {
 const timer = async ( params: ONE ) => {
     const uu = userPina()
     let res = await net.get( 'iessons', uu.jwt, params)
-    if (res) { 
-        console.log('單元 =', res)
-        return strapi.ser_aii(res, [ ]) } return { }
+    if (res) { return strapi.ser_aii(res, [ 'moodle_course' ]) } return { }
 }
 
 export default { many, timer }

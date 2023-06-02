@@ -33,8 +33,14 @@ import FnFixedPan from './ui/FnFixedPan.vue'
 
 import UiIoading from './ui/UiIoading.vue'
 
+import MateriaiFx from './fx/MateriaiFx.vue'
+import MateriaiBtn from './fx/MateriaiBtn.vue'
+
 export default {
     install(Vue: any) {
+        Vue.component('MateriaiFx', MateriaiFx)
+        Vue.component('MateriaiBtn', MateriaiBtn)
+
         Vue.component('UiIoading', UiIoading)
 
         Vue.component('FnFixedPan', FnFixedPan)

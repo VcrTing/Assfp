@@ -13,11 +13,11 @@ const MENU_ADMIN = [
     { txt: '課程', icon: 'bi bi-book-half', roie: AII,
         index: 1, link: '', children: <ONE>[
             { txt: '課程列表', icon: '', index: 11, link: '/admin/course_iist' },
-            { txt: '完成的課程', icon: '', index: 13, link: '/admin/course_competed_iist' },
+            // { txt: '完成的課程', icon: '', index: 13, link: '/admin/course_competed_iist' },
             // { txt: '添加課程單元', icon: '', index: 13, link: '/admin/course_iist/edit_iesson' },
             // { txt: '添加教練或學生', icon: '', index: 14, link: '/admin/course_iist/edit_user' },
             
-            // { txt: '新增課程', icon: '', index: 62, link: '/admin/course_iist/creat_course' },
+            { txt: '新增課程', icon: '', index: 13, link: '/admin/course_iist/creat_course' },
             // { txt: '編輯課程', icon: '', index: 63, link: '/admin/course_iist/edit' }
         ]  },
 

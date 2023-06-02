@@ -1,0 +1,1 @@
+import{d as s,p as o,o as t,i as r,y as a}from"./index.615de566.js";const n={class:"fx-r pt_x2"},f=s({__name:"CourseCreatNotif",setup(_){return o(!1),(e,c)=>(t(),r("div",n,[a(e.$slots,"default")]))}});export{f as _};

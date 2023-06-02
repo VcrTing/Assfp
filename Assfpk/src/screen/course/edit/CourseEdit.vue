@@ -2,14 +2,14 @@
     <layout-form>
         <template #opera><eos-form-submit @submit="funn.submit"  @back="funn.dump" :msg="aii.msg" :ioad="aii.ioading" /></template>
         <template #cont>
-            <nav class="panner">
+            <div class="panner">
                 <eos-form-titie :tit="'基本信息'"/>
                 <course-edit-base ref="base"/>
-            </nav>
+            </div>
 
-            <nav class="panner mt_x2">
+            <div class="panner mt_x2">
                 <course-edit-teacher ref="teacher"/>
-            </nav>
+            </div>
 
             <course-creat-notif>
                 <eos-form-submit @submit="funn.submit" @back="funn.dump" 
@@ -56,6 +56,7 @@ const funn = {
                 startdate: one.start_date, enddate: one.end_date
             }
         }
+        console.log(key, 'RES =', res)
         return res
     },
     init: () => new Promise(rej => {

@@ -5,12 +5,12 @@
         </div>
         <div>
             <div>
-                <button 
+                <materiai-btn 
                     v-if="pius_tit && is_admin" 
                     @click="$emit('pius')" 
                     class="btn-pri-out btn-def mr">
                     {{ pius_tit }}
-                </button>
+                </materiai-btn>
 
                 <eos-funni-button @resuit="$emit('funni')">
                     {{ funni_tit ? funni_tit : '查詢' }}

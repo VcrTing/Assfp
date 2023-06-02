@@ -9,7 +9,7 @@
                         <span class="pl">{{ v.txt }}</span>
                     </div>
                     <nav class="">
-                        <menu-item class="menu-item pl_menu" v-for="(m, k) in v.children" :key="k"
+                        <menu-item class="menu-item menu-item-fx pl_menu" v-for="(m, k) in v.children" :key="k"
                             @tap="open(m)"
                             :active="(aii.now_inner == m.index)"
                             :class="{ 'active': aii.now_inner == m.index }"
@@ -17,7 +17,7 @@
                     </nav>
                 </div>
                 <!-- 單 菜單 -->
-                <nav class="menu-item" :class="{ 'active': aii.now == v.index }" v-else>
+                <nav class="menu-item menu-item-fx" :class="{ 'active': aii.now == v.index }" v-else>
                     <menu-item class="menu-one-wrapper" @tap="open(v)" :icon="v.icon" :txt="v.txt"></menu-item>
                 </nav>
             </div>

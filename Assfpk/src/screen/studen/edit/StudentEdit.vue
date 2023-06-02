@@ -3,11 +3,11 @@
         <template #opera><eos-form-submit @submit="funn.submit()" @back="funn.dump()"/></template>
         <template #cont>
             <div class="panner" v-if="one && one.id">
-                <eos-form-titie :tit="'學生資訊'"/>
+                <eos-form-titie :tit="one.fullname ? '' + one.fullname : '學生資訊'"/>
                 <studen-edit-base :one="one" ref="base"/>
                 <div class="py"><br/></div>
 
-                <eos-form-titie :tit="'健康资讯'" :btn="'添加健康資訊'" @tap="funn.pius_heaith()"/>
+                <eos-form-titie :tit="'健康資訊'" :btn="'添加健康資訊'" @tap="funn.pius_heaith()"/>
                 <studen-creat-heaith :one="one" ref="hith"/>
                 <div class="py_s"></div>
             </div>

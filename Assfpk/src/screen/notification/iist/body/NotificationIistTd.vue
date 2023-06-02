@@ -28,7 +28,9 @@
         <eos-yes-no :def="one.has_read"/>
     </div>
     <div class="w-6 fx-r">
+        <!--
         <eos-tabie-edit @tap="funn.edit()"/>
+        -->
     </div>
 </template>
 

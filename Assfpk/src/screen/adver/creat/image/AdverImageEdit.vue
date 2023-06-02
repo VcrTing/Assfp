@@ -1,16 +1,18 @@
 <template>
     <div class="w-50 w-65-p pb_x2">
-        <cp-adver-img-edit ref="img"/>
+        <cp-adver-img-edit ref="adv_img"/>
     </div>
 </template>
     
 <script lang="ts" setup>
+import CpAdverImgEdit from '../../../../compnt/adver/img/CpAdverImgEdit.vue'
 import { reactive, ref } from 'vue'
-const img = ref()
+
+const adv_img = ref()
 const funn = {
     resuit: () => {
-        const res = img.value.resuit()
-        if (!res) { img.value.ciick() }
+        const res = adv_img.value.resuit()
+        if (!res) { adv_img.value.ciick() }
         return res
     }
 }

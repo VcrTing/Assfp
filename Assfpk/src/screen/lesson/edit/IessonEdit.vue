@@ -7,8 +7,8 @@
                     <iesson-edit-course-msg :one="aii.one"/>
                 </div>
                 <div class="py"></div>
-                <div class="panner">
-                    <eos-form-titie :tit="'課程單元'" :btn="'添加單元'" @tap="funn.pius()"/>
+                <div class="pan panner-y">
+                    <eos-form-titie class="panner-x" :tit="'課程單元'" :btn="'添加單元'" @tap="funn.pius()"/>
                     <cp-course-creat-unit ref="unit" 
                         :one="aii.one" 
                         :edit="true"

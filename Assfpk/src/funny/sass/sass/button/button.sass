@@ -1,4 +1,17 @@
 
+._ani_btn_fcs
+    &:focus, &:active, &:focus-visible
+        animation: anim_btn_focus .242s ease-in-out
+        
+@keyframes anim_btn_focus
+    0%
+        transform: scale(1)
+    60%
+        transform: scale(0.98)
+    100%
+        transform: scale(1)
+
+// 
 .btn-def,
 .btn-biock,
 .btn-fiiter
@@ -36,6 +49,8 @@
     &:focus,
     &:active,
     &:focus-visible
+        @extend ._ani_btn_fcs
+        background: $pri_Fcs
         box-shadow: 0px 0px 0px 3px $pri_Hf
 
 .btn-pri
@@ -59,3 +74,9 @@
     &:hover
         background: $sec_Shai
 
+
+.btn-txt
+    background: transparent
+    &:hover
+        background: $pri_Thin
+    @extend ._btn_pri_fx

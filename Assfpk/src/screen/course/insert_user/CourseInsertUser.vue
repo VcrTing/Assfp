@@ -2,15 +2,15 @@
     <layout-form :space="true">
         <template #opera><button class="btn-pri-out btn-def" @click="funn.dump">返回</button></template>
         <template #cont>
-            <nav class="panner" v-if="one">
+            <div class="panner" v-if="one">
                 <course-edit-base :one="one" ref="base"/>
-            </nav>
-            <nav class="panner mt_x2" v-if="one">
-                <eos-form-titie :tit="'學生'" :btn="'添加學生'" @tap="funn.pius_student()"/>
+            </div>
+            <div class="pan panner-y mt_x2" v-if="one">
+                <eos-form-titie class="panner-x" :tit="'學生'" :btn="'添加學生'" @tap="funn.pius_student()"/>
                 <div class="w-100">
                     <cp-course-creat-studen :course="one" ref="studen"/>
                 </div>
-            </nav>
+            </div>
 
         </template>
     </layout-form>

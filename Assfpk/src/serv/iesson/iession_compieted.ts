@@ -15,6 +15,7 @@ const many = async ( params: ONE ) => {
 
 const edit = async ( param: ONE ) => {
     let res = await net.put('iesson_finish', userPina().jwt, param, '') as ONE
+    console.log('上課結果改動 =', res)
     return (res && res.status == 200)
 }
 

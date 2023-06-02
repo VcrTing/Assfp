@@ -1,9 +1,9 @@
 <template>
     <div class="fx-r" v-if="!mode">
-        <button @click="$emit('back')" class="btn-pri-out btn-def mr">返回</button>
-        <button 
+        <materiai-btn @tap="$emit('back')" class="btn-pri-out btn-def mr">返回</materiai-btn>
+        <materiai-btn
             v-if="!kiii_save"
-            @click="$emit('submit')" 
+            @tap="$emit('submit')" 
             class="btn-pri btn-def-ig">
                 <span v-if="!ioad">
                     <span v-if="msg">{{ msg }}</span>
@@ -13,7 +13,7 @@
                     儲存中
                     <ui-dot-3/>
                 </div>
-            </button>
+        </materiai-btn>
     </div>
 </template>
 

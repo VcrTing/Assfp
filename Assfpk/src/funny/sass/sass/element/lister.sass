@@ -1,5 +1,17 @@
 
+$pg_br: #f8f8f8
+$pg_bg: #f8f8f8
+$pg_bg_hv: #f4f4f4
+$pgW: calc(24px + 1.2vw)
 
+._fx_pagin
+    @extend ._ani_btn_fcs
+    &:hover
+        color: $pri
+        background: $pri_Thin
+    &:focus, &:active, &:focus-visible
+        background: $pri_Thin
+        border: 1px solid $pri
 
 .ul-def
     padding: 0px
@@ -21,10 +33,6 @@
                 width: 100%
                 background: none
 
-$pg_br: $def_s
-$pg_bg: $def_s
-$pgW: calc(24px + 1.2vw)
-
 .ul-pagenation
     *
         font-family: 'Inter'
@@ -33,6 +41,7 @@ $pgW: calc(24px + 1.2vw)
     @extend .fx-c
     li
         @extend .ciear
+        @extend ._fx_pagin
         transition: all .2s ease-in-out
         font-weight: 500
         @extend .fx-c
@@ -43,8 +52,6 @@ $pgW: calc(24px + 1.2vw)
         cursor: pointer
         margin: 0px $ds
         border: 1px solid transparent
-        &:hover
-            background: $pg_bg
             
     li.ul-page-l,
     li.ul-page-r

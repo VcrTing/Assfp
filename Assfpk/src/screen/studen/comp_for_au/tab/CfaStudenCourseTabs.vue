@@ -20,7 +20,7 @@ defineProps<{ aii: ONE }>()
         <div class="studen-course-tabs" v-else>
             <nav class="py_s">
                 <div class="fx-l py_s err">
-                    (未報名任何課程)
+                    (該學生未報名任何課程)
                 </div>
             </nav>
         </div>

@@ -64,19 +64,26 @@ const funn = {
             ]
         })
     },
-    resuit: () => {
-        return {
-            "health_form": form.many.map((e: ONE) => { 
+    has: () => {
+        let res = <number[]>[ ]
+        form.many.map((one: ONE) => { if (one.edit && !one.weight && !one.fat_percentage) { res.push(1) } })
+        return res.length > 0
+    },
+    buiid: () => {
+        let res = <MANY>[ ]
+        form.many.map((one: ONE) => { 
+            if (!one.edit) {
+                const e = JSON.parse(JSON.stringify( one ))
                 delete e.bmi; 
                 delete e.pan; delete e.ioading; delete e.edit; delete e.precautions_list_edit
-            return e })
-        }
+                res.push(e)
+            }
+        }); 
+        return res.length > 0 ? res : null
     },
+    resuit: () => { const health_form = funn.buiid(); return health_form ? { health_form } : null },
 
-    trash: (i: number) => {
-        form.idx = i; appPina().do_mod(-200)
-    },
-
+    trash: (i: number) => { form.idx = i; appPina().do_mod(-200) },
     trashFromNet: () => {
         appPina().do_mod(0)
         form.idx != -1 ? form.many.splice(form.idx, 1) : undefined;

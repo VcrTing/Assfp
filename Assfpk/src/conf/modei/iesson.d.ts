@@ -5,6 +5,8 @@ interface IESSON {
 	id: ID
 	location: ONE
 
+	moodle_course: ONE
+
 	name: string
 	isOnSchedule: boolean
 

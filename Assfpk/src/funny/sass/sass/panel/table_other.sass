@@ -1,11 +1,36 @@
 .eos-tb-edit
+    position: relative
+    @extend ._ani_btn_fcs
+    &::after
+        top: 50%
+        left: 50%
+        content: ''
+        position: absolute
+        width: 2.2em
+        height: 2.2em
+        border-radius: 100%
+        z-index: 18
+        background: transparent
+        transition: all .062s ease-in-out
+        transform: translate(-50%, -50%)
     i
+        z-index: 180
+        position: relative
         transform: none
         transition: all .242s ease-in-out
     &:hover
+        &::after
+            background: rgba(0, 0, 0, 0.02)
         i
             transform: translateY(12px) !important
-
+    &:focus,
+    &:active,
+    &:focus-visible
+        i
+            transform: scale(1.02)
+        &::after
+            background: rgba(0, 0, 0, 0.05)
+        
 .td-for-form-ig,
 .td-for-form
     @extend .fx-l

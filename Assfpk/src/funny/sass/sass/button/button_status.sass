@@ -38,11 +38,18 @@ $err_ip: #e51212
     &:hover
         background: $err_hv
 
+._fx_err
+    @extend ._ani_btn_fcs
+    &:hover
+        color: $err_hv
+
 .err
     color: $err
+    @extend ._fx_err
 .err_son,
 .err_son *
     color: $err 
+    @extend ._fx_err
 
 .sts-auditing,
 .sts-err,

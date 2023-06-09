@@ -20,11 +20,10 @@ const one = async (params: ONE, pk: string): Promise<ONE> => {
 
 // 创建 提醒
 const creat = async (data: ONE): Promise<boolean> => {
-    let res = await net.pos('news', userPina().jwt, data)
-    console.log('创建 提醒 =', res)
-    if (res) {
-        
-    }
+    console.log('创建 數據 =', data)
+    let res = await net.putF('news', userPina().jwt, data, '')
+    console.log('创建 結果 =', res)
+    if (res) { }
     return res ? true : false
 }
 

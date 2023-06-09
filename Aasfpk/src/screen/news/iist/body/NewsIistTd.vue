@@ -3,7 +3,7 @@
         <img v-if="news_vais.cover(one)" class="td-img" :src="news_vais.cover(one)"/>
         <span v-else></span>
     </div>
-    <div class="w-30 px">
+    <div class="w-24 px">
         {{ news_vais.titie(one) }}
     </div>
 
@@ -11,7 +11,7 @@
         <eos-notific-typed :def="one.type" :is_txt_mode="true"/>
     </div>
 
-    <div class="w-15">
+    <div class="w-15 pr">
         {{ timed.view_time(one.publishedAt, true) }}
     </div>
     <div class="w-13">
@@ -30,6 +30,9 @@
         <a :href="one.url" target="_blank" class="a">訪問連結</a>
     </div>
     
+    <div class="w-6 fx-r">
+        <div @click="funn.view" class="err d-ib hand">預覽</div>
+    </div>
 </template>
 
 <script lang="ts" setup>
@@ -39,9 +42,16 @@ import timed from '../../../../air/timed'
 import EosNotificStatus from '../../../../eos/status/notific/EosNotificStatus.vue'
 import EosNotificTyped from '../../../../eos/status/notific/EosNotificTyped.vue'
 import news_vais from '../../../../conf/vais/news_vais'
-
-defineProps<{
-    i: number,
-    one: ONE
-}>()
+import { newsPina } from '../../../../himm/store'
+import { useRouter } from 'vue-router'
+const rtr = useRouter()
+const prp = defineProps<{ i: number, one: ONE }>()
+const funn = {
+    view: () => new Promise(rej => {
+        const nn = rtr.resolve({ path: '/admin/news_iist/review_news' })
+        const can = newsPina().do_news_of_review(prp.one)
+        if (can) window.open(nn.href, '_blank');
+        rej(0)
+    }),
+}
 </script>

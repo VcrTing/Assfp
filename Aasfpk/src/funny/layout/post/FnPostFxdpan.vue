@@ -4,7 +4,7 @@
                 'ipfp_fixed_ieve': is_fixed_panner,
                 'ipfp_fixed_hide': aii.hide,
                 'ipfp_fixed_show': !aii.hide }">
-            <div class="" @click="hidePan">
+            <div class="pb" @click="hidePan">
                 <i class="bi bi-chevron-right"></i>
             </div>
             
@@ -24,10 +24,7 @@
 <script setup lang="ts">
 import { reactive } from "vue"
 
-defineProps<{
-    is_edit?: boolean,
-    is_fixed_panner?: boolean
-}>()
+defineProps<{ is_edit?: boolean, is_fixed_panner?: boolean }>()
 
 const aii = reactive({ hide: false })
 const hidePan = () => { aii.hide = !aii.hide }

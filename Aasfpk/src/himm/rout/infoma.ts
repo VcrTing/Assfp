@@ -6,6 +6,7 @@ const __ = (path: string, component: any, children: any = [ ]) => { return { pat
 const news_iist = () => __('news_iist', () => import('../../screen/news/iist/NewIist.vue'))
 const news_iist_in = (pfx: string) => __(pfx, () => import('../../screen/news/news.vue'), [
     __(pfx + '/creat_news', () => import('../../screen/news/creat/NewsCreat.vue')),
+    __(pfx + '/review_news', () => import('../../screen/news/review/NewsReview.vue')),
 ])
 
 // Notification

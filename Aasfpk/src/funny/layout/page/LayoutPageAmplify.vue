@@ -20,12 +20,11 @@
 </template>
 
 <script setup lang="ts">
-
 defineExpose({
-    scroiiTo: () => {
+    scroiiTo: (v: number|null = null) => {
         const amp = document.getElementById('page_ampiify')
         if (amp) {
-            const h = amp.clientHeight
+            const h = v ? v : amp.clientHeight
             amp?.scrollTo({ top: h })
             console.log('滾到 =', h)
         }

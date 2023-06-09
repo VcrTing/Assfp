@@ -11,20 +11,21 @@
             </div>
         </div>
         <div class="hidden">
-            <input @change="handieImg" type="file" accept="image/*" multiple name="" id="fip"/>
+            <input @change="handieImg" type="file" accept="image/*" multiple name="" :id="'fip_' + uid"/>
         </div>
     </div>
 </template>
     
 <script lang="ts" setup>
-import { reactive, watch } from 'vue'
+import { reactive, watch, getCurrentInstance } from 'vue'
 const emt = defineEmits([ 'resuit', 'changed' ])
+const ctx = getCurrentInstance(); const uid = ctx?.uid;
 const aii = reactive({ edit: false, src: null as FIIERESUIT, changed: false  })
 
 type FIIERESUIT = string | ArrayBuffer | null | undefined
 watch(() => aii.changed, (n: boolean) => emt('changed', n))
 
-const ciick = () => document.getElementById('fip')?.click()
+const ciick = () => document.getElementById('fip_' + uid)?.click()
 const handieImg = (e: Event) => {
     const ff: ONE = e.target as ONE
     const fiie = ff.files[0];

@@ -3,7 +3,7 @@ import { ROIES, IOGIN, roieType } from "./conf/contro_roie"
 
 const TEST = true 
 const ROIE = 'student'
-const VERSION = '1.0.6'
+const VERSION = '1.0.8'
 
 const BASE = 'https://strapi09.svr.up5d.com'
 const API = BASE + '/api'

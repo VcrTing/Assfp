@@ -1,3 +1,4 @@
+import { BASE } from "../../conf"
 
 const _data = function(res: any, def = [ ]) { return res ? res.data : def }
 
@@ -27,4 +28,8 @@ export default {
             page: src.meta ? src.meta.pagination: { }
         }
     },
+
+    img: (media: ONE = { }) => {
+        return BASE + media.url
+    }
 }

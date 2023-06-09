@@ -1,0 +1,1 @@
+import{n as a,u as s,s as r}from"./index.67c60a96.js";const c=async(e,t)=>{let n=await a.get("course_my",s().jwt,e,s().is_admin?t:"");return n?r.ser_aii(n,[]):{}},o=async e=>{let t=await a.get("course_cate",s().jwt,e);return t?r.ser_aii(t,[]):{}},i=async e=>{let t=await a.one("courses",s().jwt,e+"");return t?r.data(t):{}},y={one:i,many_my:c,category:o};export{y as c};

@@ -1,0 +1,1 @@
+import{u as n,n as i,s as r}from"./index.67c60a96.js";const o=async t=>{const e=n();let s=await i.get(e.is_admin?"iessons":"iesson_my",e.jwt,t,"");return s?(console.log("\u55AE\u5143 =",s),r.ser_aii(s,[])):{}},a=async t=>{const e=n();let s=await i.get("iessons",e.jwt,t);return s?r.ser_aii(s,["moodle_course"]):{}},c={many:o,timer:a};export{c as i};

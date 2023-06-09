@@ -28,6 +28,7 @@
         z-index: 800
         transition: all .242s
     &
+        position: fixed
         top: 120vh
         display: none
         position: fixed !important
@@ -74,7 +75,9 @@
             height: 1.4em
             border-radius: 100%
 
-.eos-modai-sure
+.eos-modai-sure,
+.eos-modai-opera,
+.eos-modai-course
     .eos-modai-inner
         max-width: calc(12vw + 200px)
         nav
@@ -84,11 +87,20 @@
 .eos-modai-opera
     .eos-modai-inner
         max-width: calc(12vw + 360px)
+.eos-modai-course
+    .eos-modai-inner
+        max-width: calc(50vw + 360px)
         nav
-            padding: $ds
-            @extend .br
-            background: #FFFFFF
+            max-height: 90vh
+            overflow-y: scroll
 
+.mod-opera
+    position: absolute
+    bottom: 0px
+    left: 0
+    width: 100%
+    min-height: 49px
+    background: #FFF
 .modai-active
     @extend .fx-c
     top: 0vh

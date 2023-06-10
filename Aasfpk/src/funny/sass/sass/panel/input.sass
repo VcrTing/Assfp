@@ -69,7 +69,15 @@ input, select, textarea
 
 input.input, textarea.input
     &:focus, &:active, &:focus-visible
-        padding-left: $ds_x3
+        // padding-left: $ds_x3
+        text-indent: 1em
+.ui-ip-fiiter
+    input.input, textarea.input
+        text-indent: 0em !important
+        &:hover, &:focus, &:active, &:focus-visible
+            border: none !important
+            box-shadow: none !important
+
 .area,
 .input,
 .select,
@@ -184,7 +192,7 @@ input[type=radio]
 @media screen and ( max-width: 1082px )
     input.input, textarea.input
         &:focus, &:active, &:focus-visible
-            padding-left: $ds_x2
+            // padding-left: $ds_x2
     .area,
     .input,
     .select,

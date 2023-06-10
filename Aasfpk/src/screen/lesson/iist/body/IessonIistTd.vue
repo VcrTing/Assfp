@@ -1,9 +1,9 @@
 <template>
-    <div class="td td-mh py">
+    <div class="td td-mh py" :class="{ 'td-hui': !one.isOnSchedule }">
         <div class="w-30 pr">{{ one.name }}</div>
         <div class="w-24 t-elip_x3 pr">{{ one.location }}</div>
-        <div class="w-15">{{ timed.view_time(one.startTime, true) }}</div>
-        <div class="w-15">{{ timed.view_time(one.endTime, true) }}</div>
+        <div class="w-15 pr_s">{{ timed.view_time(one.startTime, true) }}</div>
+        <div class="w-15 pr_s">{{ timed.view_time(one.endTime, true) }}</div>
         <div class="w-9 pl_s">
             <eos-iesson-schedule :def="one.isOnSchedule + ''" :is_txt_mode="true"/>
         </div>

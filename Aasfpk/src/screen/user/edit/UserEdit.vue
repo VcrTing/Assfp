@@ -13,7 +13,7 @@
                 </materiai-btn>
                 <span class="px"></span>
                 -->
-                <eos-save class="btn-pri btn-def" @tap="funn.submit" :msg="aii.msg" :ioad="aii.ioading">
+                <eos-save class="btn-pri btn-def upper_x2" @tap="funn.submit" :msg="aii.msg" :ioad="aii.ioading">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;儲存&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </eos-save>
             </div>

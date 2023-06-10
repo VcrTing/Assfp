@@ -1,5 +1,6 @@
 <template>
     <layout-funni-bar 
+        class="softer"
         :pius_tit="'新增學生'"
         @pius="rtr.push('/admin/student_iist/creat_student')" 
         @funni="submit"

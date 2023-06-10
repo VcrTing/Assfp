@@ -4,7 +4,7 @@
             <img class="td-img" :src="ser_course.cover( one )"/>
         </div>
         <div class="w-25">
-            <p class="pr">{{ one.course_name }}</p>
+            <p class="pr t-elip_x3">{{ one.course_name }}</p>
             <p class="pb"></p>
 
             <eos-table-ciass-opera 

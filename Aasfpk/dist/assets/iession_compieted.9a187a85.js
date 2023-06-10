@@ -1,1 +1,0 @@
-import{u as t,n as e,s as a}from"./index.67c60a96.js";const o=async i=>{const s=t();let n=await e.get(s.is_admin?"iesson_finish":"iesson_my_finish",s.jwt,i,s.is_admin?"":s.pk);return n?a.ser_aii(n,[]):{}},u=async i=>{let s=await e.put("iesson_finish",t().jwt,i,"");return console.log("\u4E0A\u8AB2\u7D50\u679C\u6539\u52D5 =",s),s&&s.status==200},c={many:o,edit:u};export{c as i};

@@ -1,31 +1,35 @@
 <template>
     <layout-funni-bar 
+        class="softer"
         :pius_tit="'課程列表'"
         @pius="rt.push('/admin/course_iist')" 
-        @funni="$emit('funni', form)"
+        @funni="funn.submit()"
     >
-        <fn-input-fiiter class="fx-1" :tit="'單元名稱：'">
-            <input class="input" v-model="form['filters[course_name][$contains]']" placeholder=""/>
+        <fn-input-fiiter class="w-27" :tit="'單元名稱：'">
+            <input class="input" @keydown.enter="funn.submit()" v-model="form.name" placeholder=""/>
+        </fn-input-fiiter>
+
+        <fn-input-fiiter class="w-20" :tit="'上堂地點：'">
+            <input class="input" @keydown.enter="funn.submit()" v-model="form.location" placeholder=""/>
         </fn-input-fiiter>
         
-        <!--
-        <fn-input class="w-15 w-18-p">
-            <fn-select @resuit="(v: string) => form.course_type = v" :items="choise.typed" :def="0" class="input"/>
-        </fn-input>
-
-        <div class="w-25 w-333-p">
+        <div class="w-25 w-33-p">
             <eos-time-doubie class="input"
                 :pchd_1="'開課時間'" :pchd_2="'結課時間'"
-                @resuit_1="(v: string) => form.start_date = v"
-                @resuit_2="(v: string) => form.end_date = v"
+                @resuit_1="(v: string) => form.startDate = v"
+                @resuit_2="(v: string) => form.endDate = v"
             />
-        </div>-->
+        </div>
         
-        <!--
-        <fn-input class="w-20">
-            <fn-select :items="choise.teach" :def="0" class="input"/>
-        </fn-input>-->
-        <div class="fx-1">&nbsp;</div>
+        <fn-input-fiiter class="w-16">
+            <select class="input" v-model="form.status" :class="{ 'ip-pchd': form.status === '' }">
+                <option value="">活躍狀態</option>
+                <option value="true">對列中</option>
+                <option value="false">非對列</option>
+            </select>
+        </fn-input-fiiter>
+
+        <div class="fx-1"></div>
     </layout-funni-bar>
 
 </template>
@@ -34,16 +38,13 @@
 import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
 
-const rt = useRouter(); defineEmits([ 'funni' ])
+const rt = useRouter(); const emt = defineEmits([ 'funni' ])
 
-const form = reactive({
-    'filters[course_name][$contains]': '', course_type: '', start_date: '', end_date: '', 
-})
-
-const choise = reactive({
-    typed: [
-        { txt: '類別', v: 0 },
-        { txt: '教練證書', v: 1 }
-    ],
-})
+const form = reactive({ name: '', location: '', status: '', startDate: '', endDate: '' })
+const funn = {
+    submit: () => {
+        console.log('FORM =', form)
+        emt('funni', form)
+    }
+}
 </script>

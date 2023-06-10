@@ -10,7 +10,7 @@
                     <h3>
                         {{ one.fullname ? '' + one.fullname : '學生資訊' }}
                     </h3>
-                    <div class="pt_t pl">
+                    <div class="pt_t pl righter">
                         <button class="btn-txt-sub px" @click="funn.editMsg()">
                             <i class="bi bi-pencil-square"></i>
                             <span class="">&nbsp;修改帳戶資料</span>

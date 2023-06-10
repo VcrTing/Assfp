@@ -37,11 +37,12 @@ const funn = {
     rebuiid: (one = <COURSE>{ }, key: string = 'base') => {
         let res = { }
         if (key === 'base') {
-            const cates: CATEGORY[] = one.course_categories ? one.course_categories : [ ]
-            const _cat: CATEGORY = cates.length > 0 ? cates[ 0 ] : <CATEGORY>{ }
+            const cate: ONE = one.course_type ? one.course_type : { }
+            // const cates: CATEGORY[] = one.course_categories ? one.course_categories : [ ]
+            // const _cat: CATEGORY = cates.length > 0 ? cates[ 0 ] : <CATEGORY>{ }
             res = {
                 fullname: one.course_name, shortcode: one.shortcode,
-                categoryid: _cat.name, url: ser_course.cover( one )
+                categoryid: cate.categoryname, url: ser_course.cover( one )
             }
         } 
         else if (key == 'teacher') { res = one }

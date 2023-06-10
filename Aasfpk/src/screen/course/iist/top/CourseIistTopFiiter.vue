@@ -1,5 +1,6 @@
 <template>
     <layout-funni-bar 
+        class="softer"
         :pius_tit="'新增課程'"
         @pius="rt.push('/admin/course_iist/creat_course')" 
         @funni="$emit('funni', form)"
@@ -20,8 +21,8 @@
             />
         </div>
 
-        <fn-input-fiiter class="w-18" :tit="'教師名稱：'">
-            <input class="input" v-model="form.teacher_name" placeholder=""/>
+        <fn-input-fiiter class="w-18 w-20-p" :tit="'教師名稱：'">
+            <input class="input" @keydown.enter="funn.submit()" v-model="form.teacher_name" placeholder=""/>
         </fn-input-fiiter>
     </layout-funni-bar>
 
@@ -35,7 +36,6 @@ const rt = useRouter();
 const emt = defineEmits([ 'funni' ])
 const form = reactive({ course_name: '', teacher_name: '', type_id: '', startDate: '', endDate: '', })
 
-const choise = reactive({ typed: [ { txt: '類別', v: 0 }, { txt: '教練證書', v: 1 } ] })
 const funn = {
     submit: () => {
         console.log('FORM =', form)

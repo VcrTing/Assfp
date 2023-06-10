@@ -3,8 +3,8 @@
         <cfa-studen-course-tabs :aii="aii"/>
         <nav class="panner mt" v-if="aii.many && aii.many.length > 0">
             <div class="fx-s pb_s">
-                <eos-course-compeieted :status="aii.compieted"/>
-                <div class="pl">
+                <eos-course-compeieted :sts="aii.compieted"/>
+                <div class="pl righter">
                     <button class="btn-txt px py_s" @click="funn.evaiuate()">
                         <i class="bi bi-pencil-square"></i>
                         <span class="">&nbsp;評價課程</span>
@@ -39,7 +39,7 @@ const prp = defineProps<{ one: ONE }>()
 
 const aii = reactive({
     now: 0, ioading: true, course: <MANY>[ ], many: <MANY>[ ],
-    iessons: <MANY>[ ], compieted: false, id: 0
+    iessons: <MANY>[ ], compieted: '', id: 0
 })
 
 watch(() => aii.now, (n) => { funn.buiid_iessons(); })

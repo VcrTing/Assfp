@@ -7,7 +7,7 @@
                 <notific-creat-base ref="base"/>
             </div>
             <div class="py"></div>
-            <div class="panner">
+            <div class="panner upper_x2">
                 <eos-form-titie :tit="'通知內容'"/>
                 <notific-creat-cont ref="cont"/>
             </div>

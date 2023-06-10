@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts" setup>
-import { nextTick, reactive } from 'vue'
+import { nextTick, reactive, watch } from 'vue'
 import MenuItem from '../item/MenuItem.vue'
 import { useRoute, useRouter } from 'vue-router'
 
@@ -58,6 +58,9 @@ const open = (v: any) => new Promise(rej => {
     rej(0)
 })
 
+watch(() => rte.fullPath, (n: string) => {
+    iocaiRoute( n )
+})
 nextTick(() => new Promise(rej => {
     iocaiRoute( rte.fullPath );
     rej(0)

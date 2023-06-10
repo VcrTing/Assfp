@@ -7,7 +7,7 @@
         <htmi-menu-inner :menu="menuRoie( userPina().roie_type )"/>
         <br/>
         <br/>
-        <div class="version px">
+        <div class="version px fs_s">
             版本 {{ VERSION }}
         </div>
     </div>
@@ -23,5 +23,5 @@ import { VERSION } from '../../conf';
 
 <style lang="sass" scoped>
 .version
-    opacity: 0.5
+    opacity: 0.3
 </style>

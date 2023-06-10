@@ -1,5 +1,5 @@
 <template>
-    <div class="td" :class="{ 'def_x2': !one.isActive }">
+    <div class="td" :class="{ 'td-hui': !one.isActive }">
         <div class="w-32">
             <span v-if="funn.ser_adver_tit()">{{ funn.ser_adver_tit() }}</span>
             <span v-else>{{ funn.ser_adver_tit(adver_vais.EN) }}</span>

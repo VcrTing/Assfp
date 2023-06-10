@@ -8,13 +8,13 @@ export default {
     // 封面
     cover: (one = <COURSE>{ }) => {
         let res: IMAGE = { } as IMAGE
-        if (one.course_shop_url) return one['course_shop_url'];
         const src: IMAGE[ ] | IMAGE = one.course_image ? one.course_image : [ ]
         if (src instanceof Array) {
             res = src[ 0 ] ? src[ 0 ] : <IMAGE>{ }
         } else {
             res = src
-        } return res[ 'fileurl' ]
+        } 
+        return res[ 'fileurl' ] ? res[ 'fileurl' ] : one['course_shop_url'];
     },
     // 類型
     course_type: (one: COURSE) => {
